@@ -634,10 +634,71 @@ footer {
   transform: none;
 }
 
+/* ── HAMBURGER ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform .3s, opacity .3s;
+}
+
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   nav { padding: 16px 20px; }
-  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    position: fixed;
+    top: 65px; left: 0; right: 0;
+    background: rgba(12,12,11,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease, padding .35s ease;
+  }
+
+  .nav-links.open {
+    max-height: 400px;
+    padding: 16px 0 24px;
+  }
+
+  .nav-links li { width: 100%; text-align: center; }
+
+  .nav-links a {
+    display: block;
+    padding: 14px 24px;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+  }
+
+  .nav-cta {
+    margin: 8px 24px 0;
+    display: block;
+    padding: 12px 24px !important;
+  }
+
   section { padding: 72px 20px; }
   .om-grid { grid-template-columns: 1fr; gap: 40px; }
   footer { flex-direction: column; gap: 12px; text-align: center; }
@@ -658,12 +719,15 @@ footer {
     </svg>
     <span class="nav-wordmark">DITVINDUE</span>
   </a>
-  <ul class="nav-links">
-    <li><a href="#ydelser">Priser</a></li>
-    <li><a href="#flow">Sådan fungerer det</a></li>
-    <li><a href="#om">Om Dino</a></li>
-    <li><a href="#kontakt" class="nav-cta">Bestil tid</a></li>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#ydelser" onclick="closeMenu()">Priser</a></li>
+    <li><a href="#flow" onclick="closeMenu()">Sådan fungerer det</a></li>
+    <li><a href="#om" onclick="closeMenu()">Om Dino</a></li>
+    <li><a href="#kontakt" class="nav-cta" onclick="closeMenu()">Bestil tid</a></li>
   </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -694,6 +758,7 @@ footer {
   </div>
 
   <div class="hero-scroll">
+    <span>SCROLL</span>
     <div class="scroll-line"></div>
   </div>
 </section>
@@ -883,6 +948,19 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  navLinks.classList.toggle('open');
+});
+
+function closeMenu() {
+  hamburger.classList.remove('open');
+  navLinks.classList.remove('open');
+}
 </script>
 </body>
 </html>
