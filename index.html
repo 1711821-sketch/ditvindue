@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DITVINDUE – Resultater du kan se igennem</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0c0c0b;
+  --bg2: #141413;
+  --bg3: #1c1c1a;
+  --text: #f0ede6;
+  --muted: #8a8880;
+  --accent: #5DCAA5;
+  --accent2: #1D9E75;
+  --border: rgba(240,237,230,0.08);
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 48px;
+  background: rgba(12,12,11,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.nav-mark {
+  width: 28px;
+  height: 28px;
+}
+
+.nav-wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 4px;
+  color: var(--text);
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: color .2s;
+}
+
+.nav-links a:hover { color: var(--text); }
+
+.nav-cta {
+  background: var(--accent);
+  color: #0c0c0b !important;
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-weight: 500;
+  font-size: 13px !important;
+  letter-spacing: 0.5px !important;
+}
+
+.nav-cta:hover { background: #7ddbb8 !important; color: #0c0c0b !important; }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 80%);
+}
+
+.hero-glow {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(93,202,165,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(93,202,165,0.1);
+  border: 1px solid rgba(93,202,165,0.25);
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 2px;
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 36px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  animation: fadeUp .8s ease both;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.hero-logo-mark {
+  margin-bottom: 32px;
+  animation: fadeUp .8s .1s ease both;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 10vw, 96px);
+  font-weight: 800;
+  letter-spacing: 16px;
+  line-height: 1;
+  margin-bottom: 16px;
+  animation: fadeUp .8s .2s ease both;
+}
+
+.hero-tagline {
+  font-size: 15px;
+  color: var(--muted);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 52px;
+  animation: fadeUp .8s .3s ease both;
+}
+
+.hero-tagline span {
+  color: var(--accent);
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeUp .8s .4s ease both;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--accent);
+  color: #0c0c0b;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  padding: 16px 36px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: transform .2s, background .2s;
+}
+
+.btn-primary:hover { background: #7ddbb8; transform: translateY(-2px); }
+
+.btn-secondary {
+  display: inline-block;
+  background: transparent;
+  color: var(--text);
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 16px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  transition: border-color .2s, transform .2s;
+}
+
+.btn-secondary:hover { border-color: rgba(240,237,230,0.3); transform: translateY(-2px); }
+
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 2px;
+  animation: fadeUp .8s .8s ease both;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+/* ── SECTION SHARED ── */
+section {
+  padding: 100px 24px;
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.section-sub {
+  color: var(--muted);
+  font-size: 16px;
+  max-width: 480px;
+  line-height: 1.7;
+}
+
+/* ── YDELSER ── */
+#ydelser {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.ydelser-header {
+  margin-bottom: 60px;
+}
+
+.ydelser-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.ydelse-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px;
+  transition: border-color .25s, transform .25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.ydelse-card:hover {
+  border-color: rgba(93,202,165,0.3);
+  transform: translateY(-4px);
+}
+
+.ydelse-card.featured {
+  border-color: rgba(93,202,165,0.4);
+  background: linear-gradient(135deg, rgba(93,202,165,0.06), var(--bg3));
+}
+
+.ydelse-card.featured::before {
+  content: 'MEST POPULÆR';
+  position: absolute;
+  top: 20px; right: 20px;
+  font-family: var(--font-display);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--accent);
+  background: rgba(93,202,165,0.12);
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.ydelse-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 24px;
+}
+
+.ydelse-type {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.ydelse-name {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.ydelse-desc {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+
+.ydelse-price {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 20px 0 8px;
+  border-top: 1px solid rgba(93,202,165,0.2);
+  margin-top: 16px;
+}
+
+.price-from {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.price-amount {
+  font-family: var(--font-body);
+  font-size: 56px;
+  font-weight: 300;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.price-unit {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.price-aftale {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--accent);
+  padding: 20px 0 8px;
+  border-top: 1px solid rgba(93,202,165,0.2);
+  margin-top: 16px;
+  white-space: nowrap;
+}
+
+.ydelse-list {
+  list-style: none;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ydelse-list li {
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ydelse-list li::before {
+  content: '';
+  width: 5px; height: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── SÅDAN FUNGERER DET ── */
+#flow {
+  background: var(--bg);
+}
+
+.flow-header {
+  margin-bottom: 64px;
+}
+
+.flow-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px;
+  position: relative;
+}
+
+.flow-step {
+  position: relative;
+}
+
+.step-num {
+  font-family: var(--font-display);
+  font-size: 72px;
+  font-weight: 800;
+  color: rgba(93,202,165,0.08);
+  line-height: 1;
+  margin-bottom: -20px;
+}
+
+.step-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.step-desc {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ── OM DINO ── */
+#om {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.om-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.om-left { }
+
+.om-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.om-quote {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 24px;
+}
+
+.om-quote em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.om-text {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.om-stat {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px 28px;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ── KONTAKT ── */
+#kontakt {
+  background: var(--bg);
+  text-align: center;
+}
+
+.kontakt-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.kontakt-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 56px 48px;
+  margin-top: 52px;
+}
+
+.kontakt-card h3 {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.phone-number {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 800;
+  color: var(--text);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+  transition: color .2s;
+}
+
+.phone-number:hover { color: var(--accent); }
+
+.kontakt-area {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+
+.kontakt-hours {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.hour-item {
+  text-align: center;
+}
+
+.hour-day {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.hour-time {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 1; transform: scaleY(1); }
+  50%       { opacity: 0.4; transform: scaleY(0.7); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+  section { padding: 72px 20px; }
+  .om-grid { grid-template-columns: 1fr; gap: 40px; }
+  footer { flex-direction: column; gap: 12px; text-align: center; }
+  .kontakt-card { padding: 36px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <svg class="nav-mark" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1.5" y="1.5" width="25" height="25" rx="4" stroke="#f0ede6" stroke-width="2"/>
+      <line x1="14" y1="1.5" x2="14" y2="26.5" stroke="#f0ede6" stroke-width="1.2"/>
+      <line x1="1.5" y1="14" x2="26.5" y2="14" stroke="#f0ede6" stroke-width="1.2"/>
+      <circle cx="20" cy="7.5" r="2.5" fill="#5DCAA5"/>
+    </svg>
+    <span class="nav-wordmark">DITVINDUE</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#ydelser">Priser</a></li>
+    <li><a href="#flow">Sådan fungerer det</a></li>
+    <li><a href="#om">Om Dino</a></li>
+    <li><a href="#kontakt" class="nav-cta">Bestil tid</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-badge">Lokal vinduesservice</div>
+
+  <div class="hero-logo-mark">
+    <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="3" y="3" width="84" height="84" rx="10" stroke="#f0ede6" stroke-width="3"/>
+      <line x1="45" y1="3" x2="45" y2="87" stroke="#f0ede6" stroke-width="2"/>
+      <line x1="3" y1="45" x2="87" y2="45" stroke="#f0ede6" stroke-width="2"/>
+      <circle cx="65" cy="24" r="6" fill="#5DCAA5"/>
+      <line x1="65" y1="14" x2="65" y2="10" stroke="#5DCAA5" stroke-width="2" stroke-linecap="round"/>
+      <line x1="74" y1="18" x2="77" y2="15" stroke="#5DCAA5" stroke-width="2" stroke-linecap="round"/>
+      <line x1="75" y1="24" x2="79" y2="24" stroke="#5DCAA5" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <h1>DITVINDUE</h1>
+  <p class="hero-tagline">Resultater du kan <span>se igennem</span></p>
+
+  <div class="hero-ctas">
+    <a href="#kontakt" class="btn-primary">Ring og bestil tid</a>
+    <a href="#ydelser" class="btn-secondary">Se priser</a>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- YDELSER -->
+<section id="ydelser">
+  <div class="section-inner">
+    <div class="ydelser-header reveal">
+      <div class="section-label">Priser</div>
+      <h2 class="section-title">Enkle priser.<br>Ingen overraskelser.</h2>
+      <p class="section-sub">Fast pris uanset størrelse. Betaling kontant eller MobilePay efter udført arbejde.</p>
+    </div>
+
+    <div class="ydelser-grid">
+      <div class="ydelse-card reveal">
+        <svg class="ydelse-icon" viewBox="0 0 48 48" fill="none">
+          <rect x="4" y="12" width="40" height="32" rx="4" stroke="#8a8880" stroke-width="1.5"/>
+          <line x1="24" y1="12" x2="24" y2="44" stroke="#8a8880" stroke-width="1"/>
+          <line x1="4" y1="28" x2="44" y2="28" stroke="#8a8880" stroke-width="1"/>
+          <path d="M14 4 L24 12 L34 4" stroke="#8a8880" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+        </svg>
+        <div class="ydelse-type">Type</div>
+        <div class="ydelse-name">Rækkehus</div>
+        <div class="ydelse-desc">Udvendig vinduespudsning af alle ruder – uanset størrelse. Hurtigt overstået på under en time.</div>
+        <div class="ydelse-price">
+          <span class="price-amount">99</span>
+          <span class="price-unit">kr.</span>
+        </div>
+        <ul class="ydelse-list">
+          <li>Alle udvendige ruder</li>
+          <li>Karme aftørres</li>
+          <li>MobilePay / kontant</li>
+        </ul>
+      </div>
+
+      <div class="ydelse-card featured reveal">
+        <svg class="ydelse-icon" viewBox="0 0 48 48" fill="none">
+          <rect x="4" y="16" width="40" height="28" rx="4" stroke="#5DCAA5" stroke-width="1.5"/>
+          <line x1="24" y1="16" x2="24" y2="44" stroke="#5DCAA5" stroke-width="1"/>
+          <line x1="4" y1="30" x2="44" y2="30" stroke="#5DCAA5" stroke-width="1"/>
+          <rect x="10" y="6" width="28" height="16" rx="3" stroke="#5DCAA5" stroke-width="1.5"/>
+          <line x1="24" y1="6" x2="24" y2="22" stroke="#5DCAA5" stroke-width="1"/>
+          <circle cx="35" cy="12" r="3" fill="#5DCAA5" opacity="0.6"/>
+        </svg>
+        <div class="ydelse-type">Type</div>
+        <div class="ydelse-name">Parcelhus</div>
+        <div class="ydelse-desc">Komplet udvendig vinduespudsning af alle ruder inkl. terrassedøre – uanset størrelse.</div>
+        <div class="ydelse-price">
+          <span class="price-amount">149</span>
+          <span class="price-unit">kr.</span>
+        </div>
+        <ul class="ydelse-list">
+          <li>Alle udvendige ruder</li>
+          <li>Terrassedøre inkluderet</li>
+          <li>Karme aftørres</li>
+          <li>MobilePay / kontant</li>
+        </ul>
+      </div>
+
+      <div class="ydelse-card reveal">
+        <svg class="ydelse-icon" viewBox="0 0 48 48" fill="none">
+          <rect x="6" y="8" width="36" height="36" rx="4" stroke="#8a8880" stroke-width="1.5"/>
+          <line x1="22" y1="8" x2="22" y2="44" stroke="#8a8880" stroke-width="1"/>
+          <line x1="6" y1="24" x2="42" y2="24" stroke="#8a8880" stroke-width="1"/>
+          <line x1="32" y1="8" x2="32" y2="44" stroke="#8a8880" stroke-width="1"/>
+          <line x1="6" y1="34" x2="42" y2="34" stroke="#8a8880" stroke-width="1"/>
+        </svg>
+        <div class="ydelse-type">Type</div>
+        <div class="ydelse-name">Erhverv</div>
+        <div class="ydelse-desc">Butikker, kontorer og virksomheder. Fast pris aftales inden opstart – ingen overraskelser.</div>
+        <div class="price-aftale">Efter aftale</div>
+        <ul class="ydelse-list">
+          <li>Gratis besigtigelse</li>
+          <li>Fast abonnementspris</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section id="flow">
+  <div class="section-inner">
+    <div class="flow-header reveal">
+      <div class="section-label">Processen</div>
+      <h2 class="section-title">Sådan fungerer det</h2>
+    </div>
+    <div class="flow-steps">
+      <div class="flow-step reveal">
+        <div class="step-num">01</div>
+        <h3 class="step-title">Ring eller skriv</h3>
+        <p class="step-desc">Kontakt Dino direkte på telefon eller SMS. Vi finder hurtigt en tid der passer dig – typisk inden for få dage.</p>
+      </div>
+      <div class="flow-step reveal">
+        <div class="step-num">02</div>
+        <h3 class="step-title">Vi kommer til dig</h3>
+        <p class="step-desc">Dino møder op til aftalt tid med alt udstyr. Du behøver ikke gøre noget – bare åbn for adgang.</p>
+      </div>
+      <div class="flow-step reveal">
+        <div class="step-num">03</div>
+        <h3 class="step-title">Klart resultat</h3>
+        <p class="step-desc">Når vi er færdige, ser du forskellen med det samme. Betal med MobilePay eller kontant – og book igen når det trænger.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OM DINO -->
+<section id="om">
+  <div class="section-inner">
+    <div class="om-grid">
+      <div class="om-left reveal">
+        <div class="section-label">Om mig</div>
+        <p class="om-quote">Jeg gør det ordentligt, <em>hver gang</em> – ikke kun første gang.</p>
+        <p class="om-text">Jeg hedder Dino, er 16 år og driver DITVINDUE som min egen virksomhed. Jeg er vokset op med at tage ansvar for mine opgaver og gøre tingene grundigt.</p>
+        <br>
+        <p class="om-text">Med DITVINDUE vil jeg vise, at man godt kan levere et professionelt resultat – selv om man er ung. Det gælder om at møde til tiden, arbejde grundigt og sikre at du er tilfreds.</p>
+      </div>
+      <div class="om-right">
+        <div class="om-stat reveal">
+          <div class="stat-value">100%</div>
+          <div class="stat-label">Tilfredshed – vi er ikke færdige før du er glad</div>
+        </div>
+        <div class="om-stat reveal">
+          <div class="stat-value">Lokalt</div>
+          <div class="stat-label">Kører ud til dig i Nyborg og omegn – ingen transporttillæg</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+  <div class="kontakt-inner">
+    <div class="reveal">
+      <div class="section-label" style="text-align:center">Kontakt</div>
+      <h2 class="section-title">Klar til klare vinduer?</h2>
+      <p class="section-sub" style="margin: 0 auto;">Ring, skriv en SMS eller send en besked – Dino svarer hurtigt.</p>
+    </div>
+
+    <div class="kontakt-card reveal">
+      <h3>Telefon & SMS</h3>
+      <a href="tel:+4553533206" class="phone-number">53 53 32 06</a>
+      <a href="mailto:ditvindue@gmail.com" style="display:block; font-size:16px; color:var(--muted); text-decoration:none; margin-top:6px; letter-spacing:1px; transition:color .2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">ditvindue@gmail.com</a>
+      <p class="kontakt-area">Betjener Nyborg og omegn</p>
+
+      <div class="kontakt-hours">
+        <div class="hour-item">
+          <div class="hour-day">Hverdage</div>
+          <div class="hour-time">15:00 – 20:00</div>
+        </div>
+        <div class="hour-item">
+          <div class="hour-day">Lørdag</div>
+          <div class="hour-time">09:00 – 18:00</div>
+        </div>
+        <div class="hour-item">
+          <div class="hour-day">Søndag</div>
+          <div class="hour-time">10:00 – 16:00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="display:flex; align-items:center; gap:10px;">
+    <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
+      <rect x="1.5" y="1.5" width="25" height="25" rx="4" stroke="#8a8880" stroke-width="1.5"/>
+      <line x1="14" y1="1.5" x2="14" y2="26.5" stroke="#8a8880" stroke-width="1"/>
+      <line x1="1.5" y1="14" x2="26.5" y2="14" stroke="#8a8880" stroke-width="1"/>
+      <circle cx="20" cy="7.5" r="2" fill="#5DCAA5"/>
+    </svg>
+    <span>DITVINDUE &copy; 2026</span>
+  </div>
+  <span>Resultater du kan se igennem</span>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
