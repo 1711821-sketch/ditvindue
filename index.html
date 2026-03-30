@@ -422,6 +422,195 @@ section {
   flex-shrink: 0;
 }
 
+/* ── SERVICEFRADRAG ── */
+#fradrag {
+  background: var(--bg);
+}
+
+.fradrag-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.fradrag-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fradrag-info p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.fradrag-highlight {
+  background: rgba(93,202,165,0.07);
+  border: 1px solid rgba(93,202,165,0.2);
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.fradrag-highlight-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.fradrag-highlight p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.fradrag-highlight strong {
+  color: var(--accent);
+}
+
+.calc-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 36px;
+}
+
+.calc-card h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.calc-field {
+  margin-bottom: 20px;
+}
+
+.calc-field label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.calc-select, .calc-range-wrap {
+  width: 100%;
+}
+
+.calc-select {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 12px 16px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color .2s;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a8880' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+.calc-select:focus { border-color: var(--accent); }
+
+.calc-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--bg2);
+  outline: none;
+  cursor: pointer;
+}
+
+.calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: 3px solid var(--bg3);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.calc-slider-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.calc-slider-value {
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.calc-result {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.calc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.calc-row span:first-child { color: var(--muted); }
+.calc-row span:last-child { font-weight: 500; }
+
+.calc-row.total {
+  margin-top: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: 16px;
+}
+
+.calc-row.total span:last-child {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.calc-saving {
+  background: rgba(93,202,165,0.08);
+  border: 1px solid rgba(93,202,165,0.2);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--accent);
+  text-align: center;
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .fradrag-grid { grid-template-columns: 1fr; gap: 36px; }
+}
+
 /* ── SÅDAN FUNGERER DET ── */
 #flow {
   background: var(--bg);
@@ -721,6 +910,7 @@ footer {
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#ydelser" onclick="closeMenu()">Priser</a></li>
+    <li><a href="#fradrag" onclick="closeMenu()">Servicefradrag</a></li>
     <li><a href="#flow" onclick="closeMenu()">Sådan fungerer det</a></li>
     <li><a href="#om" onclick="closeMenu()">Om Dino</a></li>
     <li><a href="#kontakt" class="nav-cta" onclick="closeMenu()">Bestil tid</a></li>
@@ -860,6 +1050,64 @@ footer {
   </div>
 </section>
 
+<!-- SERVICEFRADRAG -->
+<section id="fradrag">
+  <div class="section-inner">
+    <div class="fradrag-grid">
+      <div class="fradrag-info reveal">
+        <div class="section-label">Spar penge</div>
+        <h2 class="section-title">Få 35% tilbage<br>via servicefradrag</h2>
+        <p>Vinduespolering er godkendt under <strong style="color:var(--text)">BoligJobordningen</strong> – også kaldet servicefradrag. Det betyder, at du kan trække 35% af prisen fra i skat.</p>
+        <p>Du indberetter blot beløbet til Skat via TastSelv, og fradraget modregnes automatisk i din årsopgørelse. Ingen papirarbejde – bare en lavere regning i praksis.</p>
+        <div class="fradrag-highlight">
+          <div class="fradrag-highlight-icon">💡</div>
+          <p>Gælder for <strong>ejere og lejere</strong> af helårsbeboelse. Maks. fradrag er <strong>6.400 kr. per person</strong> om året.</p>
+        </div>
+      </div>
+
+      <div class="calc-card reveal">
+        <h3>Beregn din reelle pris</h3>
+
+        <div class="calc-field">
+          <label>Boligtype</label>
+          <select class="calc-select" id="calcType">
+            <option value="69">Stuelejlighed – 69 kr.</option>
+            <option value="99">Rækkehus – 99 kr.</option>
+            <option value="149" selected>Parcelhus – 149 kr.</option>
+          </select>
+        </div>
+
+        <div class="calc-field">
+          <label>Antal gange om året</label>
+          <div class="calc-slider-value" id="timesLabel">4 gange</div>
+          <input type="range" class="calc-slider" id="calcTimes" min="1" max="12" value="4">
+          <div class="calc-slider-labels"><span>1x</span><span>6x</span><span>12x</span></div>
+        </div>
+
+        <div class="calc-result">
+          <div class="calc-row">
+            <span>Pris per gang</span>
+            <span id="resPriceEach">149 kr.</span>
+          </div>
+          <div class="calc-row">
+            <span>Samlet pris per år</span>
+            <span id="resTotal">596 kr.</span>
+          </div>
+          <div class="calc-row">
+            <span>Servicefradrag (35%)</span>
+            <span id="resFradrag" style="color:var(--accent)">− 209 kr.</span>
+          </div>
+          <div class="calc-row total">
+            <span>Du betaler reelt</span>
+            <span id="resReal">387 kr.</span>
+          </div>
+          <div class="calc-saving" id="resSaving">Du sparer 209 kr. om året</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FLOW -->
 <section id="flow">
   <div class="section-inner">
@@ -960,6 +1208,25 @@ footer {
 </footer>
 
 <script>
+// Servicefradrag beregner
+function updateCalc() {
+  const price = parseInt(document.getElementById('calcType').value);
+  const times = parseInt(document.getElementById('calcTimes').value);
+  const total = price * times;
+  const fradrag = Math.round(total * 0.35);
+  const real = total - fradrag;
+
+  document.getElementById('timesLabel').textContent = times + (times === 1 ? ' gang' : ' gange');
+  document.getElementById('resPriceEach').textContent = price + ' kr.';
+  document.getElementById('resTotal').textContent = total + ' kr.';
+  document.getElementById('resFradrag').textContent = '− ' + fradrag + ' kr.';
+  document.getElementById('resReal').textContent = real + ' kr.';
+  document.getElementById('resSaving').textContent = 'Du sparer ' + fradrag + ' kr. om året';
+}
+
+document.getElementById('calcType').addEventListener('change', updateCalc);
+document.getElementById('calcTimes').addEventListener('input', updateCalc);
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {
     if (e.isIntersecting) {
