@@ -86,9 +86,48 @@ nav {
 #hero {
   min-height: 100vh;
   display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center; padding: 140px 24px 100px;
+  justify-content: center;
+  padding: 110px 52px 100px;
   position: relative; overflow: hidden;
+}
+
+.hero-content {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px; align-items: center;
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  position: relative; z-index: 1;
+}
+
+.hero-left {
+  display: flex; flex-direction: column;
+  align-items: flex-start; text-align: left;
+  min-width: 0;
+}
+
+.hero-left h1 {
+  font-size: clamp(42px, 6.5vw, 88px);
+  letter-spacing: 2px;
+  line-height: 1.0;
+}
+
+.hero-right { position: relative; min-width: 0; }
+
+.hero-photo-wrap {
+  border-radius: var(--r-lg); overflow: hidden;
+  box-shadow: 0 0 120px rgba(45,212,191,0.13), 0 48px 96px rgba(0,0,0,0.65);
+  position: relative;
+}
+.hero-photo-wrap::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 50%;
+  background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+  pointer-events: none;
+}
+.hero-photo {
+  width: 100%; height: 580px;
+  object-fit: cover; object-position: center top;
+  display: block; border-radius: var(--r-lg);
+  filter: brightness(0.88) contrast(1.04);
 }
 
 /* Fine grid */
@@ -158,15 +197,21 @@ h1 {
 }
 
 .hero-tagline {
-  font-size: 12px; color: var(--muted2);
-  letter-spacing: 5px; text-transform: uppercase; font-weight: 300;
-  margin-bottom: 60px;
+  font-size: 11px; color: var(--muted2);
+  letter-spacing: 4px; text-transform: uppercase; font-weight: 300;
+  margin-bottom: 16px;
   animation: fadeUp .9s .3s ease both;
 }
 .hero-tagline span { color: var(--accent); font-weight: 400; }
 
+.hero-sub {
+  color: var(--muted2); font-size: 15px; line-height: 1.8;
+  font-weight: 300; max-width: 420px; margin-bottom: 40px;
+  animation: fadeUp .9s .38s ease both;
+}
+
 .hero-ctas {
-  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  display: flex; gap: 12px; justify-content: flex-start; flex-wrap: wrap;
   animation: fadeUp .9s .45s ease both;
 }
 
@@ -491,6 +536,17 @@ section { padding: 120px 24px; }
   gap: 96px; align-items: center;
 }
 
+.om-photo-wrap {
+  border-radius: var(--r-lg); overflow: hidden;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+  height: 520px;
+}
+.om-photo {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  display: block; filter: brightness(0.82) contrast(1.05);
+}
+
 .om-right { display: flex; flex-direction: column; gap: 14px; }
 
 .om-quote {
@@ -654,6 +710,11 @@ footer {
   .nav-links li { width: 100%; text-align: center; }
   .nav-links a { display: block; padding: 14px 24px; font-size: 14px; }
   .nav-cta { margin: 8px 24px 0; display: block; padding: 12px 24px !important; }
+  #hero { padding: 110px 20px 100px; }
+  .hero-content { grid-template-columns: 1fr; }
+  .hero-left { align-items: center; text-align: center; }
+  .hero-right { display: none; }
+  .hero-ctas { justify-content: center; }
   section { padding: 80px 20px; }
   .ydelser-grid { grid-template-columns: 1fr; }
   .fradrag-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -661,6 +722,7 @@ footer {
   .flow-step { padding: 32px 0; border-right: none; border-bottom: 1px solid var(--border); }
   .flow-step:last-child { border-bottom: none; }
   .om-grid { grid-template-columns: 1fr; gap: 48px; }
+  .om-photo-wrap { height: 320px; }
   .kontakt-card { padding: 40px 24px; }
   footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px 24px; }
   h1 { letter-spacing: 8px; }
@@ -697,26 +759,25 @@ footer {
   <div class="hero-aurora"></div>
   <div class="hero-grid"></div>
 
-  <div class="hero-badge">Lokal vinduesservice · Nyborg og omegn</div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge">Lokal vinduesservice · Nyborg og omegn</div>
 
-  <div class="hero-logo-mark">
-    <svg width="88" height="88" viewBox="0 0 90 90" fill="none">
-      <rect x="3" y="3" width="84" height="84" rx="10" stroke="#f2efe9" stroke-width="2.5"/>
-      <line x1="45" y1="3" x2="45" y2="87" stroke="#f2efe9" stroke-width="1.8"/>
-      <line x1="3" y1="45" x2="87" y2="45" stroke="#f2efe9" stroke-width="1.8"/>
-      <circle cx="65" cy="24" r="6" fill="#2dd4bf"/>
-      <line x1="65" y1="14" x2="65" y2="10" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round"/>
-      <line x1="74" y1="18" x2="77" y2="15" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round"/>
-      <line x1="75" y1="24" x2="79" y2="24" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round"/>
-    </svg>
-  </div>
+      <h1>Klare<br>vinduer.</h1>
+      <p class="hero-tagline">Resultater du kan <span>se igennem</span></p>
+      <p class="hero-sub">Professionel vinduespolering i Nyborg og omegn – til en fast, ærlig pris. Ring til Dino og få en tid inden for få dage.</p>
 
-  <h1>DITVINDUE</h1>
-  <p class="hero-tagline">Resultater du kan <span>se igennem</span></p>
+      <div class="hero-ctas">
+        <a href="#kontakt" class="btn-primary">Ring og bestil tid</a>
+        <a href="#ydelser" class="btn-secondary">Se priser</a>
+      </div>
+    </div>
 
-  <div class="hero-ctas">
-    <a href="#kontakt" class="btn-primary">Ring og bestil tid</a>
-    <a href="#ydelser" class="btn-secondary">Se priser</a>
+    <div class="hero-right">
+      <div class="hero-photo-wrap">
+        <img src="billeder/dino-hero.jpg" alt="Dino renser vinduer" class="hero-photo">
+      </div>
+    </div>
   </div>
 
   <div class="hero-scroll">
@@ -900,13 +961,15 @@ footer {
   <div class="section-inner">
     <div class="om-grid">
       <div class="om-left reveal">
+        <div class="om-photo-wrap">
+          <img src="billeder/dino-raekke.jpg" alt="Dino renser vinduer på rækkehus" class="om-photo">
+        </div>
+      </div>
+      <div class="om-right">
         <div class="section-label">Om mig</div>
         <p class="om-quote">Jeg gør det ordentligt, <em>hver gang</em> – ikke kun første gang.</p>
         <p class="om-text">Jeg hedder Dino, er 16 år og driver DITVINDUE som min egen virksomhed. Jeg er vokset op med at tage ansvar for mine opgaver og gøre tingene grundigt.</p>
-        <br>
         <p class="om-text">Med DITVINDUE vil jeg vise, at man godt kan levere et professionelt resultat – selv om man er ung. Det gælder om at møde til tiden, arbejde grundigt og sikre at du er tilfreds.</p>
-      </div>
-      <div class="om-right">
         <div class="om-stat reveal">
           <div class="stat-value">100%</div>
           <div class="stat-label">Tilfredshed – vi er ikke færdige før du er glad</div>
