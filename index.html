@@ -509,6 +509,106 @@ section { padding: 100px 24px; }
 }
 .stat-label { font-size: 13px; color: var(--muted2); }
 
+/* ─────────────── BESTIL TID ─────────────── */
+#bestil {
+  background: linear-gradient(160deg, #f0f9ff 0%, #e0f2fe 60%, #f0fdf4 100%);
+  position: relative; overflow: hidden;
+}
+#bestil::before {
+  content: '';
+  position: absolute; top: -120px; right: -120px;
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, rgba(14,165,233,0.13), transparent 65%);
+  pointer-events: none;
+}
+#bestil::after {
+  content: '';
+  position: absolute; bottom: -80px; left: -80px;
+  width: 340px; height: 340px;
+  background: radial-gradient(circle, rgba(34,197,94,0.09), transparent 65%);
+  pointer-events: none;
+}
+#bestil .section-label { color: var(--accent2); }
+.booking-wrap {
+  max-width: 720px; margin: 0 auto; position: relative; z-index: 1;
+}
+.booking-card {
+  background: #ffffff;
+  border-radius: var(--r-lg);
+  padding: 52px 48px;
+  box-shadow: 0 4px 24px rgba(14,165,233,0.10), 0 16px 56px rgba(0,0,0,0.10), 0 0 0 1.5px rgba(14,165,233,0.12);
+  margin-top: 48px;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 18px; }
+.form-group label {
+  font-size: 12.5px; font-weight: 700; color: var(--text);
+  letter-spacing: 0.4px; text-transform: uppercase;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 13px 15px;
+  border: 1.5px solid var(--border2);
+  border-radius: var(--r-sm);
+  font-family: var(--font); font-size: 15px; color: var(--text);
+  background: var(--bg2);
+  transition: border-color .18s, box-shadow .18s, background .18s;
+  outline: none; width: 100%;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent); background: #fff;
+  box-shadow: 0 0 0 3px rgba(14,165,233,0.14);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--muted); }
+.form-group select { cursor: pointer; }
+.form-group textarea { resize: vertical; min-height: 86px; }
+.btn-bestil {
+  width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 17px 32px; margin-top: 8px;
+  background: var(--accent); color: #fff;
+  border: none; border-radius: var(--r-md);
+  font-family: var(--font); font-size: 17px; font-weight: 700;
+  cursor: pointer; letter-spacing: 0.2px;
+  transition: background .2s, transform .15s, box-shadow .2s;
+  box-shadow: 0 4px 20px rgba(14,165,233,0.38);
+}
+.btn-bestil:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(14,165,233,0.48); }
+.btn-bestil:active { transform: translateY(0); }
+.form-footer-note { text-align: center; margin-top: 13px; font-size: 12px; color: var(--muted); }
+.booking-badges {
+  display: flex; justify-content: center; gap: 28px;
+  margin-top: 36px; flex-wrap: wrap;
+}
+.booking-badge {
+  display: flex; align-items: center; gap: 9px;
+  font-size: 13px; font-weight: 600; color: var(--text2);
+}
+.booking-badge-icon {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--accent3);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent2); flex-shrink: 0;
+}
+.booking-success {
+  display: none; text-align: center; padding: 48px 24px;
+}
+.booking-success-icon {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: #dcfce7; display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px; color: #16a34a;
+}
+.booking-success h3 { font-size: 22px; font-weight: 800; margin-bottom: 10px; color: var(--text); }
+.booking-success p { color: var(--text2); font-size: 15px; }
+@media (max-width: 640px) {
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .booking-card { padding: 32px 20px; }
+  .booking-badges { gap: 16px; }
+}
+
 /* ─────────────── KONTAKT ─────────────── */
 #kontakt {
   background: #0f1923;
@@ -749,7 +849,7 @@ footer {
     <li><a href="#fradrag" onclick="closeMenu()">Servicefradrag</a></li>
     <li><a href="#flow" onclick="closeMenu()">Sådan fungerer det</a></li>
     <li><a href="#om" onclick="closeMenu()">Om Dino</a></li>
-    <li><a href="#kontakt" class="nav-cta" onclick="closeMenu()">Bestil tid</a></li>
+    <li><a href="#bestil" class="nav-cta" onclick="closeMenu()">Bestil tid</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -769,7 +869,7 @@ footer {
       <p class="hero-sub">Professionel vinduespudsning i Nyborg og omegn – til en fast, ærlig pris. Ring til Dino og få en tid inden for få dage.</p>
 
       <div class="hero-ctas">
-        <a href="#kontakt" class="btn-primary">Ring og bestil tid</a>
+        <a href="#bestil" class="btn-primary">Bestil tid online</a>
         <a href="#ydelser" class="btn-secondary">Se priser</a>
       </div>
     </div>
@@ -1069,6 +1169,97 @@ footer {
   </div>
 </section>
 
+<!-- BESTIL TID -->
+<section id="bestil">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label">Book online</div>
+      <h2 class="section-title">Bestil din tid her</h2>
+      <p class="section-sub" style="margin:0 auto">Udfyld formularen — Dino kontakter dig inden for 12 timer for at bekræfte din tid og pris.</p>
+    </div>
+    <div class="booking-wrap">
+      <div class="booking-card reveal">
+
+        <!-- SUCCESS STATE -->
+        <div class="booking-success" id="bookingSuccess">
+          <div class="booking-success-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3>Tak for din bestilling! 🎉</h3>
+          <p>Din e-mail-app åbnede med alle dine oplysninger klar til afsendelse.<br>Dino kontakter dig inden for 12 timer.</p>
+          <p style="margin-top:14px;font-size:13px;color:var(--muted)">Foretrækker du at ringe? <a href="tel:+4553533206" style="color:var(--accent);font-weight:600">53 53 32 06</a></p>
+        </div>
+
+        <!-- FORM -->
+        <form id="bookingForm" onsubmit="sendBooking(event)" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bNavn">Dit navn *</label>
+              <input type="text" id="bNavn" placeholder="Fornavn og efternavn" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="bTelefon">Telefonnummer *</label>
+              <input type="tel" id="bTelefon" placeholder="XX XX XX XX" required autocomplete="tel">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="bAdresse">Adresse (hvor skal vi komme?) *</label>
+            <input type="text" id="bAdresse" placeholder="Fx Kastanievænget 12, 5800 Nyborg" required autocomplete="street-address">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bType">Boligtype *</label>
+              <select id="bType" required>
+                <option value="">Vælg boligtype...</option>
+                <option value="Rækkehus – 99 kr.">🏠 Rækkehus – kun 99 kr.</option>
+                <option value="Parcelhus – 149 kr.">🏡 Parcelhus – kun 149 kr.</option>
+                <option value="Stuelejlighed – 49 kr.">🏢 Stuelejlighed – kun 49 kr.</option>
+                <option value="Erhverv – kontakt for pris">🏢 Erhverv – kontakt for pris</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="bDato">Ønsket dato (valgfrit)</label>
+              <input type="date" id="bDato" min="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="bBesked">Besked / særlige ønsker (valgfrit)</label>
+            <textarea id="bBesked" placeholder="Fx antal etager, portkode, eller andet Dino skal vide..."></textarea>
+          </div>
+          <button type="submit" class="btn-bestil">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+            Send bestilling
+          </button>
+          <p class="form-footer-note">* Obligatoriske felter &nbsp;·&nbsp; Vi svarer inden for 12 timer &nbsp;·&nbsp; Ingen binding</p>
+        </form>
+
+      </div>
+
+      <!-- TRUST BADGES -->
+      <div class="booking-badges reveal">
+        <div class="booking-badge">
+          <div class="booking-badge-icon">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          Svar inden 12 timer
+        </div>
+        <div class="booking-badge">
+          <div class="booking-badge-icon">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          Fast pris – ingen overraskelser
+        </div>
+        <div class="booking-badge">
+          <div class="booking-badge-icon">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          MobilePay / kontant
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- KONTAKT -->
 <section id="kontakt">
   <div class="kontakt-inner">
@@ -1160,6 +1351,48 @@ hamburger.addEventListener('click', () => {
 function closeMenu() {
   hamburger.classList.remove('open');
   navLinks.classList.remove('open');
+}
+
+/* ── BOOKING FORM ── */
+// Sæt min-dato til i dag
+(function() {
+  var d = document.getElementById('bDato');
+  if (d) d.min = new Date().toISOString().split('T')[0];
+})();
+
+function sendBooking(e) {
+  e.preventDefault();
+  var navn    = document.getElementById('bNavn').value.trim();
+  var tlf     = document.getElementById('bTelefon').value.trim();
+  var adresse = document.getElementById('bAdresse').value.trim();
+  var type    = document.getElementById('bType').value;
+  var dato    = document.getElementById('bDato').value;
+  var besked  = document.getElementById('bBesked').value.trim();
+
+  if (!navn || !tlf || !adresse || !type) {
+    alert('Udfyld venligst navn, telefon, adresse og boligtype.');
+    return;
+  }
+
+  var subject = 'Booking fra ' + navn + ' – ' + type;
+  var body =
+    'Hej Dino!\n\nNy booking fra hjemmesiden:\n\n' +
+    '👤 Navn:      ' + navn    + '\n' +
+    '📞 Telefon:   ' + tlf     + '\n' +
+    '🏠 Adresse:   ' + adresse + '\n' +
+    '🏡 Boligtype: ' + type    + '\n' +
+    (dato   ? '📅 Dato:      ' + dato    + '\n' : '') +
+    (besked ? '💬 Besked:    ' + besked  + '\n' : '') +
+    '\nSend venligst en bekræftelse til kunden.\n\n– Ditvindue booking-formular';
+
+  window.location.href =
+    'mailto:ditvindue@gmail.com' +
+    '?subject=' + encodeURIComponent(subject) +
+    '&body='    + encodeURIComponent(body);
+
+  // Vis success-besked
+  document.getElementById('bookingForm').style.display = 'none';
+  document.getElementById('bookingSuccess').style.display = 'block';
 }
 </script>
 </body>
