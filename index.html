@@ -1186,7 +1186,7 @@ footer {
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
           <h3>Tak for din bestilling! 🎉</h3>
-          <p>Din e-mail-app åbnede med alle dine oplysninger klar til afsendelse.<br>Dino kontakter dig inden for 12 timer.</p>
+          <p>Din bestilling er sendt direkte til Dino.<br>Han kontakter dig inden for 12 timer for at bekræfte tid og pris.</p>
           <p style="margin-top:14px;font-size:13px;color:var(--muted)">Foretrækker du at ringe? <a href="tel:+4553533206" style="color:var(--accent);font-weight:600">53 53 32 06</a></p>
         </div>
 
@@ -1374,26 +1374,59 @@ function sendBooking(e) {
     return;
   }
 
-  var subject = 'Booking fra ' + navn + ' – ' + type;
-  var body =
+  // Vis loading på knap
+  var btn = document.querySelector('.btn-bestil');
+  btn.disabled = true;
+  btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation:spin 1s linear infinite"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Sender...';
+
+  var beskedTekst =
     'Hej Dino!\n\nNy booking fra hjemmesiden:\n\n' +
     '👤 Navn:      ' + navn    + '\n' +
     '📞 Telefon:   ' + tlf     + '\n' +
     '🏠 Adresse:   ' + adresse + '\n' +
     '🏡 Boligtype: ' + type    + '\n' +
-    (dato   ? '📅 Dato:      ' + dato    + '\n' : '') +
-    (besked ? '💬 Besked:    ' + besked  + '\n' : '') +
-    '\nSend venligst en bekræftelse til kunden.\n\n– Ditvindue booking-formular';
+    (dato   ? '📅 Dato:      ' + dato   + '\n' : '') +
+    (besked ? '💬 Besked:    ' + besked + '\n' : '') +
+    '\n– Ditvindue booking-formular (dit-vindue.dk)';
 
-  window.location.href =
-    'mailto:ditvindue@gmail.com' +
-    '?subject=' + encodeURIComponent(subject) +
-    '&body='    + encodeURIComponent(body);
-
-  // Vis success-besked
-  document.getElementById('bookingForm').style.display = 'none';
-  document.getElementById('bookingSuccess').style.display = 'block';
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      access_key: '85ed2a5d-1d5d-4827-965c-f71b57164a6d',
+      subject: '🪟 Ny booking: ' + navn + ' – ' + type,
+      from_name: 'Ditvindue hjemmeside',
+      message: beskedTekst,
+      name: navn,
+      phone: tlf,
+      address: adresse,
+      boligtype: type,
+      dato: dato || 'Ikke angivet',
+      replyto: 'ditvindue@gmail.com'
+    })
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    if (data.success) {
+      document.getElementById('bookingForm').style.display = 'none';
+      document.getElementById('bookingSuccess').style.display = 'block';
+    } else {
+      btn.disabled = false;
+      btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg> Send bestilling';
+      alert('Noget gik galt. Prøv igen eller ring på 53 53 32 06.');
+    }
+  })
+  .catch(function() {
+    btn.disabled = false;
+    btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg> Send bestilling';
+    alert('Netværksfejl. Prøv igen eller ring på 53 53 32 06.');
+  });
 }
+
+/* spin animation til loading */
+var styleEl = document.createElement('style');
+styleEl.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
+document.head.appendChild(styleEl);
 </script>
 </body>
 </html>
