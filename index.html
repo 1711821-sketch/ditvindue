@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://dit-vindue.dk/">
 <meta property="og:title" content="DITVINDUE – Vinduespudsning i Nyborg | Fra 69 kr.">
 <meta property="og:description" content="Vinduespudsning i Nyborg og omegn. Fast pris fra 69 kr. – ingen overraskelser. Book online eller ring 53 53 32 06.">
-<meta property="og:image" content="https://dit-vindue.dk/billeder/hero-ny.png">
+<meta property="og:image" content="https://dit-vindue.dk/billeder/hero-ny.webp">
 <meta property="og:site_name" content="DITvindue">
 <meta property="og:locale" content="da_DK">
 
@@ -24,7 +24,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="DITVINDUE – Vinduespudsning i Nyborg | Fra 69 kr.">
 <meta name="twitter:description" content="Vinduespudsning i Nyborg og omegn. Fast pris fra 69 kr. Book online eller ring 53 53 32 06.">
-<meta name="twitter:image" content="https://dit-vindue.dk/billeder/hero-ny.png">
+<meta name="twitter:image" content="https://dit-vindue.dk/billeder/hero-ny.webp">
 
 <!-- Structured Data: LocalBusiness -->
 <script type="application/ld+json">
@@ -35,7 +35,7 @@
   "description": "Vinduespudsning i Nyborg og omegn. Fast pris fra 69 kr.",
   "url": "https://dit-vindue.dk",
   "telephone": "+4553533206",
-  "image": "https://dit-vindue.dk/billeder/hero-ny.png",
+  "image": "https://dit-vindue.dk/billeder/hero-ny.webp",
   "logo": "https://dit-vindue.dk/billeder/logo/ditvindue-logo.png",
   "address": {
     "@type": "PostalAddress",
@@ -102,6 +102,33 @@
   ]
 }
 </script>
+
+<!-- Structured Data: FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Hvad koster vinduespudsning?", "acceptedAnswer": {"@type": "Answer", "text": "Stuelejlighed: 69 kr. Rækkehus: 99 kr. Parcelhus (1 plan): 149 kr. Alle priser er faste."}},
+    {"@type": "Question", "name": "Hvilke områder dækker I?", "acceptedAnswer": {"@type": "Answer", "text": "Vi dækker Nyborg og omegn inden for ca. 25 km. Ingen transporttillæg."}},
+    {"@type": "Question", "name": "Kan jeg bruge servicefradrag?", "acceptedAnswer": {"@type": "Answer", "text": "Ja! Vinduespudsning er godkendt til servicefradrag. Du kan trække 35% fra i skat."}},
+    {"@type": "Question", "name": "Hvordan betaler jeg?", "acceptedAnswer": {"@type": "Answer", "text": "MobilePay og kontant. Du betaler efter arbejdet er udført."}},
+    {"@type": "Question", "name": "Hvad hvis jeg ikke er tilfreds?", "acceptedAnswer": {"@type": "Answer", "text": "100% tilfredshedsgaranti. Vi kommer tilbage og retter det uden ekstra beregning."}}
+  ]
+}
+</script>
+
+<!-- Facebook Pixel - udskift DIT_PIXEL_ID med dit rigtige Pixel ID fra Meta Business Suite -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'DIT_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=DIT_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
 
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -402,6 +429,74 @@ h1 .accent { color: var(--accent); }
   width: 44px; height: 1px;
   background: linear-gradient(to right, var(--accent), transparent);
   animation: scrollPulse 2.5s ease-in-out infinite;
+}
+
+/* ─── COOKIE BANNER ─── */
+.cookie-banner {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 999;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+  font-size: 13px;
+  color: var(--muted2);
+}
+.cookie-banner.hidden { display: none; }
+.cookie-accept {
+  background: var(--accent); color: #fff; border: none;
+  padding: 8px 20px; border-radius: 100px;
+  font-family: var(--font); font-weight: 600; font-size: 13px;
+  cursor: pointer;
+}
+.cookie-decline {
+  background: transparent; color: var(--muted2); border: 1px solid var(--border2);
+  padding: 8px 20px; border-radius: 100px;
+  font-family: var(--font); font-weight: 600; font-size: 13px;
+  cursor: pointer;
+}
+
+/* ─── FAQ ─── */
+.faq-item {
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-md);
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: border-color .2s;
+}
+.faq-item:hover { border-color: var(--accent); }
+.faq-item summary {
+  padding: 20px 24px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text);
+}
+.faq-item summary::after {
+  content: '+';
+  font-size: 20px;
+  color: var(--accent);
+  font-weight: 300;
+  transition: transform .2s;
+}
+.faq-item[open] summary::after {
+  content: '−';
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item p {
+  padding: 0 24px 20px;
+  color: var(--muted2);
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 /* ─── FLYDENDE SMS-KNAP ─── */
@@ -1112,7 +1207,7 @@ footer {
       </div>
       <div class="hero-right">
         <div class="hero-photo-wrap">
-          <img src="billeder/hero-ny.png" alt="Vinduespudser smiler" class="hero-photo">
+          <img src="billeder/hero-ny.webp" alt="Vinduespudser smiler" class="hero-photo">
         </div>
       </div>
     </div>
@@ -1130,7 +1225,7 @@ footer {
       </div>
       <div class="hero-right">
         <div class="hero-photo-wrap">
-          <img src="billeder/slider-3.png" alt="Vinduespudsning rækkehus" class="hero-photo">
+          <img src="billeder/slider-3.webp" alt="Vinduespudsning rækkehus" class="hero-photo">
         </div>
       </div>
     </div>
@@ -1148,7 +1243,7 @@ footer {
       </div>
       <div class="hero-right">
         <div class="hero-photo-wrap">
-          <img src="billeder/slider-6.png" alt="Erhvervsvinduespudsning" class="hero-photo">
+          <img src="billeder/slider-6.webp" alt="Erhvervsvinduespudsning" class="hero-photo">
         </div>
       </div>
     </div>
@@ -1166,7 +1261,7 @@ footer {
       </div>
       <div class="hero-right">
         <div class="hero-photo-wrap">
-          <img src="billeder/slider-1.png" alt="Vinduespudsning i solskin" class="hero-photo">
+          <img src="billeder/slider-1.webp" alt="Vinduespudsning i solskin" class="hero-photo">
         </div>
       </div>
     </div>
@@ -1337,35 +1432,35 @@ footer {
     <div class="slider-track">
       <!-- Original set -->
       <div class="slider-slide">
-        <img src="billeder/slider-1.png" alt="Vinduespudsning i solskin i Nyborg" loading="lazy">
+        <img src="billeder/slider-1.webp" alt="Vinduespudsning i solskin i Nyborg" loading="lazy">
       </div>
       <div class="slider-slide">
-        <img src="billeder/slider-2.png" alt="Terrassedør vinduespudsning Nyborg" loading="lazy">
+        <img src="billeder/slider-2.webp" alt="Terrassedør vinduespudsning Nyborg" loading="lazy">
       </div>
       <div class="slider-slide">
-        <img src="billeder/slider-3.png" alt="Vinduespudsning rækkehus Nyborg" loading="lazy">
+        <img src="billeder/slider-3.webp" alt="Vinduespudsning rækkehus Nyborg" loading="lazy">
       </div>
       <div class="slider-slide">
-        <img src="billeder/slider-4.png" alt="Vinduespudsning træhus Fyn" loading="lazy">
+        <img src="billeder/slider-4.webp" alt="Vinduespudsning træhus Fyn" loading="lazy">
       </div>
       <div class="slider-slide">
-        <img src="billeder/slider-5.png" alt="Stor terrassedør vinduespudsning" loading="lazy">
+        <img src="billeder/slider-5.webp" alt="Stor terrassedør vinduespudsning" loading="lazy">
       </div>
       <!-- Duplikat for seamless loop -->
       <div class="slider-slide">
-        <img src="billeder/slider-6.png" alt="Erhvervsvinduespudsning Nyborg" loading="lazy">
+        <img src="billeder/slider-6.webp" alt="Erhvervsvinduespudsning Nyborg" loading="lazy">
       </div>
       <div class="slider-slide">
-        <img src="billeder/slider-1.png" alt="Vinduespudsning i solskin">
+        <img src="billeder/slider-1.webp" alt="Vinduespudsning i solskin">
       </div>
       <div class="slider-slide">
-        <img src="billeder/slider-2.png" alt="Terrassedør vinduespudsning">
+        <img src="billeder/slider-2.webp" alt="Terrassedør vinduespudsning">
       </div>
       <div class="slider-slide">
-        <img src="billeder/slider-3.png" alt="Vinduespudsning rækkehus">
+        <img src="billeder/slider-3.webp" alt="Vinduespudsning rækkehus">
       </div>
       <div class="slider-slide">
-        <img src="billeder/slider-4.png" alt="Vinduespudsning træhus">
+        <img src="billeder/slider-4.webp" alt="Vinduespudsning træhus">
       </div>
     </div>
   </div>
@@ -1447,7 +1542,7 @@ footer {
     <div class="om-grid">
       <div class="om-left reveal">
         <div class="om-photo-wrap">
-          <img src="billeder/om-portræt.png" alt="Dino fra DITvindue vinduespudser i Nyborg" class="om-photo" loading="lazy">
+          <img src="billeder/om-portræt.webp" alt="Dino fra DITvindue vinduespudser i Nyborg" class="om-photo" loading="lazy">
         </div>
       </div>
       <div class="om-right">
@@ -1465,6 +1560,43 @@ footer {
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding:80px 24px;max-width:800px;margin:0 auto;">
+  <div class="section-label reveal">Ofte stillede spørgsmål</div>
+  <h2 class="section-title reveal" style="margin-bottom:40px;">FAQ</h2>
+
+  <div class="faq-list">
+    <details class="faq-item reveal">
+      <summary>Hvad koster vinduespudsning?</summary>
+      <p>Stuelejlighed: 69 kr. Rækkehus: 99 kr. Parcelhus (1 plan): 149 kr. Erhverv: kontakt os for pris. Alle priser er faste – ingen overraskelser.</p>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Hvilke områder dækker I?</summary>
+      <p>Vi dækker Nyborg og omegn inden for ca. 25 km. Der er ingen transporttillæg.</p>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Hvor hurtigt kan jeg få en tid?</summary>
+      <p>Typisk inden for få dage. Book online eller ring til os på 53 53 32 06.</p>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Pudser I også indvendigt?</summary>
+      <p>Vi tilbyder primært udvendig vinduespudsning. Kontakt os for en aftale om indvendig pudsning.</p>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Kan jeg bruge servicefradrag?</summary>
+      <p>Ja! Vinduespudsning er godkendt til servicefradrag. Du kan trække 35% fra i skat – det svarer til f.eks. kun 45 kr. for en lejlighed.</p>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Hvordan betaler jeg?</summary>
+      <p>Vi tager imod MobilePay og kontant betaling. Du betaler efter arbejdet er udført.</p>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Hvad hvis jeg ikke er tilfreds?</summary>
+      <p>Vi har 100% tilfredshedsgaranti. Er du ikke tilfreds, kommer vi tilbage og retter det – uden ekstra beregning.</p>
+    </details>
   </div>
 </section>
 
@@ -1656,6 +1788,19 @@ footer {
   startAuto();
 })();
 
+/* ─── COOKIE CONSENT ─── */
+function acceptCookies() {
+  localStorage.setItem('cookies', 'accepted');
+  document.getElementById('cookieBanner').classList.add('hidden');
+}
+function declineCookies() {
+  localStorage.setItem('cookies', 'declined');
+  document.getElementById('cookieBanner').classList.add('hidden');
+}
+if (localStorage.getItem('cookies')) {
+  document.getElementById('cookieBanner').classList.add('hidden');
+}
+
 function updateCalc() {
   const price = parseInt(document.getElementById('calcType').value);
   const times = parseInt(document.getElementById('calcTimes').value);
@@ -1765,6 +1910,15 @@ var styleEl = document.createElement('style');
 styleEl.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
 document.head.appendChild(styleEl);
 </script>
+<!-- Cookie consent -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>Vi bruger cookies for at forbedre din oplevelse. <a href="#" style="color:var(--accent);text-decoration:underline;">Læs mere</a></p>
+  <div style="display:flex;gap:8px;">
+    <button onclick="acceptCookies()" class="cookie-accept">Accepter</button>
+    <button onclick="declineCookies()" class="cookie-decline">Afvis</button>
+  </div>
+</div>
+
 <!-- Flydende SMS-knap -->
 <a href="tel:+4553533206" class="sms-float" aria-label="Ring til os">
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
