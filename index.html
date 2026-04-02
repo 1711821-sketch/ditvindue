@@ -139,7 +139,6 @@ nav {
   letter-spacing: 2px; text-transform: uppercase;
   padding: 6px 16px; border-radius: 100px;
   margin-bottom: 32px;
-  animation: fadeUp .8s ease both;
 }
 .hero-badge::before {
   content: ''; width: 5px; height: 5px;
@@ -152,7 +151,6 @@ h1 {
   font-size: clamp(44px, 7vw, 84px);
   font-weight: 800; letter-spacing: -2px; line-height: 1.0;
   margin-bottom: 18px;
-  animation: fadeUp .8s .1s ease both;
   color: var(--text);
 }
 
@@ -163,12 +161,82 @@ h1 .accent { color: var(--accent); }
 .hero-sub {
   color: var(--muted2); font-size: 16px; line-height: 1.8;
   font-weight: 400; max-width: 400px; margin-bottom: 40px;
-  animation: fadeUp .8s .2s ease both;
 }
 
 .hero-ctas {
   display: flex; gap: 12px; justify-content: flex-start; flex-wrap: wrap;
-  animation: fadeUp .8s .3s ease both;
+}
+
+/* ─── HERO CAROUSEL ─── */
+.hero-slides {
+  position: relative;
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.hero-slide {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  gap: 64px;
+  align-items: center;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease, visibility 0.8s;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.hero-slide.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Staggered entrance transitions for slide children */
+.hero-slide .hero-badge,
+.hero-slide h1,
+.hero-slide .hero-sub,
+.hero-slide .hero-ctas,
+.hero-slide .hero-photo-wrap {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s cubic-bezier(.16,1,.3,1), transform 0.5s cubic-bezier(.16,1,.3,1);
+}
+
+.hero-slide.active .hero-badge   { opacity: 1; transform: none; transition-delay: 0.3s; }
+.hero-slide.active h1            { opacity: 1; transform: none; transition-delay: 0.45s; }
+.hero-slide.active .hero-sub     { opacity: 1; transform: none; transition-delay: 0.6s; }
+.hero-slide.active .hero-ctas    { opacity: 1; transform: none; transition-delay: 0.75s; }
+.hero-slide.active .hero-photo-wrap { opacity: 1; transform: none; transition-delay: 0.2s; }
+
+/* Dot indicators */
+.hero-indicators {
+  position: absolute;
+  bottom: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+.hero-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--border2);
+  border: none; padding: 0;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.hero-dot.active {
+  background: var(--accent);
+  transform: scale(1.3);
 }
 
 .btn-primary {
@@ -812,11 +880,12 @@ footer {
   .nav-links a { display: block; padding: 13px 24px; font-size: 14px; color: var(--text2); }
   .nav-cta { margin: 8px 24px 0; display: block; padding: 12px 24px !important; }
   #hero { padding: 100px 20px 80px; }
-  .hero-content { grid-template-columns: 1fr; }
+  .hero-content, .hero-slide { grid-template-columns: 1fr; }
   .hero-left { align-items: center; text-align: center; }
   .hero-right { display: none; }
   .hero-ctas { justify-content: center; }
   .hero-scroll { left: 50%; transform: translateX(-50%); }
+  .hero-indicators { bottom: 24px; }
   section { padding: 72px 20px; }
   .ydelser-grid { grid-template-columns: 1fr; }
   .fradrag-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -861,24 +930,87 @@ footer {
   <div class="hero-aurora"></div>
   <div class="hero-grid"></div>
 
-  <div class="hero-content">
-    <div class="hero-left">
-      <div class="hero-badge">Lokal vinduesservice · Nyborg og omegn</div>
+  <div class="hero-slides">
 
-      <h1>Klare<br><span class="accent">vinduer.</span></h1>
-      <p class="hero-sub">Professionel vinduespudsning i Nyborg og omegn – til en fast, ærlig pris. Ring til Dino og få en tid inden for få dage.</p>
-
-      <div class="hero-ctas">
-        <a href="#bestil" class="btn-primary">Bestil tid online</a>
-        <a href="#ydelser" class="btn-secondary">Se priser</a>
+    <!-- Slide 0 -->
+    <div class="hero-slide active" data-slide="0">
+      <div class="hero-left">
+        <div class="hero-badge">Lokal vinduesservice · Nyborg og omegn</div>
+        <h1>Klare<br><span class="accent">vinduer.</span></h1>
+        <p class="hero-sub">Vinduespudsning i Nyborg og omegn – til en fast, ærlig pris. Ring og få en tid inden for få dage.</p>
+        <div class="hero-ctas">
+          <a href="#bestil" class="btn-primary">Bestil tid online</a>
+          <a href="#ydelser" class="btn-secondary">Se priser</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-photo-wrap">
+          <img src="billeder/hero-ny.png" alt="Vinduespudser smiler" class="hero-photo">
+        </div>
       </div>
     </div>
 
-    <div class="hero-right">
-      <div class="hero-photo-wrap">
-        <img src="billeder/hero-ny.png" alt="Vinduespudser i arbejde" class="hero-photo">
+    <!-- Slide 1 -->
+    <div class="hero-slide" data-slide="1">
+      <div class="hero-left">
+        <div class="hero-badge">Lokal vinduesservice · Nyborg og omegn</div>
+        <h1>Fast pris,<br><span class="accent">altid.</span></h1>
+        <p class="hero-sub">Ingen overraskelser. Fra kun 69 kr. for en lejlighed – og du kan trække servicefradrag fra i skat.</p>
+        <div class="hero-ctas">
+          <a href="#bestil" class="btn-primary">Bestil tid online</a>
+          <a href="#ydelser" class="btn-secondary">Se priser</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-photo-wrap">
+          <img src="billeder/slider-3.png" alt="Vinduespudsning rækkehus" class="hero-photo">
+        </div>
       </div>
     </div>
+
+    <!-- Slide 2 -->
+    <div class="hero-slide" data-slide="2">
+      <div class="hero-left">
+        <div class="hero-badge">Lokal vinduesservice · Nyborg og omegn</div>
+        <h1>Grundigt<br><span class="accent">arbejde.</span></h1>
+        <p class="hero-sub">Hvert vindue behandles med omhu. Vi er ikke færdige, før du er tilfreds – 100% tilfredshedsgaranti.</p>
+        <div class="hero-ctas">
+          <a href="#bestil" class="btn-primary">Bestil tid online</a>
+          <a href="#ydelser" class="btn-secondary">Se priser</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-photo-wrap">
+          <img src="billeder/slider-6.png" alt="Erhvervsvinduespudsning" class="hero-photo">
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="hero-slide" data-slide="3">
+      <div class="hero-left">
+        <div class="hero-badge">Lokal vinduesservice · Nyborg og omegn</div>
+        <h1>Hurtigt<br><span class="accent">booket.</span></h1>
+        <p class="hero-sub">Bestil online eller ring direkte. Tid inden for få dage – vi kommer til dig i hele Nyborg og omegn.</p>
+        <div class="hero-ctas">
+          <a href="#bestil" class="btn-primary">Bestil tid online</a>
+          <a href="#ydelser" class="btn-secondary">Se priser</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-photo-wrap">
+          <img src="billeder/slider-1.png" alt="Vinduespudsning i solskin" class="hero-photo">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hero-indicators">
+    <button class="hero-dot active" data-slide="0" aria-label="Slide 1"></button>
+    <button class="hero-dot" data-slide="1" aria-label="Slide 2"></button>
+    <button class="hero-dot" data-slide="2" aria-label="Slide 3"></button>
+    <button class="hero-dot" data-slide="3" aria-label="Slide 4"></button>
   </div>
 
   <div class="hero-scroll">
@@ -1319,6 +1451,44 @@ footer {
 </footer>
 
 <script>
+/* ─── HERO CAROUSEL ─── */
+(function() {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  const hero = document.getElementById('hero');
+  let current = 0;
+  let interval = null;
+  const DURATION = 5000;
+
+  function goTo(index) {
+    if (index === current || !slides[index]) return;
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function next() { goTo((current + 1) % slides.length); }
+
+  function startAuto() { interval = setInterval(next, DURATION); }
+  function resetAuto() { clearInterval(interval); startAuto(); }
+
+  dots.forEach(function(dot, i) {
+    dot.addEventListener('click', function() { goTo(i); resetAuto(); });
+  });
+
+  hero.addEventListener('mouseenter', function() { clearInterval(interval); });
+  hero.addEventListener('mouseleave', function() { startAuto(); });
+
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) clearInterval(interval);
+    else resetAuto();
+  });
+
+  startAuto();
+})();
+
 function updateCalc() {
   const price = parseInt(document.getElementById('calcType').value);
   const times = parseInt(document.getElementById('calcTimes').value);
