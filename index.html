@@ -1895,8 +1895,15 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {
     if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
   });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}, { threshold: 0.05 });
+document.querySelectorAll('.reveal').forEach(el => {
+  // If element is already above the viewport (user linked directly to a section), show it immediately
+  if (el.getBoundingClientRect().bottom < 0) {
+    el.classList.add('visible');
+  } else {
+    observer.observe(el);
+  }
+});
 
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
