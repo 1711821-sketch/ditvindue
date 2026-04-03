@@ -1897,9 +1897,14 @@ function revealVisible() {
     if (r.top < window.innerHeight + 100) el.classList.add('visible');
   });
 }
+function revealAll() {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+}
 window.addEventListener('scroll', revealVisible, { passive: true });
 window.addEventListener('load', revealVisible);
 setTimeout(revealVisible, 300);
+// Failsafe: vis alt efter 1.5 sekunder uanset hvad
+setTimeout(revealAll, 1500);
 
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
