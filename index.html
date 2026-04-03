@@ -1891,19 +1891,15 @@ function updateCalc() {
 document.getElementById('calcType').addEventListener('change', updateCalc);
 document.getElementById('calcTimes').addEventListener('input', updateCalc);
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
+function revealVisible() {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight + 100) el.classList.add('visible');
   });
-}, { threshold: 0.05 });
-document.querySelectorAll('.reveal').forEach(el => {
-  // If element is already above the viewport (user linked directly to a section), show it immediately
-  if (el.getBoundingClientRect().bottom < 0) {
-    el.classList.add('visible');
-  } else {
-    observer.observe(el);
-  }
-});
+}
+window.addEventListener('scroll', revealVisible, { passive: true });
+window.addEventListener('load', revealVisible);
+setTimeout(revealVisible, 300);
 
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
