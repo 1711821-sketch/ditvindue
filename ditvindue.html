@@ -1,933 +1,774 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="da">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DITVINDUE – Resultater du kan se igennem</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>DITVINDUE — Vinduespudsning i Nyborg | Fra 69 kr.</title>
+<meta name="description" content="Vinduespudsning i Nyborg og omegn. Fast pris fra 69 kr. for lejlighed, 99 kr. for rækkehus, 149 kr. for parcelhus (1 plan). Book online eller ring 53 53 32 06.">
+<meta name="keywords" content="vinduespudsning, Nyborg, vinduespudser, vinduesrens, vinduespudsning Nyborg, vinduespudsning Fyn, rengøring vinduer, fast pris vinduespudsning">
+<meta name="author" content="DITvindue">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://dit-vindue.dk/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='4' width='28' height='24' rx='3' fill='%230f1923'/%3E%3Cline x1='16' y1='4' x2='16' y2='28' stroke='%231a2a3a' stroke-width='1.5'/%3E%3Cline x1='2' y1='16' x2='30' y2='16' stroke='%231a2a3a' stroke-width='1.5'/%3E%3Ccircle cx='24' cy='8' r='4' fill='%230ea5e9'/%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dit-vindue.dk/">
+<meta property="og:title" content="DITVINDUE — Vinduespudsning i Nyborg | Fra 69 kr.">
+<meta property="og:description" content="Vinduespudsning i Nyborg og omegn. Fast pris fra 69 kr. – ingen overraskelser.">
+<meta property="og:image" content="https://dit-vindue.dk/billeder/hero-ny.webp">
+<meta property="og:site_name" content="DITvindue">
+<meta property="og:locale" content="da_DK">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-:root {
-  --bg: #0c0c0b;
-  --bg2: #141413;
-  --bg3: #1c1c1a;
-  --text: #f0ede6;
-  --muted: #8a8880;
-  --accent: #5DCAA5;
-  --accent2: #1D9E75;
-  --border: rgba(240,237,230,0.08);
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.7;
-  overflow-x: hidden;
-}
-
-/* ── NAV ── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 48px;
-  background: rgba(12,12,11,0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-}
-
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
-
-.nav-mark {
-  width: 28px;
-  height: 28px;
-}
-
-.nav-wordmark {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 18px;
-  letter-spacing: 4px;
-  color: var(--text);
-}
-
-.nav-links {
-  display: flex;
-  gap: 36px;
-  list-style: none;
-}
-
-.nav-links a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 13px;
-  letter-spacing: 1px;
-  transition: color .2s;
-}
-
-.nav-links a:hover { color: var(--text); }
-
-.nav-cta {
-  background: var(--accent);
-  color: #0c0c0b !important;
-  padding: 8px 20px;
-  border-radius: 100px;
-  font-weight: 500;
-  font-size: 13px !important;
-  letter-spacing: 0.5px !important;
-}
-
-.nav-cta:hover { background: #7ddbb8 !important; color: #0c0c0b !important; }
-
-/* ── HERO ── */
-#hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 120px 24px 80px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 80%);
-}
-
-.hero-glow {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px;
-  height: 400px;
-  background: radial-gradient(ellipse, rgba(93,202,165,0.08) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(93,202,165,0.1);
-  border: 1px solid rgba(93,202,165,0.25);
-  color: var(--accent);
-  font-size: 12px;
-  letter-spacing: 2px;
-  padding: 6px 16px;
-  border-radius: 100px;
-  margin-bottom: 36px;
-  font-family: var(--font-display);
-  font-weight: 600;
-  animation: fadeUp .8s ease both;
-}
-
-.hero-badge::before {
-  content: '';
-  width: 6px; height: 6px;
-  background: var(--accent);
-  border-radius: 50%;
-}
-
-.hero-logo-mark {
-  margin-bottom: 32px;
-  animation: fadeUp .8s .1s ease both;
-}
-
-h1 {
-  font-family: var(--font-display);
-  font-size: clamp(56px, 10vw, 96px);
-  font-weight: 800;
-  letter-spacing: 16px;
-  line-height: 1;
-  margin-bottom: 16px;
-  animation: fadeUp .8s .2s ease both;
-}
-
-.hero-tagline {
-  font-size: 15px;
-  color: var(--muted);
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 52px;
-  animation: fadeUp .8s .3s ease both;
-}
-
-.hero-tagline span {
-  color: var(--accent);
-}
-
-.hero-ctas {
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-  flex-wrap: wrap;
-  animation: fadeUp .8s .4s ease both;
-}
-
-.btn-primary {
-  display: inline-block;
-  background: var(--accent);
-  color: #0c0c0b;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 1.5px;
-  padding: 16px 36px;
-  border-radius: 100px;
-  text-decoration: none;
-  transition: transform .2s, background .2s;
-}
-
-.btn-primary:hover { background: #7ddbb8; transform: translateY(-2px); }
-
-.btn-secondary {
-  display: inline-block;
-  background: transparent;
-  color: var(--text);
-  font-size: 14px;
-  letter-spacing: 1px;
-  padding: 16px 32px;
-  border-radius: 100px;
-  text-decoration: none;
-  border: 1px solid var(--border);
-  transition: border-color .2s, transform .2s;
-}
-
-.btn-secondary:hover { border-color: rgba(240,237,230,0.3); transform: translateY(-2px); }
-
-.hero-scroll {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  color: var(--muted);
-  font-size: 11px;
-  letter-spacing: 2px;
-  animation: fadeUp .8s .8s ease both;
-}
-
-.scroll-line {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, var(--accent), transparent);
-  animation: scrollPulse 2s ease-in-out infinite;
-}
-
-/* ── SECTION SHARED ── */
-section {
-  padding: 100px 24px;
-}
-
-.section-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.section-label {
-  font-family: var(--font-display);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 4px;
-  color: var(--accent);
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(32px, 5vw, 52px);
-  font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 20px;
-}
-
-.section-sub {
-  color: var(--muted);
-  font-size: 16px;
-  max-width: 480px;
-  line-height: 1.7;
-}
-
-/* ── YDELSER ── */
-#ydelser {
-  background: var(--bg2);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.ydelser-header {
-  margin-bottom: 60px;
-}
-
-.ydelser-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.ydelse-card {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 36px;
-  transition: border-color .25s, transform .25s;
-  position: relative;
-  overflow: hidden;
-}
-
-.ydelse-card:hover {
-  border-color: rgba(93,202,165,0.3);
-  transform: translateY(-4px);
-}
-
-.ydelse-card.featured {
-  border-color: rgba(93,202,165,0.4);
-  background: linear-gradient(135deg, rgba(93,202,165,0.06), var(--bg3));
-}
-
-.ydelse-card.featured::before {
-  content: 'MEST POPULÆR';
-  position: absolute;
-  top: 20px; right: 20px;
-  font-family: var(--font-display);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--accent);
-  background: rgba(93,202,165,0.12);
-  padding: 4px 10px;
-  border-radius: 100px;
-}
-
-.ydelse-icon {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 24px;
-}
-
-.ydelse-type {
-  font-family: var(--font-display);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  color: var(--muted);
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.ydelse-name {
-  font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-.ydelse-desc {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.65;
-  margin-bottom: 28px;
-}
-
-.ydelse-price {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-  padding: 20px 0 8px;
-  border-top: 1px solid rgba(93,202,165,0.2);
-  margin-top: 16px;
-}
-
-.price-from {
-  font-size: 14px;
-  color: var(--muted);
-  font-weight: 300;
-}
-
-.price-amount {
-  font-family: var(--font-body);
-  font-size: 56px;
-  font-weight: 300;
-  color: var(--accent);
-  line-height: 1;
-  letter-spacing: -2px;
-}
-
-.price-unit {
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--muted);
-}
-
-.price-aftale {
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--accent);
-  padding: 20px 0 8px;
-  border-top: 1px solid rgba(93,202,165,0.2);
-  margin-top: 16px;
-  white-space: nowrap;
-}
-
-.ydelse-list {
-  list-style: none;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.ydelse-list li {
-  font-size: 13px;
-  color: var(--muted);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.ydelse-list li::before {
-  content: '';
-  width: 5px; height: 5px;
-  background: var(--accent);
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-/* ── SÅDAN FUNGERER DET ── */
-#flow {
-  background: var(--bg);
-}
-
-.flow-header {
-  margin-bottom: 64px;
-}
-
-.flow-steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 40px;
-  position: relative;
-}
-
-.flow-step {
-  position: relative;
-}
-
-.step-num {
-  font-family: var(--font-display);
-  font-size: 72px;
-  font-weight: 800;
-  color: rgba(93,202,165,0.08);
-  line-height: 1;
-  margin-bottom: -20px;
-}
-
-.step-title {
-  font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.step-desc {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-/* ── OM DINO ── */
-#om {
-  background: var(--bg2);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.om-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.om-left { }
-
-.om-right {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.om-quote {
-  font-family: var(--font-display);
-  font-size: clamp(22px, 3vw, 32px);
-  font-weight: 600;
-  line-height: 1.35;
-  margin-bottom: 24px;
-}
-
-.om-quote em {
-  color: var(--accent);
-  font-style: normal;
-}
-
-.om-text {
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.75;
-}
-
-.om-stat {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 24px 28px;
-}
-
-.stat-value {
-  font-family: var(--font-display);
-  font-size: 40px;
-  font-weight: 800;
-  color: var(--accent);
-  line-height: 1;
-  margin-bottom: 4px;
-}
-
-.stat-label {
-  font-size: 13px;
-  color: var(--muted);
-}
-
-/* ── BESTIL TID FORM ── */
-#bestil {
-  background: var(--bg2);
-}
-
-.bestil-inner {
-  max-width: 680px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.bestil-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(93,202,165,0.12);
-  border: 1px solid rgba(93,202,165,0.3);
-  border-radius: 100px;
-  padding: 8px 20px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--accent);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 28px;
-}
-
-.bestil-form-card {
-  background: var(--bg3);
-  border: 2px solid rgba(93,202,165,0.25);
-  border-radius: 28px;
-  padding: 52px 48px;
-  margin-top: 48px;
-  box-shadow: 0 0 60px rgba(93,202,165,0.06);
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.form-field {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-.form-field.full {
-  grid-column: 1 / -1;
-}
-
-.form-field label {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-
-.form-field input,
-.form-field select,
-.form-field textarea {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 14px 18px;
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 15px;
-  outline: none;
-  transition: border-color .2s, background .2s;
-  width: 100%;
-}
-
-.form-field input:focus,
-.form-field select:focus,
-.form-field textarea:focus {
-  border-color: var(--accent);
-  background: rgba(93,202,165,0.05);
-}
-
-.form-field input::placeholder,
-.form-field textarea::placeholder {
-  color: rgba(138,136,128,0.5);
-}
-
-.form-field select {
-  appearance: none;
-  cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238a8880' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  padding-right: 40px;
-}
-
-.form-field select option {
-  background: #1c1c1a;
-}
-
-.form-field textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-
-.form-submit {
-  margin-top: 24px;
-}
-
-.btn-submit {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--accent);
-  color: #0c0c0b;
-  font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  padding: 18px 48px;
-  border-radius: 100px;
-  border: none;
-  cursor: pointer;
-  transition: background .2s, transform .2s;
-  width: 100%;
-  justify-content: center;
-}
-
-.btn-submit:hover { background: #7ddbb8; transform: translateY(-2px); }
-
-.form-note {
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 16px;
-}
-
-.form-success {
-  display: none;
-  text-align: center;
-  padding: 32px;
-}
-
-.form-success .success-icon {
-  font-size: 48px;
-  margin-bottom: 16px;
-}
-
-.form-success h3 {
-  font-family: var(--font-display);
-  font-size: 22px;
-  margin-bottom: 8px;
-  color: var(--accent);
-}
-
-/* ── KONTAKT ── */
-#kontakt {
-  background: var(--bg);
-  text-align: center;
-}
-
-.kontakt-inner {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.kontakt-card {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 28px;
-  padding: 56px 48px;
-  margin-top: 52px;
-}
-
-.kontakt-card h3 {
-  font-family: var(--font-display);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  color: var(--muted);
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-
-.phone-number {
-  font-family: var(--font-display);
-  font-size: clamp(32px, 6vw, 52px);
-  font-weight: 800;
-  color: var(--text);
-  text-decoration: none;
-  display: block;
-  margin-bottom: 8px;
-  transition: color .2s;
-}
-
-.phone-number:hover { color: var(--accent); }
-
-.kontakt-area {
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 36px;
-}
-
-.kontakt-hours {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  padding-top: 28px;
-  border-top: 1px solid var(--border);
-  flex-wrap: wrap;
-}
-
-.hour-item {
-  text-align: center;
-}
-
-.hour-day {
-  font-family: var(--font-display);
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: var(--muted);
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.hour-time {
-  font-size: 15px;
-  font-weight: 500;
-}
-
-/* ── FOOTER ── */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 32px 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: var(--muted);
-  font-size: 13px;
-}
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes scrollPulse {
-  0%, 100% { opacity: 1; transform: scaleY(1); }
-  50%       { opacity: 0.4; transform: scaleY(0.7); }
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity .7s ease, transform .7s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: none;
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 768px) {
-  nav { padding: 16px 20px; }
-  .nav-links { display: none; }
-  section { padding: 72px 20px; }
-  .om-grid { grid-template-columns: 1fr; gap: 40px; }
-  footer { flex-direction: column; gap: 12px; text-align: center; }
-  .kontakt-card { padding: 36px 24px; }
-  .bestil-form-card { padding: 36px 24px; }
-  .form-grid { grid-template-columns: 1fr; }
-  .form-field.full { grid-column: 1; }
-}
+  :root {
+    --max: 1240px;
+    --radius: 2px;
+  }
+
+  /* ===== VARIANT A — Editorial / Jordnær håndværk ===== */
+  [data-variant="editorial"] {
+    --bg: #F4EFE6;
+    --bg-2: #ECE5D8;
+    --ink: #1A1712;
+    --ink-2: #3E372C;
+    --muted: #8A7E6A;
+    --line: #C9BDA4;
+    --accent: #9C7B4E;
+    --card: #FBF7EF;
+    --font-display: "Fraunces", "EB Garamond", Georgia, serif;
+    --font-body: "Inter Tight", system-ui, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+    --display-weight: 400;
+    --display-tracking: -0.02em;
+    --h-case: none;
+  }
+
+  /* ===== VARIANT B — Minimal / stor typografi ===== */
+  [data-variant="minimal"] {
+    --bg: #FAFAF7;
+    --bg-2: #F0EDE4;
+    --ink: #0E0E0C;
+    --ink-2: #2A2A26;
+    --muted: #8C8A82;
+    --line: #E3DFD3;
+    --accent: #C4A582;
+    --card: #FFFFFF;
+    --font-display: "Instrument Serif", "EB Garamond", serif;
+    --font-body: "Inter Tight", system-ui, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+    --display-weight: 400;
+    --display-tracking: -0.015em;
+    --h-case: none;
+  }
+
+  /* ===== VARIANT C — Varm / personlig ===== */
+  [data-variant="warm"] {
+    --bg: #EDE5D3;
+    --bg-2: #DFD4BB;
+    --ink: #221A10;
+    --ink-2: #3F3220;
+    --muted: #7A6A52;
+    --line: #C0B295;
+    --accent: #6B4B2A;
+    --card: #F7F0DD;
+    --font-display: "EB Garamond", "Fraunces", Georgia, serif;
+    --font-body: "Inter Tight", system-ui, sans-serif;
+    --font-mono: ui-monospace, Menlo, monospace;
+    --display-weight: 500;
+    --display-tracking: -0.005em;
+    --h-case: none;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+  body { font-size: 16px; line-height: 1.55; font-weight: 400; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  img { display: block; max-width: 100%; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+  @media (max-width: 720px) { .wrap { padding: 0 20px; } }
+
+  /* ===== NAV ===== */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in oklab, var(--bg) 85%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid color-mix(in oklab, var(--line) 40%, transparent);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  .brand {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: var(--display-weight);
+    letter-spacing: 0.02em;
+  }
+  [data-variant="minimal"] .brand { font-style: italic; letter-spacing: 0; }
+  [data-variant="editorial"] .brand { letter-spacing: 0.14em; font-size: 16px; text-transform: uppercase; font-weight: 500; }
+  [data-variant="warm"] .brand { font-size: 24px; }
+
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a { font-size: 14px; color: var(--ink-2); letter-spacing: 0.01em; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    border: 1px solid var(--ink);
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    transition: background .2s, color .2s;
+  }
+  .nav-cta:hover { background: var(--ink); color: var(--bg); }
+  @media (max-width: 720px) { .nav-links { display: none; } .nav-cta { display: inline-block; } }
+
+  /* ===== HERO ===== */
+  .hero { padding: 72px 0 96px; }
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 28px;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .hero-eyebrow::before {
+    content: ""; width: 32px; height: 1px; background: var(--muted); display: inline-block;
+  }
+
+  /* Editorial hero: split */
+  [data-variant="editorial"] .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 56px;
+    align-items: end;
+  }
+  [data-variant="editorial"] .hero-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(52px, 8vw, 112px);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+  [data-variant="editorial"] .hero-title em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 300;
+  }
+  [data-variant="editorial"] .hero-sub {
+    font-size: 17px; color: var(--ink-2); max-width: 46ch; margin-top: 28px;
+  }
+  [data-variant="editorial"] .hero-image {
+    aspect-ratio: 4/5;
+    background-size: cover; background-position: center;
+    border-radius: 2px;
+    position: relative;
+  }
+  [data-variant="editorial"] .hero-caption {
+    position: absolute; bottom: -28px; left: 0;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em;
+    color: var(--muted); text-transform: uppercase;
+  }
+
+  /* Minimal hero: massive type, centered */
+  [data-variant="minimal"] .hero { padding: 120px 0 100px; text-align: center; }
+  [data-variant="minimal"] .hero-eyebrow { justify-content: center; }
+  [data-variant="minimal"] .hero-eyebrow::before { display: none; }
+  [data-variant="minimal"] .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(64px, 12vw, 180px);
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    max-width: 12ch;
+    margin: 0 auto;
+  }
+  [data-variant="minimal"] .hero-title em { font-style: italic; color: var(--ink); }
+  [data-variant="minimal"] .hero-sub {
+    font-size: 18px; color: var(--ink-2); max-width: 44ch; margin: 32px auto 40px; line-height: 1.5;
+  }
+  [data-variant="minimal"] .hero-image {
+    aspect-ratio: 16/7;
+    background-size: cover; background-position: center;
+    margin-top: 64px;
+    border-radius: 2px;
+  }
+  [data-variant="minimal"] .hero-ctas { display: flex; gap: 12px; justify-content: center; }
+
+  /* Warm hero: large, left, portrait inset */
+  [data-variant="warm"] .hero-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 48px;
+    align-items: stretch;
+  }
+  [data-variant="warm"] .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 9vw, 128px);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+  }
+  [data-variant="warm"] .hero-title em { font-style: italic; color: var(--accent); font-weight: 400; }
+  [data-variant="warm"] .hero-sub { font-size: 18px; color: var(--ink-2); max-width: 42ch; margin-top: 24px; }
+  [data-variant="warm"] .hero-image {
+    aspect-ratio: 3/4;
+    background-size: cover; background-position: center;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr !important; }
+    .hero-image { aspect-ratio: 4/3 !important; }
+  }
+
+  /* CTAs */
+  .cta-row { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 24px; border-radius: 999px;
+    font-size: 14px; letter-spacing: 0.01em;
+    transition: transform .15s, background .2s, color .2s;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--ink); color: var(--bg); }
+  .btn-primary:hover { background: var(--accent); }
+  .btn-ghost { border: 1px solid var(--line); color: var(--ink); }
+  .btn-ghost:hover { border-color: var(--ink); }
+
+  /* ===== MARQUEE ===== */
+  .marquee {
+    overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    padding: 18px 0; background: var(--bg-2);
+  }
+  .marquee-inner { display: flex; gap: 48px; animation: marq 40s linear infinite; white-space: nowrap; }
+  .marquee-item {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em;
+    color: var(--ink-2); text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 48px;
+  }
+  .marquee-item::after { content: "✦"; color: var(--accent); }
+  @keyframes marq { to { transform: translateX(-50%); } }
+
+  /* ===== SECTION HEADS ===== */
+  section { padding: 96px 0; scroll-margin-top: 80px; }
+  .section-head { display: grid; grid-template-columns: 200px 1fr; gap: 48px; margin-bottom: 64px; align-items: start; }
+  .section-label {
+    font-family: var(--font-mono); font-size: 12px;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+    padding-top: 18px;
+  }
+  .section-label::before { content: "— "; }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.02; letter-spacing: var(--display-tracking);
+    font-weight: var(--display-weight);
+    max-width: 18ch;
+  }
+  [data-variant="minimal"] .section-title { font-weight: 400; }
+  [data-variant="editorial"] .section-title em { font-style: italic; font-weight: 300; color: var(--accent); }
+  [data-variant="minimal"] .section-title em { font-style: italic; }
+  [data-variant="warm"] .section-title em { font-style: italic; color: var(--accent); font-weight: 400; }
+
+  @media (max-width: 720px) {
+    .section-head { grid-template-columns: 1fr; gap: 16px; }
+    section { padding: 64px 0; }
+  }
+
+  /* ===== PRICES ===== */
+  .prices {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    border-top: 1px solid var(--line);
+  }
+  .price-card {
+    padding: 40px 32px 36px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--bg);
+    position: relative;
+    transition: background .2s;
+  }
+  .price-card:last-child { border-right: none; }
+  .price-card:hover { background: var(--card); }
+  .price-card.featured { background: var(--card); }
+  .price-card.featured::before {
+    content: "Populær";
+    position: absolute; top: 16px; right: 16px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent);
+    border: 1px solid var(--accent); padding: 4px 8px; border-radius: 999px;
+  }
+  .price-type {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em;
+    color: var(--muted); text-transform: uppercase;
+  }
+  .price-name {
+    font-family: var(--font-display); font-size: 32px; line-height: 1.1;
+    letter-spacing: -0.01em; margin-top: 6px;
+    font-weight: var(--display-weight);
+  }
+  .price-value {
+    display: flex; align-items: baseline; gap: 6px;
+    margin: 28px 0 20px;
+  }
+  .price-number {
+    font-family: var(--font-display); font-size: 64px; line-height: 1;
+    font-weight: var(--display-weight); letter-spacing: -0.02em;
+  }
+  [data-variant="editorial"] .price-number { font-weight: 300; }
+  .price-unit { font-family: var(--font-mono); font-size: 13px; color: var(--muted); letter-spacing: 0.05em; }
+  .price-desc { font-size: 14px; color: var(--ink-2); margin-bottom: 24px; line-height: 1.5; }
+  .price-list { list-style: none; padding: 0; margin: 0 0 32px; font-size: 14px; color: var(--ink-2); }
+  .price-list li {
+    padding: 10px 0; border-top: 1px solid color-mix(in oklab, var(--line) 60%, transparent);
+    display: flex; gap: 10px; align-items: baseline;
+  }
+  .price-list li::before {
+    content: "+"; color: var(--accent); font-family: var(--font-mono);
+  }
+  .price-book {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink);
+    border-bottom: 1px solid var(--ink); padding-bottom: 4px;
+    display: inline-block; transition: color .2s;
+  }
+  .price-book:hover { color: var(--accent); border-color: var(--accent); }
+
+  @media (max-width: 900px) {
+    .prices { grid-template-columns: repeat(2, 1fr); }
+    .price-card:nth-child(2) { border-right: none; }
+  }
+  @media (max-width: 560px) {
+    .prices { grid-template-columns: 1fr; }
+    .price-card { border-right: none; }
+  }
+
+  /* ===== FRADRAG / BEREGNER ===== */
+  .fradrag { background: var(--bg-2); }
+  .fradrag-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  @media (max-width: 900px) { .fradrag-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  .calc {
+    background: var(--card); padding: 36px; border-radius: 2px;
+    border: 1px solid var(--line);
+  }
+  .calc h4 {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 24px;
+    font-weight: 400;
+  }
+  .calc-field { margin-bottom: 22px; }
+  .calc-field label { display: block; font-size: 13px; color: var(--ink-2); margin-bottom: 8px; }
+  .calc-select, .calc-range {
+    width: 100%; padding: 12px 14px; font: inherit; font-size: 15px;
+    background: var(--bg); border: 1px solid var(--line); border-radius: 2px;
+    color: var(--ink);
+  }
+  .calc-range { padding: 0; accent-color: var(--ink); }
+  .calc-rows { border-top: 1px solid var(--line); margin-top: 28px; padding-top: 20px; }
+  .calc-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 10px 0; font-size: 14px; color: var(--ink-2);
+  }
+  .calc-row.total {
+    font-family: var(--font-display); font-size: 20px; color: var(--ink);
+    border-top: 1px solid var(--line); margin-top: 12px; padding-top: 16px;
+  }
+  .calc-row.total .val {
+    font-size: 32px; font-weight: var(--display-weight); letter-spacing: -0.01em;
+  }
+  .calc-save {
+    background: var(--ink); color: var(--bg); padding: 14px 18px;
+    text-align: center; margin-top: 16px; border-radius: 2px;
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .fradrag-text p { font-size: 17px; color: var(--ink-2); margin-bottom: 20px; max-width: 44ch; }
+  .fradrag-text strong { color: var(--ink); font-weight: 500; }
+  .fradrag-note {
+    background: var(--card); border-left: 2px solid var(--accent);
+    padding: 20px 24px; margin-top: 32px; font-size: 14px; color: var(--ink-2);
+    border-radius: 0 2px 2px 0;
+  }
+
+  /* ===== FLOW / PROCESS ===== */
+  .flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); }
+  .flow-step {
+    padding: 48px 36px 40px;
+    border-right: 1px solid var(--line);
+    position: relative;
+  }
+  .flow-step:last-child { border-right: none; }
+  .flow-num {
+    font-family: var(--font-display); font-size: 80px; line-height: 1;
+    letter-spacing: -0.02em; color: var(--accent);
+    font-weight: var(--display-weight); margin-bottom: 24px;
+  }
+  [data-variant="editorial"] .flow-num { font-weight: 300; font-style: italic; }
+  .flow-step h3 {
+    font-family: var(--font-display); font-size: 26px; line-height: 1.15;
+    font-weight: var(--display-weight); letter-spacing: -0.01em;
+    margin-bottom: 12px;
+  }
+  .flow-step p { font-size: 15px; color: var(--ink-2); line-height: 1.55; max-width: 28ch; }
+  @media (max-width: 900px) {
+    .flow { grid-template-columns: 1fr; }
+    .flow-step { border-right: none; border-bottom: 1px solid var(--line); }
+    .flow-step:last-child { border-bottom: none; }
+  }
+
+  /* ===== GALLERY ===== */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    grid-template-rows: 360px 260px;
+    gap: 12px;
+  }
+  .gallery-item {
+    background-size: cover; background-position: center;
+    border-radius: 2px; overflow: hidden;
+    position: relative;
+    transition: transform .4s ease;
+  }
+  .gallery-item:hover { transform: scale(1.01); }
+  .gallery-item:nth-child(1) { grid-row: span 2; }
+  .gallery-item:nth-child(2) { grid-column: span 2; }
+  @media (max-width: 720px) {
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gallery-item:nth-child(1), .gallery-item:nth-child(2) { grid-column: auto; grid-row: auto; }
+    .gallery-item { aspect-ratio: 4/3; }
+  }
+
+  /* ===== DINO STRIP (subtle) ===== */
+  .dino {
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 56px; align-items: center;
+    padding: 40px 0;
+  }
+  .dino-img {
+    aspect-ratio: 4/5; background-size: cover; background-position: center top;
+    border-radius: 2px;
+  }
+  .dino-text p { font-size: 17px; color: var(--ink-2); margin-bottom: 16px; max-width: 48ch; }
+  .dino-text .lead {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3vw, 36px); line-height: 1.25;
+    color: var(--ink); margin-bottom: 24px;
+    font-weight: var(--display-weight); letter-spacing: -0.01em;
+  }
+  [data-variant="editorial"] .dino-text .lead em { font-style: italic; color: var(--accent); font-weight: 300; }
+  .dino-meta {
+    display: flex; gap: 32px; margin-top: 32px;
+    padding-top: 24px; border-top: 1px solid var(--line);
+  }
+  .dino-meta strong {
+    display: block; font-family: var(--font-display); font-size: 28px;
+    font-weight: var(--display-weight); letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+  .dino-meta span { font-size: 13px; color: var(--muted); }
+  @media (max-width: 720px) { .dino { grid-template-columns: 1fr; } }
+
+  /* ===== BESTIL / FORM ===== */
+  .bestil { background: var(--ink); color: var(--bg); }
+  .bestil .section-label { color: color-mix(in oklab, var(--bg) 50%, transparent); }
+  .bestil .section-title { color: var(--bg); }
+  .bestil-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  .bestil-lead p { color: color-mix(in oklab, var(--bg) 80%, transparent); font-size: 17px; margin-bottom: 16px; max-width: 40ch; }
+  .bestil-perks { margin-top: 40px; }
+  .bestil-perk {
+    display: flex; gap: 16px; padding: 16px 0;
+    border-top: 1px solid color-mix(in oklab, var(--bg) 20%, transparent);
+    font-size: 14px; color: color-mix(in oklab, var(--bg) 80%, transparent);
+  }
+  .bestil-perk-num { font-family: var(--font-mono); color: var(--accent); font-size: 12px; }
+  .bestil-form { background: color-mix(in oklab, var(--bg) 8%, transparent); padding: 36px; border-radius: 2px; }
+  .form-field { margin-bottom: 20px; }
+  .form-field label {
+    display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: color-mix(in oklab, var(--bg) 60%, transparent); margin-bottom: 8px;
+  }
+  .form-field input, .form-field select, .form-field textarea {
+    width: 100%; padding: 12px 0; font: inherit; font-size: 15px;
+    background: transparent; border: none;
+    border-bottom: 1px solid color-mix(in oklab, var(--bg) 25%, transparent);
+    color: var(--bg); outline: none;
+    transition: border-color .2s;
+  }
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+    border-color: var(--accent);
+  }
+  .form-field select option { background: var(--ink); color: var(--bg); }
+  .form-field textarea { min-height: 60px; resize: vertical; }
+  .form-submit {
+    background: var(--bg); color: var(--ink);
+    padding: 16px 28px; margin-top: 12px; border-radius: 999px;
+    font-size: 14px; letter-spacing: 0.02em;
+    width: 100%;
+    transition: background .2s;
+  }
+  .form-submit:hover { background: var(--accent); color: var(--bg); }
+  .form-submit:disabled { opacity: 0.6; cursor: wait; }
+  @media (max-width: 900px) { .bestil-grid { grid-template-columns: 1fr; } }
+
+  /* ===== FAQ ===== */
+  .faq-list { border-top: 1px solid var(--line); }
+  .faq-item { border-bottom: 1px solid var(--line); }
+  .faq-q {
+    width: 100%; text-align: left; padding: 28px 0;
+    display: flex; justify-content: space-between; align-items: center; gap: 24px;
+    font-family: var(--font-display); font-size: 22px; letter-spacing: -0.005em;
+    font-weight: var(--display-weight);
+    color: var(--ink);
+  }
+  [data-variant="minimal"] .faq-q { font-weight: 400; }
+  .faq-q .icon {
+    font-family: var(--font-mono); font-size: 20px; color: var(--muted);
+    flex-shrink: 0; transition: transform .2s, color .2s;
+  }
+  .faq-item.open .faq-q .icon { transform: rotate(45deg); color: var(--accent); }
+  .faq-a {
+    max-height: 0; overflow: hidden; transition: max-height .3s ease;
+    color: var(--ink-2); font-size: 15px; line-height: 1.6;
+  }
+  .faq-item.open .faq-a { max-height: 300px; padding-bottom: 28px; }
+  .faq-a p { max-width: 64ch; }
+
+  /* ===== FOOTER ===== */
+  footer { padding: 80px 0 40px; border-top: 1px solid var(--line); }
+  .foot-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
+  .foot-brand {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 0.95; letter-spacing: -0.02em;
+    font-weight: var(--display-weight);
+  }
+  [data-variant="editorial"] .foot-brand em { font-style: italic; color: var(--accent); font-weight: 300; }
+  [data-variant="minimal"] .foot-brand em { font-style: italic; }
+  [data-variant="warm"] .foot-brand em { font-style: italic; color: var(--accent); }
+  .foot-col h5 {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 16px;
+    font-weight: 400;
+  }
+  .foot-col a, .foot-col p { font-size: 14px; color: var(--ink-2); display: block; margin-bottom: 8px; }
+  .foot-col a:hover { color: var(--ink); }
+  .foot-bot {
+    display: flex; justify-content: space-between;
+    padding-top: 32px; border-top: 1px solid var(--line);
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  @media (max-width: 720px) { .foot-grid { grid-template-columns: 1fr 1fr; gap: 40px 24px; } .foot-bot { flex-direction: column; gap: 12px; } }
+
+  /* ===== TWEAKS PANEL (synlig så du kan skifte variant) ===== */
+  #tweaks-toggle {
+    position: fixed; right: 20px; bottom: 20px; z-index: 101;
+    background: var(--ink); color: var(--bg);
+    border-radius: 999px; padding: 12px 18px;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  }
+  #tweaks {
+    position: fixed; right: 20px; bottom: 72px; z-index: 100;
+    background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+    padding: 18px; width: 260px;
+    font-family: var(--font-body); font-size: 13px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    display: none;
+  }
+  #tweaks.show { display: block; }
+  #tweaks h4 {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 14px;
+    font-weight: 400;
+  }
+  .tweak-opt {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 0; cursor: pointer; border-top: 1px solid var(--line);
+  }
+  .tweak-opt:first-of-type { border-top: none; }
+  .tweak-opt .label { font-weight: 500; color: var(--ink); }
+  .tweak-opt .desc { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .tweak-opt input[type="radio"] { margin-left: 12px; accent-color: var(--ink); }
 </style>
 </head>
-<body>
+<body data-variant="warm">
 
 <!-- NAV -->
-<nav>
-  <a href="#hero" class="nav-logo">
-    <svg class="nav-mark" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="1.5" y="1.5" width="25" height="25" rx="4" stroke="#f0ede6" stroke-width="2"/>
-      <line x1="14" y1="1.5" x2="14" y2="26.5" stroke="#f0ede6" stroke-width="1.2"/>
-      <line x1="1.5" y1="14" x2="26.5" y2="14" stroke="#f0ede6" stroke-width="1.2"/>
-      <circle cx="20" cy="7.5" r="2.5" fill="#5DCAA5"/>
-    </svg>
-    <span class="nav-wordmark">DITVINDUE</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#ydelser">Priser</a></li>
-    <li><a href="#flow">Sådan fungerer det</a></li>
-    <li><a href="#om">Om Dino</a></li>
-    <li><a href="#bestil" class="nav-cta">Bestil tid</a></li>
-  </ul>
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">DITVINDUE</a>
+    <div class="nav-links">
+      <a href="#priser">Priser</a>
+      <a href="#fradrag">Servicefradrag</a>
+      <a href="#flow">Sådan gør vi</a>
+      <a href="#bestil">Bestil tid</a>
+    </div>
+    <a href="#bestil" class="nav-cta">Bestil tid</a>
+  </div>
 </nav>
 
 <!-- HERO -->
-<section id="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-
-  <div class="hero-badge">Lokal vinduesservice</div>
-
-  <div class="hero-logo-mark">
-    <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="3" y="3" width="84" height="84" rx="10" stroke="#f0ede6" stroke-width="3"/>
-      <line x1="45" y1="3" x2="45" y2="87" stroke="#f0ede6" stroke-width="2"/>
-      <line x1="3" y1="45" x2="87" y2="45" stroke="#f0ede6" stroke-width="2"/>
-      <circle cx="65" cy="24" r="6" fill="#5DCAA5"/>
-      <line x1="65" y1="14" x2="65" y2="10" stroke="#5DCAA5" stroke-width="2" stroke-linecap="round"/>
-      <line x1="74" y1="18" x2="77" y2="15" stroke="#5DCAA5" stroke-width="2" stroke-linecap="round"/>
-      <line x1="75" y1="24" x2="79" y2="24" stroke="#5DCAA5" stroke-width="2" stroke-linecap="round"/>
-    </svg>
-  </div>
-
-  <h1>DITVINDUE</h1>
-  <p class="hero-tagline">Resultater du kan <span>se igennem</span></p>
-
-  <div class="hero-ctas">
-    <a href="#bestil" class="btn-primary">Bestil tid online</a>
-    <a href="#ydelser" class="btn-secondary">Se priser</a>
-  </div>
-
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-  </div>
-</section>
-
-<!-- YDELSER -->
-<section id="ydelser">
-  <div class="section-inner">
-    <div class="ydelser-header reveal">
-      <div class="section-label">Priser</div>
-      <h2 class="section-title">Enkle priser.<br>Ingen overraskelser.</h2>
-      <p class="section-sub">Fast pris uanset størrelse. Betaling kontant eller MobilePay efter udført arbejde.</p>
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-eyebrow">Lokal vinduesservice · Nyborg og omegn</div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">Klare vinduer.<br/><em>Klar udsigt.</em></h1>
+        <p class="hero-sub">Udvendig vinduespudsning til fast, ærlig pris — fra 69 kr. Ingen overraskelser, ingen transporttillæg. Tid inden for få dage i Nyborg og omegn.</p>
+        <div class="cta-row">
+          <a href="#bestil" class="btn btn-primary">Bestil tid online →</a>
+          <a href="#priser" class="btn btn-ghost">Se priser</a>
+        </div>
+      </div>
+      <div class="hero-image" style="background-image:url('billeder/hero-ny.webp')">
+        <div class="hero-caption">Fig. 01 — Nyborg, 2026</div>
+      </div>
     </div>
+  </div>
+</header>
 
-    <div class="ydelser-grid">
-      <div class="ydelse-card reveal">
-        <svg class="ydelse-icon" viewBox="0 0 48 48" fill="none">
-          <rect x="4" y="12" width="40" height="32" rx="4" stroke="#8a8880" stroke-width="1.5"/>
-          <line x1="24" y1="12" x2="24" y2="44" stroke="#8a8880" stroke-width="1"/>
-          <line x1="4" y1="28" x2="44" y2="28" stroke="#8a8880" stroke-width="1"/>
-          <path d="M14 4 L24 12 L34 4" stroke="#8a8880" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
-        </svg>
-        <div class="ydelse-type">Type</div>
-        <div class="ydelse-name">Rækkehus</div>
-        <div class="ydelse-desc">Udvendig vinduespudsning af alle ruder – uanset størrelse. Hurtigt overstået på under en time.</div>
-        <div class="ydelse-price">
-          <span class="price-amount">99</span>
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-inner">
+    <span class="marquee-item">Fast pris fra 69 kr.</span>
+    <span class="marquee-item">Lokal i Nyborg</span>
+    <span class="marquee-item">MobilePay &amp; kontant</span>
+    <span class="marquee-item">100% tilfredshed</span>
+    <span class="marquee-item">Tid inden for få dage</span>
+    <span class="marquee-item">Ingen transporttillæg</span>
+    <span class="marquee-item">Servicefradrag godkendt</span>
+    <span class="marquee-item">Fast pris fra 69 kr.</span>
+    <span class="marquee-item">Lokal i Nyborg</span>
+    <span class="marquee-item">MobilePay &amp; kontant</span>
+    <span class="marquee-item">100% tilfredshed</span>
+    <span class="marquee-item">Tid inden for få dage</span>
+    <span class="marquee-item">Ingen transporttillæg</span>
+    <span class="marquee-item">Servicefradrag godkendt</span>
+  </div>
+</div>
+
+<!-- PRICES -->
+<section id="priser">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">01 / Priser</div>
+      <h2 class="section-title">Enkle priser. <em>Ingen overraskelser.</em></h2>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="prices">
+      <div class="price-card">
+        <div class="price-type">Boligtype</div>
+        <h3 class="price-name">Stuelejlighed</h3>
+        <div class="price-value">
+          <span class="price-number">69</span>
           <span class="price-unit">kr.</span>
         </div>
-        <ul class="ydelse-list">
+        <p class="price-desc">Udvendig vinduespudsning af alle ruder i stueplan — hurtigt og grundigt.</p>
+        <ul class="price-list">
+          <li>Alle udvendige ruder i stueplan</li>
+          <li>Karme aftørres</li>
+          <li>MobilePay / kontant</li>
+        </ul>
+        <a href="#bestil" class="price-book">Bestil →</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-type">Boligtype</div>
+        <h3 class="price-name">Rækkehus</h3>
+        <div class="price-value">
+          <span class="price-number">99</span>
+          <span class="price-unit">kr.</span>
+        </div>
+        <p class="price-desc">Alle ruder — uanset størrelse. Typisk overstået på under en time.</p>
+        <ul class="price-list">
           <li>Alle udvendige ruder</li>
           <li>Karme aftørres</li>
           <li>MobilePay / kontant</li>
         </ul>
+        <a href="#bestil" class="price-book">Bestil →</a>
       </div>
 
-      <div class="ydelse-card featured reveal">
-        <svg class="ydelse-icon" viewBox="0 0 48 48" fill="none">
-          <rect x="4" y="16" width="40" height="28" rx="4" stroke="#5DCAA5" stroke-width="1.5"/>
-          <line x1="24" y1="16" x2="24" y2="44" stroke="#5DCAA5" stroke-width="1"/>
-          <line x1="4" y1="30" x2="44" y2="30" stroke="#5DCAA5" stroke-width="1"/>
-          <rect x="10" y="6" width="28" height="16" rx="3" stroke="#5DCAA5" stroke-width="1.5"/>
-          <line x1="24" y1="6" x2="24" y2="22" stroke="#5DCAA5" stroke-width="1"/>
-          <circle cx="35" cy="12" r="3" fill="#5DCAA5" opacity="0.6"/>
-        </svg>
-        <div class="ydelse-type">Type</div>
-        <div class="ydelse-name">Parcelhus</div>
-        <div class="ydelse-desc">Komplet udvendig vinduespudsning af alle ruder inkl. terrassedøre – uanset størrelse.</div>
-        <div class="ydelse-price">
-          <span class="price-amount">149</span>
+      <div class="price-card">
+        <div class="price-type">Boligtype</div>
+        <h3 class="price-name">Parcelhus</h3>
+        <div class="price-value">
+          <span class="price-number">149</span>
           <span class="price-unit">kr.</span>
         </div>
-        <ul class="ydelse-list">
+        <p class="price-desc">Komplet udvendig pudsning af alle ruder inkl. terrassedøre — kun 1-plans.</p>
+        <ul class="price-list">
           <li>Alle udvendige ruder</li>
           <li>Terrassedøre inkluderet</li>
           <li>Karme aftørres</li>
-          <li>MobilePay / kontant</li>
         </ul>
+        <a href="#bestil" class="price-book">Bestil →</a>
       </div>
 
-      <div class="ydelse-card reveal">
-        <svg class="ydelse-icon" viewBox="0 0 48 48" fill="none">
-          <rect x="6" y="8" width="36" height="36" rx="4" stroke="#8a8880" stroke-width="1.5"/>
-          <line x1="22" y1="8" x2="22" y2="44" stroke="#8a8880" stroke-width="1"/>
-          <line x1="6" y1="24" x2="42" y2="24" stroke="#8a8880" stroke-width="1"/>
-          <line x1="32" y1="8" x2="32" y2="44" stroke="#8a8880" stroke-width="1"/>
-          <line x1="6" y1="34" x2="42" y2="34" stroke="#8a8880" stroke-width="1"/>
-        </svg>
-        <div class="ydelse-type">Type</div>
-        <div class="ydelse-name">Erhverv</div>
-        <div class="ydelse-desc">Butikker, kontorer og virksomheder. Fast pris aftales inden opstart – ingen overraskelser.</div>
-        <div class="price-aftale">Efter aftale</div>
-        <ul class="ydelse-list">
+      <div class="price-card">
+        <div class="price-type">Boligtype</div>
+        <h3 class="price-name">Erhverv</h3>
+        <div class="price-value">
+          <span class="price-number" style="font-size:40px">Efter aftale</span>
+        </div>
+        <p class="price-desc">Butikker, kontorer og virksomheder. Fast pris aftales før opstart.</p>
+        <ul class="price-list">
           <li>Gratis besigtigelse</li>
           <li>Fast abonnementspris</li>
         </ul>
+        <a href="#bestil" class="price-book">Kontakt →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRADRAG -->
+<section id="fradrag" class="fradrag">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">02 / Servicefradrag</div>
+      <h2 class="section-title">Få <em>35 %</em> tilbage i skat.</h2>
+    </div>
+    <div class="fradrag-grid">
+      <div class="fradrag-text">
+        <p>Vinduespudsning er godkendt under <strong>BoligJobordningen</strong> — også kaldet servicefradrag. Det betyder, at du kan trække 35 % af prisen fra i skat.</p>
+        <p>Du indberetter beløbet til Skat via TastSelv, og fradraget modregnes automatisk i din årsopgørelse. Ingen papirarbejde — bare en lavere regning i praksis.</p>
+        <div class="fradrag-note">
+          Gælder for <strong>ejere og lejere</strong> af helårsbeboelse. Maks. fradrag er <strong>6.400 kr. per person</strong> om året.
+        </div>
+      </div>
+      <div class="calc">
+        <h4>Beregn din reelle pris</h4>
+        <div class="calc-field">
+          <label for="c-type">Boligtype</label>
+          <select id="c-type" class="calc-select">
+            <option value="69">Stuelejlighed — 69 kr.</option>
+            <option value="99">Rækkehus — 99 kr.</option>
+            <option value="149" selected>Parcelhus (1 plan) — 149 kr.</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label for="c-times"><span>Antal gange om året</span> · <span id="c-times-val">4</span> gange</label>
+          <input id="c-times" class="calc-range" type="range" min="1" max="12" value="4"/>
+        </div>
+        <div class="calc-rows">
+          <div class="calc-row"><span>Pris per gang</span><span id="c-per">149 kr.</span></div>
+          <div class="calc-row"><span>Samlet pris per år</span><span id="c-year">596 kr.</span></div>
+          <div class="calc-row"><span>Servicefradrag (35 %)</span><span id="c-deduct">− 209 kr.</span></div>
+          <div class="calc-row total"><span>Du betaler reelt</span><span class="val" id="c-real">387 kr.</span></div>
+        </div>
+        <div class="calc-save">Du sparer <span id="c-save">209 kr.</span> om året</div>
       </div>
     </div>
   </div>
@@ -935,154 +776,153 @@ footer {
 
 <!-- FLOW -->
 <section id="flow">
-  <div class="section-inner">
-    <div class="flow-header reveal">
-      <div class="section-label">Processen</div>
-      <h2 class="section-title">Sådan fungerer det</h2>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">03 / Processen</div>
+      <h2 class="section-title">Sådan <em>fungerer det.</em></h2>
     </div>
-    <div class="flow-steps">
-      <div class="flow-step reveal">
-        <div class="step-num">01</div>
-        <h3 class="step-title">Ring eller skriv</h3>
-        <p class="step-desc">Kontakt Dino direkte på telefon eller SMS. Vi finder hurtigt en tid der passer dig – typisk inden for få dage.</p>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num">01</div>
+        <h3>Ring eller skriv</h3>
+        <p>Kontakt os direkte på telefon eller SMS. Vi finder hurtigt en tid — typisk inden for få dage.</p>
       </div>
-      <div class="flow-step reveal">
-        <div class="step-num">02</div>
-        <h3 class="step-title">Vi kommer til dig</h3>
-        <p class="step-desc">Dino møder op til aftalt tid med alt udstyr. Du behøver ikke gøre noget – bare åbn for adgang.</p>
+      <div class="flow-step">
+        <div class="flow-num">02</div>
+        <h3>Vi kommer til dig</h3>
+        <p>Vi møder op til aftalt tid med alt udstyr. Du behøver ikke gøre noget — bare åbn for adgang.</p>
       </div>
-      <div class="flow-step reveal">
-        <div class="step-num">03</div>
-        <h3 class="step-title">Klart resultat</h3>
-        <p class="step-desc">Når vi er færdige, ser du forskellen med det samme. Betal med MobilePay eller kontant – og book igen når det trænger.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- OM DINO -->
-<section id="om">
-  <div class="section-inner">
-    <div class="om-grid">
-      <div class="om-left reveal">
-        <div class="section-label">Om mig</div>
-        <p class="om-quote">Jeg gør det ordentligt, <em>hver gang</em> – ikke kun første gang.</p>
-        <p class="om-text">Jeg hedder Dino, er 16 år og driver DITVINDUE som min egen virksomhed. Jeg er vokset op med at tage ansvar for mine opgaver og gøre tingene grundigt.</p>
-        <br>
-        <p class="om-text">Med DITVINDUE vil jeg vise, at man godt kan levere et professionelt resultat – selv om man er ung. Det gælder om at møde til tiden, arbejde grundigt og sikre at du er tilfreds.</p>
-      </div>
-      <div class="om-right">
-        <div class="om-stat reveal">
-          <div class="stat-value">100%</div>
-          <div class="stat-label">Tilfredshed – vi er ikke færdige før du er glad</div>
-        </div>
-        <div class="om-stat reveal">
-          <div class="stat-value">Lokalt</div>
-          <div class="stat-label">Kører ud til dig i Nyborg og omegn – ingen transporttillæg</div>
-        </div>
+      <div class="flow-step">
+        <div class="flow-num">03</div>
+        <h3>Klart resultat</h3>
+        <p>Når vi er færdige, ser du forskellen med det samme. Betal med MobilePay eller kontant.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BESTIL TID -->
-<section id="bestil">
-  <div class="bestil-inner">
-    <div class="reveal">
-      <div class="bestil-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
-        Bestil tid online
-      </div>
-      <h2 class="section-title">Få rene vinduer<br>– nemt og hurtigt</h2>
-      <p class="section-sub" style="margin: 0 auto;">Udfyld formularen, så kontakter Dino dig inden for 24 timer med tid og pris.</p>
+<!-- GALLERY -->
+<section id="galleri">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">04 / Vores arbejde</div>
+      <h2 class="section-title">Se <em>resultatet</em> selv.</h2>
     </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" style="background-image:url('billeder/slider-1.webp')"></div>
+      <div class="gallery-item" style="background-image:url('billeder/slider-3.webp')"></div>
+      <div class="gallery-item" style="background-image:url('billeder/slider-2.webp')"></div>
+      <div class="gallery-item" style="background-image:url('billeder/slider-4.webp')"></div>
+      <div class="gallery-item" style="background-image:url('billeder/slider-5.webp')"></div>
+    </div>
+  </div>
+</section>
 
-    <div class="bestil-form-card reveal">
-      <form id="booking-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <div class="form-grid">
-          <div class="form-field">
-            <label for="navn">Dit navn</label>
-            <input type="text" id="navn" name="navn" placeholder="Jens Hansen" required>
-          </div>
-          <div class="form-field">
-            <label for="telefon">Telefonnummer</label>
-            <input type="tel" id="telefon" name="telefon" placeholder="12 34 56 78" required>
-          </div>
-          <div class="form-field full">
-            <label for="adresse">Adresse (hvor skal vi puds?)</label>
-            <input type="text" id="adresse" name="adresse" placeholder="Eksempelvej 12, 5800 Nyborg" required>
-          </div>
-          <div class="form-field">
-            <label for="boligtype">Boligtype</label>
-            <select id="boligtype" name="boligtype">
-              <option value="">Vælg type</option>
-              <option value="Rækkehus – 99 kr.">Rækkehus – fra 99 kr.</option>
-              <option value="Parcelhus – 149 kr.">Parcelhus – fra 149 kr.</option>
-              <option value="Andet">Andet / ved ikke</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="tidspunkt">Ønsket tidspunkt</label>
-            <select id="tidspunkt" name="tidspunkt">
-              <option value="">Fleksibel</option>
-              <option value="Hverdag eftermiddag">Hverdag eftermiddag</option>
-              <option value="Lørdag">Lørdag</option>
-              <option value="Søndag">Søndag</option>
-            </select>
-          </div>
-          <div class="form-field full">
-            <label for="besked">Særlige ønsker <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:11px;">(valgfri)</span></label>
-            <textarea id="besked" name="besked" placeholder="Fx mange vinduer, svært tilgængeligt, indvendigt også..."></textarea>
-          </div>
+<!-- DINO (subtle) -->
+<section id="om" style="padding-top:40px">
+  <div class="wrap">
+    <div class="dino">
+      <div class="dino-img" style="background-image:url('billeder/om-portræt.webp')"></div>
+      <div class="dino-text">
+        <div class="section-label" style="padding-top:0; margin-bottom:24px;">Bag DITVINDUE</div>
+        <p class="lead">Jeg gør det <em>ordentligt</em>, hver gang — ikke kun første gang.</p>
+        <p>Dino er manden bag DITVINDUE. Mødetid, grundighed og et resultat du kan se igennem — det er hele forretningen.</p>
+        <div class="dino-meta">
+          <div><strong>100 %</strong><span>Tilfredshedsgaranti</span></div>
+          <div><strong>25 km</strong><span>Radius fra Nyborg</span></div>
+          <div><strong>&lt; 12 t</strong><span>Svartid</span></div>
         </div>
-        <input type="hidden" name="_subject" value="Ny bestilling – DITVINDUE">
-        <input type="hidden" name="_replyto" value="">
-        <div class="form-submit">
-          <button type="submit" class="btn-submit">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
-            Send bestilling
-          </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BESTIL -->
+<section id="bestil" class="bestil">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">05 / Bestil tid</div>
+      <h2 class="section-title">Klar til <em>klare vinduer?</em></h2>
+    </div>
+    <div class="bestil-grid">
+      <div class="bestil-lead">
+        <p>Udfyld formularen — du hører fra os inden for 12 timer for at bekræfte tid og pris.</p>
+        <p>Foretrækker du at ringe? <a href="tel:+4553533206" style="border-bottom:1px solid; padding-bottom:2px">53 53 32 06</a></p>
+        <div class="bestil-perks">
+          <div class="bestil-perk"><span class="bestil-perk-num">01</span><span>Svar inden for 12 timer — hver gang.</span></div>
+          <div class="bestil-perk"><span class="bestil-perk-num">02</span><span>Fast pris, aftalt før arbejdet går i gang.</span></div>
+          <div class="bestil-perk"><span class="bestil-perk-num">03</span><span>MobilePay eller kontant efter udført arbejde.</span></div>
+          <div class="bestil-perk"><span class="bestil-perk-num">04</span><span>Ingen binding. Book én gang eller fast.</span></div>
         </div>
-        <p class="form-note">Ingen binding – vi sender et uforpligtende tilbud retur</p>
+      </div>
+      <form class="bestil-form" id="bookingForm" novalidate>
+        <div class="form-field">
+          <label>Dit navn</label>
+          <input type="text" id="bNavn" required autocomplete="name"/>
+        </div>
+        <div class="form-field">
+          <label>Telefonnummer</label>
+          <input type="tel" id="bTelefon" required autocomplete="tel"/>
+        </div>
+        <div class="form-field">
+          <label>Adresse</label>
+          <input type="text" id="bAdresse" required autocomplete="street-address"/>
+        </div>
+        <div class="form-field">
+          <label>Boligtype</label>
+          <select id="bType" required>
+            <option value="">Vælg...</option>
+            <option value="Stuelejlighed – 69 kr.">Stuelejlighed — 69 kr.</option>
+            <option value="Rækkehus – 99 kr.">Rækkehus — 99 kr.</option>
+            <option value="Parcelhus (1 plan) – 149 kr.">Parcelhus (1 plan) — 149 kr.</option>
+            <option value="Erhverv – kontakt for pris">Erhverv — efter aftale</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Ønsket dato (valgfrit)</label>
+          <input type="date" id="bDato"/>
+        </div>
+        <div class="form-field">
+          <label>Besked (valgfrit)</label>
+          <textarea id="bBesked"></textarea>
+        </div>
+        <button class="form-submit" type="submit">Send bestilling →</button>
       </form>
-
-      <div class="form-success" id="form-success">
-        <div class="success-icon">✓</div>
-        <h3>Tak for din bestilling!</h3>
-        <p style="color:var(--muted);">Dino kontakter dig inden for 24 timer.</p>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- KONTAKT -->
-<section id="kontakt">
-  <div class="kontakt-inner">
-    <div class="reveal">
-      <div class="section-label" style="text-align:center">Kontakt</div>
-      <h2 class="section-title">Klar til klare vinduer?</h2>
-      <p class="section-sub" style="margin: 0 auto;">Ring, skriv en SMS eller send en besked – Dino svarer hurtigt.</p>
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">06 / FAQ</div>
+      <h2 class="section-title">Ofte <em>stillede</em> spørgsmål.</h2>
     </div>
-
-    <div class="kontakt-card reveal">
-      <h3>Telefon & SMS</h3>
-      <a href="tel:+4553533206" class="phone-number">53 53 32 06</a>
-      <a href="mailto:ditvindue@gmail.com" style="display:block; font-size:16px; color:var(--muted); text-decoration:none; margin-top:6px; letter-spacing:1px; transition:color .2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">ditvindue@gmail.com</a>
-      <p class="kontakt-area">Betjener Nyborg og omegn</p>
-
-      <div class="kontakt-hours">
-        <div class="hour-item">
-          <div class="hour-day">Hverdage</div>
-          <div class="hour-time">15:00 – 20:00</div>
-        </div>
-        <div class="hour-item">
-          <div class="hour-day">Lørdag</div>
-          <div class="hour-time">09:00 – 18:00</div>
-        </div>
-        <div class="hour-item">
-          <div class="hour-day">Søndag</div>
-          <div class="hour-time">10:00 – 16:00</div>
-        </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q"><span>Hvilke områder dækker I?</span><span class="icon">+</span></button>
+        <div class="faq-a"><p>Vi dækker Nyborg og omegn inden for ca. 25 km. Der er ingen transporttillæg.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Hvor hurtigt kan jeg få en tid?</span><span class="icon">+</span></button>
+        <div class="faq-a"><p>Typisk inden for få dage. Book online eller ring på 53 53 32 06.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Pudser I også indvendigt?</span><span class="icon">+</span></button>
+        <div class="faq-a"><p>Vi tilbyder primært udvendig vinduespudsning. Kontakt os for en aftale om indvendig pudsning.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Kan jeg bruge servicefradrag?</span><span class="icon">+</span></button>
+        <div class="faq-a"><p>Ja — vinduespudsning er godkendt til servicefradrag. Du kan trække 35 % fra i skat, så en lejlighed reelt koster ca. 45 kr.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Hvordan betaler jeg?</span><span class="icon">+</span></button>
+        <div class="faq-a"><p>MobilePay eller kontant efter udført arbejde.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Hvad hvis jeg ikke er tilfreds?</span><span class="icon">+</span></button>
+        <div class="faq-a"><p>100 % tilfredshedsgaranti. Er du ikke tilfreds, kommer vi tilbage og retter det — uden ekstra beregning.</p></div>
       </div>
     </div>
   </div>
@@ -1090,56 +930,184 @@ footer {
 
 <!-- FOOTER -->
 <footer>
-  <div style="display:flex; align-items:center; gap:10px;">
-    <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
-      <rect x="1.5" y="1.5" width="25" height="25" rx="4" stroke="#8a8880" stroke-width="1.5"/>
-      <line x1="14" y1="1.5" x2="14" y2="26.5" stroke="#8a8880" stroke-width="1"/>
-      <line x1="1.5" y1="14" x2="26.5" y2="14" stroke="#8a8880" stroke-width="1"/>
-      <circle cx="20" cy="7.5" r="2" fill="#5DCAA5"/>
-    </svg>
-    <span>DITVINDUE &copy; 2026</span>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Klare<br/><em>vinduer.</em></div>
+      </div>
+      <div class="foot-col">
+        <h5>Kontakt</h5>
+        <a href="tel:+4553533206">53 53 32 06</a>
+        <a href="mailto:ditvindue@gmail.com">ditvindue@gmail.com</a>
+        <a href="https://www.facebook.com/profile.php?id=61576648301924" target="_blank" rel="noopener">Facebook</a>
+      </div>
+      <div class="foot-col">
+        <h5>Åbningstider</h5>
+        <p>Hverdage · 15–20</p>
+        <p>Lørdag · 09–18</p>
+        <p>Søndag · 10–16</p>
+      </div>
+      <div class="foot-col">
+        <h5>Område</h5>
+        <p>Nyborg &amp; omegn</p>
+        <p>25 km radius</p>
+        <p>Ingen transporttillæg</p>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div>DITVINDUE © 2026</div>
+      <div>Resultater du kan se igennem</div>
+    </div>
   </div>
-  <span>Resultater du kan se igennem</span>
 </footer>
 
+<!-- TWEAKS -->
+<button id="tweaks-toggle" onclick="document.getElementById('tweaks').classList.toggle('show')">Skift variant</button>
+<div id="tweaks">
+  <h4>Designretning</h4>
+  <label class="tweak-opt">
+    <div>
+      <div class="label">Editorial</div>
+      <div class="desc">Jordnær håndværk · varm off-white</div>
+    </div>
+    <input type="radio" name="variant" value="editorial"/>
+  </label>
+  <label class="tweak-opt">
+    <div>
+      <div class="label">Minimal</div>
+      <div class="desc">Stor typografi · meget hvidt rum</div>
+    </div>
+    <input type="radio" name="variant" value="minimal"/>
+  </label>
+  <label class="tweak-opt">
+    <div>
+      <div class="label">Varm</div>
+      <div class="desc">Bogklub-tone · dyb brun accent</div>
+    </div>
+    <input type="radio" name="variant" value="warm" checked/>
+  </label>
+</div>
+
 <script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 80);
-    }
+  // Calculator
+  const cType = document.getElementById('c-type');
+  const cTimes = document.getElementById('c-times');
+  const cTimesVal = document.getElementById('c-times-val');
+  const cPer = document.getElementById('c-per');
+  const cYear = document.getElementById('c-year');
+  const cDeduct = document.getElementById('c-deduct');
+  const cReal = document.getElementById('c-real');
+  const cSave = document.getElementById('c-save');
+
+  function updateCalc() {
+    const price = parseInt(cType.value, 10);
+    const times = parseInt(cTimes.value, 10);
+    cTimesVal.textContent = times;
+    const year = price * times;
+    const deduct = Math.round(year * 0.35);
+    const real = year - deduct;
+    cPer.textContent = price + ' kr.';
+    cYear.textContent = year + ' kr.';
+    cDeduct.textContent = '− ' + deduct + ' kr.';
+    cReal.textContent = real + ' kr.';
+    cSave.textContent = deduct + ' kr.';
+  }
+  cType.addEventListener('change', updateCalc);
+  cTimes.addEventListener('input', updateCalc);
+  updateCalc();
+
+  // FAQ
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
   });
-}, { threshold: 0.12 });
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  // Variant switcher
+  function setVariant(v) {
+    document.body.setAttribute('data-variant', v);
+    document.querySelectorAll('#tweaks input').forEach(inp => {
+      inp.checked = inp.value === v;
+    });
+    try { localStorage.setItem('ditvindue_variant', v); } catch(e) {}
+  }
+  document.querySelectorAll('#tweaks input').forEach(inp => {
+    inp.addEventListener('change', () => setVariant(inp.value));
+  });
+  try {
+    const saved = localStorage.getItem('ditvindue_variant');
+    if (saved) setVariant(saved); else setVariant('warm');
+  } catch(e) { setVariant('warm'); }
 
-// Booking form submission
-const bookingForm = document.getElementById('booking-form');
-if (bookingForm) {
-  bookingForm.addEventListener('submit', async (e) => {
+  // Sæt min-dato til i dag
+  (function() {
+    var d = document.getElementById('bDato');
+    if (d) d.min = new Date().toISOString().split('T')[0];
+  })();
+
+  // Booking form submission (Web3Forms)
+  document.getElementById('bookingForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    const btn = bookingForm.querySelector('.btn-submit');
-    btn.textContent = 'Sender...';
-    btn.disabled = true;
-    try {
-      const res = await fetch(bookingForm.action, {
-        method: 'POST',
-        body: new FormData(bookingForm),
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        bookingForm.style.display = 'none';
-        document.getElementById('form-success').style.display = 'block';
-      } else {
-        btn.textContent = 'Prøv igen';
-        btn.disabled = false;
-      }
-    } catch {
-      btn.textContent = 'Prøv igen';
-      btn.disabled = false;
+    var navn    = document.getElementById('bNavn').value.trim();
+    var tlf     = document.getElementById('bTelefon').value.trim();
+    var adresse = document.getElementById('bAdresse').value.trim();
+    var type    = document.getElementById('bType').value;
+    var dato    = document.getElementById('bDato').value;
+    var besked  = document.getElementById('bBesked').value.trim();
+
+    if (!navn || !tlf || !adresse || !type) {
+      alert('Udfyld venligst navn, telefon, adresse og boligtype.');
+      return;
     }
+
+    var btn = document.querySelector('.form-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sender...';
+
+    var beskedTekst =
+      'Hej Dino!\n\nNy booking fra hjemmesiden:\n\n' +
+      '👤 Navn:      ' + navn    + '\n' +
+      '📞 Telefon:   ' + tlf     + '\n' +
+      '🏠 Adresse:   ' + adresse + '\n' +
+      '🏡 Boligtype: ' + type    + '\n' +
+      (dato   ? '📅 Dato:      ' + dato   + '\n' : '') +
+      (besked ? '💬 Besked:    ' + besked + '\n' : '') +
+      '\n– Ditvindue booking-formular (dit-vindue.dk)';
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        access_key: '85ed2a5d-1d5d-4827-965c-f71b57164a6d',
+        subject: '🪟 Ny booking: ' + navn + ' – ' + type,
+        from_name: 'Ditvindue hjemmeside',
+        message: beskedTekst,
+        name: navn,
+        phone: tlf,
+        address: adresse,
+        boligtype: type,
+        dato: dato || 'Ikke angivet',
+        replyto: 'ditvindue@gmail.com'
+      })
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.success) {
+        var form = document.getElementById('bookingForm');
+        form.innerHTML = '<h3 style="font-family:var(--font-display);font-size:28px;margin-bottom:12px;color:var(--bg)">Tak for din bestilling.</h3><p style="color:color-mix(in oklab, var(--bg) 80%, transparent)">Vi kontakter dig inden for 12 timer for at bekræfte tid og pris.</p><p style="margin-top:14px;font-size:13px;color:color-mix(in oklab, var(--bg) 60%, transparent)">Foretrækker du at ringe? <a href="tel:+4553533206" style="color:var(--accent);border-bottom:1px solid var(--accent)">53 53 32 06</a></p>';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Send bestilling →';
+        alert('Noget gik galt. Prøv igen eller ring på 53 53 32 06.');
+      }
+    })
+    .catch(function() {
+      btn.disabled = false;
+      btn.textContent = 'Send bestilling →';
+      alert('Netværksfejl. Prøv igen eller ring på 53 53 32 06.');
+    });
   });
-}
 </script>
+
 </body>
 </html>
