@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>DITVINDUE — App</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<style>
+  :root {
+    --bg: #EDE5D3;
+    --bg-2: #DFD4BB;
+    --ink: #221A10;
+    --ink-2: #3F3220;
+    --muted: #7A6A52;
+    --line: #C0B295;
+    --accent: #6B4B2A;
+    --card: #F7F0DD;
+    --font-display: "EB Garamond", Georgia, serif;
+    --font-body: "Inter Tight", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--bg-2);
+    min-height: 100vh;
+    font-family: var(--font-body);
+    color: var(--ink);
+  }
+  body {
+    padding: 48px 24px 96px;
+  }
+  .page-head {
+    max-width: 1400px; margin: 0 auto 48px;
+    display: flex; justify-content: space-between; align-items: flex-end; gap: 24px;
+    padding: 0 8px;
+  }
+  .page-head h1 {
+    font-family: var(--font-display);
+    font-size: 56px; font-weight: 500; letter-spacing: -0.015em; line-height: 1;
+  }
+  .page-head h1 em { font-style: italic; color: var(--accent); }
+  .page-head p {
+    font-size: 14px; color: var(--ink-2); max-width: 36ch;
+    text-align: right;
+  }
+  .screens-row {
+    display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;
+    max-width: 1760px; margin: 0 auto;
+  }
+  .screen-wrap {
+    display: flex; flex-direction: column; align-items: center; gap: 18px;
+  }
+  .screen-label {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .screen-label .num { color: var(--accent); margin-right: 8px; }
+</style>
+</head>
+<body>
+
+<div class="page-head">
+  <h1>DITVINDUE <em>app.</em></h1>
+  <p>Mobil-udkast — bestil vinduespudsning på under et minut. Liquid-glass iOS 26, samme varme palet som websitet.</p>
+</div>
+
+<div class="screens-row" id="root"></div>
+
+<script type="text/babel" src="ios-frame.jsx"></script>
+
+<script type="text/babel">
+const C = {
+  bg: '#EDE5D3',
+  bg2: '#DFD4BB',
+  ink: '#221A10',
+  ink2: '#3F3220',
+  muted: '#7A6A52',
+  line: '#C0B295',
+  accent: '#6B4B2A',
+  card: '#F7F0DD',
+  cardDeep: '#E8DCC1',
+};
+const DISPLAY = '"EB Garamond", Georgia, serif';
+const BODY = '"Inter Tight", -apple-system, system-ui, sans-serif';
+const MONO = 'ui-monospace, Menlo, monospace';
+
+// Small reusable bits
+const Label = ({ children, style }) => (
+  <div style={{
+    fontFamily: MONO, fontSize: 10, letterSpacing: '0.14em',
+    textTransform: 'uppercase', color: C.muted, ...style,
+  }}>{children}</div>
+);
+
+const Eyebrow = ({ children }) => (
+  <div style={{
+    display: 'flex', alignItems: 'center', gap: 8,
+    fontFamily: MONO, fontSize: 10, letterSpacing: '0.14em',
+    textTransform: 'uppercase', color: C.muted,
+  }}>
+    <span style={{ width: 20, height: 1, background: C.muted }}/>
+    {children}
+  </div>
+);
+
+const PrimaryButton = ({ children, dark = true }) => (
+  <div style={{
+    height: 54, borderRadius: 100,
+    background: dark ? C.ink : C.bg,
+    color: dark ? C.bg : C.ink,
+    display: 'flex', alignItems: 'center', justifyContent: 'center',
+    fontFamily: BODY, fontSize: 16, fontWeight: 500, letterSpacing: -0.1,
+    boxShadow: '0 6px 18px rgba(34,26,16,0.18)',
+  }}>{children}</div>
+);
+
+// ─── SCREEN 1 — Home / Hero ───────────────────────────────────
+function HomeScreen() {
+  return (
+    <IOSDevice width={390} height={844}>
+      <div style={{ background: C.bg, minHeight: '100%' }}>
+        {/* Top bar w/ brand */}
+        <div style={{
+          paddingTop: 62, padding: '62px 20px 0',
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+        }}>
+          <div style={{
+            fontFamily: DISPLAY, fontSize: 22, fontWeight: 500, letterSpacing: '0.02em',
+            color: C.ink,
+          }}>DITVINDUE</div>
+          <div style={{
+            width: 40, height: 40, borderRadius: 20,
+            background: C.card, border: `1px solid ${C.line}`,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}>
+            <div style={{ width: 14, height: 2, background: C.ink, borderRadius: 1, boxShadow: `0 -5px 0 ${C.ink}, 0 5px 0 ${C.ink}` }}/>
+          </div>
+        </div>
+
+        {/* Hero */}
+        <div style={{ padding: '36px 20px 0' }}>
+          <Eyebrow>Lokal · Nyborg og omegn</Eyebrow>
+          <h1 style={{
+            fontFamily: DISPLAY, fontSize: 56, lineHeight: 0.96,
+            fontWeight: 500, letterSpacing: '-0.015em',
+            color: C.ink, marginTop: 18, marginBottom: 16,
+          }}>
+            Klare<br/>vinduer.<br/>
+            <span style={{ fontStyle: 'italic', color: C.accent, fontWeight: 400 }}>Klar udsigt.</span>
+          </h1>
+          <p style={{
+            fontFamily: BODY, fontSize: 15, lineHeight: 1.5,
+            color: C.ink2, maxWidth: '28ch',
+          }}>
+            Udvendig vinduespudsning til fast pris fra 69 kr. Ingen overraskelser.
+          </p>
+        </div>
+
+        {/* Hero image */}
+        <div style={{
+          margin: '28px 20px 0',
+          aspectRatio: '4/3',
+          borderRadius: 18,
+          backgroundImage: `url('billeder/hero-ny.webp')`,
+          backgroundSize: 'cover', backgroundPosition: 'center',
+          position: 'relative',
+        }}>
+          <div style={{
+            position: 'absolute', left: 14, bottom: 14,
+            fontFamily: MONO, fontSize: 10, letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            color: '#fff',
+            background: 'rgba(34,26,16,0.5)',
+            backdropFilter: 'blur(8px)',
+            padding: '6px 10px', borderRadius: 100,
+          }}>Fig. 01 — Nyborg</div>
+        </div>
+
+        {/* Quick chips */}
+        <div style={{ padding: '20px 20px 0', display: 'flex', gap: 8, overflowX: 'auto' }}>
+          {['Fra 69 kr.', '35% fradrag', 'Tid inden for få dage', 'MobilePay'].map(t => (
+            <div key={t} style={{
+              padding: '10px 14px', borderRadius: 100,
+              background: C.card, border: `1px solid ${C.line}`,
+              fontFamily: BODY, fontSize: 12, color: C.ink2,
+              whiteSpace: 'nowrap',
+            }}>{t}</div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div style={{ padding: '28px 20px 120px' }}>
+          <PrimaryButton>Bestil tid →</PrimaryButton>
+          <div style={{
+            textAlign: 'center', marginTop: 12,
+            fontFamily: BODY, fontSize: 13, color: C.muted,
+          }}>Eller ring <span style={{ color: C.accent, borderBottom: `1px solid ${C.accent}` }}>53 53 32 06</span></div>
+        </div>
+      </div>
+
+      {/* Floating tab bar */}
+      <TabBar active={0}/>
+    </IOSDevice>
+  );
+}
+
+// ─── Tab bar (liquid glass) ───────────────────────────────────
+function TabBar({ active = 0 }) {
+  const items = [
+    { label: 'Hjem', icon: (c) => <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 10.5L12 3l9 7.5V21a1 1 0 01-1 1h-5v-7h-6v7H4a1 1 0 01-1-1V10.5z" stroke={c} strokeWidth="1.8" strokeLinejoin="round"/></svg> },
+    { label: 'Priser', icon: (c) => <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 12l9-9 9 9-9 9-9-9z" stroke={c} strokeWidth="1.8" strokeLinejoin="round"/><circle cx="8" cy="8" r="1.5" fill={c}/></svg> },
+    { label: 'Bestil', icon: (c) => <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke={c} strokeWidth="1.8"/><path d="M3 10h18M8 3v4M16 3v4" stroke={c} strokeWidth="1.8" strokeLinecap="round"/></svg> },
+    { label: 'Konto', icon: (c) => <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke={c} strokeWidth="1.8"/><path d="M4 21c0-4.5 3.5-8 8-8s8 3.5 8 8" stroke={c} strokeWidth="1.8" strokeLinecap="round"/></svg> },
+  ];
+  return (
+    <div style={{
+      position: 'absolute', bottom: 20, left: 16, right: 16,
+      height: 64, borderRadius: 32,
+      backdropFilter: 'blur(20px) saturate(180%)',
+      WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+      background: 'rgba(247,240,221,0.7)',
+      border: `0.5px solid ${C.line}`,
+      boxShadow: '0 8px 32px rgba(34,26,16,0.12)',
+      display: 'flex', alignItems: 'center', justifyContent: 'space-around',
+      zIndex: 40,
+    }}>
+      {items.map((it, i) => {
+        const on = i === active;
+        const color = on ? C.accent : C.muted;
+        return (
+          <div key={it.label} style={{
+            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2,
+            padding: '4px 16px',
+          }}>
+            {it.icon(color)}
+            <div style={{
+              fontFamily: BODY, fontSize: 10, color, fontWeight: on ? 500 : 400,
+            }}>{it.label}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ─── SCREEN 2 — Prices ────────────────────────────────────────
+function PricesScreen() {
+  const prices = [
+    { name: 'Stuelejlighed', price: '69', desc: 'Alle udvendige ruder i stueplan.', featured: false },
+    { name: 'Rækkehus', price: '99', desc: 'Alle ruder, under én time.', featured: true },
+    { name: 'Parcelhus', price: '149', desc: 'Inkl. terrassedøre. 1-plans.', featured: false },
+    { name: 'Erhverv', price: 'Efter aftale', desc: 'Fast abonnement. Gratis besigtigelse.', featured: false, big: false },
+  ];
+  return (
+    <IOSDevice width={390} height={844}>
+      <div style={{ background: C.bg, minHeight: '100%', paddingBottom: 120 }}>
+        {/* Header */}
+        <div style={{ padding: '62px 20px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ fontFamily: BODY, fontSize: 15, color: C.ink, fontWeight: 500 }}>← Tilbage</div>
+          <Label>01 / Priser</Label>
+        </div>
+        <div style={{ padding: '24px 20px 12px' }}>
+          <h1 style={{
+            fontFamily: DISPLAY, fontSize: 38, lineHeight: 1.12,
+            fontWeight: 500, letterSpacing: '-0.015em', color: C.ink,
+          }}>Enkle priser.<br/><span style={{ fontStyle: 'italic', color: C.accent }}>Ingen overraskelser.</span></h1>
+          <p style={{ fontFamily: BODY, fontSize: 14, color: C.ink2, marginTop: 18, lineHeight: 1.5 }}>
+            Fast pris uanset størrelse. Betal kontant eller MobilePay efter udført arbejde.
+          </p>
+        </div>
+
+        {/* Price cards */}
+        <div style={{ padding: '20px 16px 0', display: 'flex', flexDirection: 'column', gap: 10 }}>
+          {prices.map(p => (
+            <div key={p.name} style={{
+              background: p.featured ? C.card : 'rgba(255,255,255,0.4)',
+              border: `1px solid ${p.featured ? C.accent : C.line}`,
+              borderRadius: 18, padding: '20px 22px',
+              position: 'relative',
+            }}>
+              {p.featured && (
+                <div style={{
+                  position: 'absolute', top: 16, right: 16,
+                  fontFamily: MONO, fontSize: 9, letterSpacing: '0.14em',
+                  textTransform: 'uppercase', color: C.accent,
+                  border: `1px solid ${C.accent}`, padding: '3px 8px', borderRadius: 100,
+                }}>Populær</div>
+              )}
+              <Label>Boligtype</Label>
+              <div style={{
+                fontFamily: DISPLAY, fontSize: 26, fontWeight: 500,
+                color: C.ink, marginTop: 2, letterSpacing: '-0.01em',
+              }}>{p.name}</div>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, marginTop: 10 }}>
+                <span style={{
+                  fontFamily: DISPLAY,
+                  fontSize: p.price.length > 4 ? 26 : 48,
+                  fontWeight: 500, letterSpacing: '-0.02em',
+                  color: C.ink, lineHeight: 1,
+                }}>{p.price}</span>
+                {p.price.length <= 4 && (
+                  <span style={{ fontFamily: MONO, fontSize: 12, color: C.muted }}>kr.</span>
+                )}
+              </div>
+              <div style={{
+                fontFamily: BODY, fontSize: 13, color: C.ink2,
+                marginTop: 10, lineHeight: 1.45,
+              }}>{p.desc}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Fradrag teaser */}
+        <div style={{ padding: '16px 16px 0' }}>
+          <div style={{
+            background: C.ink, color: C.bg, borderRadius: 18, padding: '20px 22px',
+          }}>
+            <div style={{ fontFamily: MONO, fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(237,229,211,0.6)' }}>Servicefradrag</div>
+            <div style={{
+              fontFamily: DISPLAY, fontSize: 28, fontWeight: 500, marginTop: 6, letterSpacing: '-0.01em',
+            }}>Få <span style={{ fontStyle: 'italic', color: '#D4A77A' }}>35 %</span> tilbage i skat</div>
+            <div style={{ fontFamily: BODY, fontSize: 13, color: 'rgba(237,229,211,0.75)', marginTop: 8, lineHeight: 1.5 }}>
+              En pudsning til 149 kr. koster dig reelt kun 97 kr.
+            </div>
+            <div style={{
+              marginTop: 14, fontFamily: BODY, fontSize: 13,
+              color: '#D4A77A', borderBottom: '1px solid #D4A77A',
+              paddingBottom: 2, display: 'inline-block',
+            }}>Beregn din pris →</div>
+          </div>
+        </div>
+      </div>
+      <TabBar active={1}/>
+    </IOSDevice>
+  );
+}
+
+// ─── SCREEN 3 — Booking form ──────────────────────────────────
+function BookingScreen() {
+  return (
+    <IOSDevice width={390} height={844}>
+      <div style={{ background: C.bg, minHeight: '100%', paddingBottom: 120 }}>
+        <div style={{ padding: '62px 20px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ fontFamily: BODY, fontSize: 15, color: C.ink, fontWeight: 500 }}>← Tilbage</div>
+          <Label>02 / Bestil</Label>
+        </div>
+        <div style={{ padding: '24px 20px 8px' }}>
+          <h1 style={{
+            fontFamily: DISPLAY, fontSize: 40, lineHeight: 1.02,
+            fontWeight: 500, letterSpacing: '-0.015em', color: C.ink,
+          }}>Bestil <span style={{ fontStyle: 'italic', color: C.accent }}>tid.</span></h1>
+          <p style={{ fontFamily: BODY, fontSize: 14, color: C.ink2, marginTop: 10, lineHeight: 1.5 }}>
+            Svar inden 12 timer. Ingen binding.
+          </p>
+        </div>
+
+        {/* Segmented: boligtype */}
+        <div style={{ padding: '20px 20px 0' }}>
+          <Label style={{ marginBottom: 10 }}>Vælg boligtype</Label>
+          <div style={{
+            background: 'rgba(192,178,149,0.35)', borderRadius: 12, padding: 4,
+            display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 4,
+          }}>
+            {['Lejlighed', 'Rækkehus', 'Parcelhus'].map((t, i) => (
+              <div key={t} style={{
+                padding: '10px 6px', borderRadius: 9,
+                background: i === 1 ? C.card : 'transparent',
+                boxShadow: i === 1 ? '0 1px 3px rgba(34,26,16,0.1)' : 'none',
+                textAlign: 'center',
+                fontFamily: BODY, fontSize: 13,
+                fontWeight: i === 1 ? 500 : 400,
+                color: i === 1 ? C.ink : C.ink2,
+              }}>{t}</div>
+            ))}
+          </div>
+          <div style={{
+            marginTop: 10, padding: '14px 16px',
+            background: C.card, border: `1px solid ${C.line}`, borderRadius: 12,
+            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+          }}>
+            <div style={{ fontFamily: BODY, fontSize: 13, color: C.ink2 }}>Fast pris</div>
+            <div style={{ fontFamily: DISPLAY, fontSize: 26, fontWeight: 500, color: C.ink }}>
+              99 <span style={{ fontFamily: MONO, fontSize: 11, color: C.muted }}>kr.</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Fields */}
+        <div style={{ padding: '24px 20px 0', display: 'flex', flexDirection: 'column', gap: 14 }}>
+          {[
+            { label: 'Navn', value: 'Mette Sørensen' },
+            { label: 'Telefon', value: '28 45 67 89' },
+            { label: 'Adresse', value: 'Strandvejen 14, Nyborg' },
+          ].map(f => (
+            <div key={f.label} style={{
+              background: C.card, border: `1px solid ${C.line}`,
+              borderRadius: 12, padding: '10px 14px',
+            }}>
+              <div style={{ fontFamily: MONO, fontSize: 9, letterSpacing: '0.12em', textTransform: 'uppercase', color: C.muted }}>{f.label}</div>
+              <div style={{ fontFamily: BODY, fontSize: 15, color: C.ink, marginTop: 2 }}>{f.value}</div>
+            </div>
+          ))}
+
+          {/* Date */}
+          <div>
+            <Label style={{ marginBottom: 10 }}>Ønsket dato</Label>
+            <div style={{
+              background: C.card, border: `1px solid ${C.line}`, borderRadius: 12, padding: 14,
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 10 }}>
+                <div style={{ fontFamily: DISPLAY, fontSize: 16, fontWeight: 500, color: C.ink }}>April 2026</div>
+                <div style={{ fontFamily: MONO, fontSize: 11, color: C.muted, letterSpacing: '0.08em' }}>‹ ›</div>
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 4, fontFamily: BODY, fontSize: 11 }}>
+                {['M','T','O','T','F','L','S'].map((d, i) => (
+                  <div key={i} style={{ textAlign: 'center', color: C.muted, paddingBottom: 4 }}>{d}</div>
+                ))}
+                {Array.from({ length: 30 }, (_, i) => {
+                  const day = i + 1;
+                  const selected = day === 22;
+                  const today = day === 18;
+                  const disabled = day < 18;
+                  return (
+                    <div key={i} style={{
+                      aspectRatio: 1,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      borderRadius: 100,
+                      background: selected ? C.accent : 'transparent',
+                      color: selected ? C.bg : disabled ? 'rgba(122,106,82,0.4)' : C.ink,
+                      fontWeight: selected || today ? 500 : 400,
+                      fontSize: 13,
+                      border: today && !selected ? `1px solid ${C.accent}` : 'none',
+                    }}>{day}</div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style={{ padding: '28px 20px 0' }}>
+          <PrimaryButton>Send bestilling →</PrimaryButton>
+          <div style={{ textAlign: 'center', marginTop: 12, fontFamily: BODY, fontSize: 12, color: C.muted }}>
+            Vi kontakter dig inden 12 timer
+          </div>
+        </div>
+      </div>
+      <TabBar active={2}/>
+    </IOSDevice>
+  );
+}
+
+// ─── SCREEN 4 — Confirmation ──────────────────────────────────
+function ConfirmScreen() {
+  return (
+    <IOSDevice width={390} height={844}>
+      <div style={{ background: C.bg, minHeight: '100%', paddingBottom: 120, position: 'relative' }}>
+        <div style={{ padding: '62px 20px 0', display: 'flex', justifyContent: 'flex-end' }}>
+          <div style={{
+            width: 34, height: 34, borderRadius: 100,
+            background: C.card, border: `1px solid ${C.line}`,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            fontFamily: BODY, fontSize: 16, color: C.ink2,
+          }}>×</div>
+        </div>
+
+        {/* Check mark */}
+        <div style={{ padding: '36px 20px 0', display: 'flex', justifyContent: 'center' }}>
+          <div style={{
+            width: 84, height: 84, borderRadius: 100,
+            background: C.card, border: `1px solid ${C.accent}`,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}>
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <path d="M8 18.5l7 7L28 11" stroke={C.accent} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <div style={{ padding: '28px 24px 0', textAlign: 'center' }}>
+          <h1 style={{
+            fontFamily: DISPLAY, fontSize: 40, lineHeight: 1.02,
+            fontWeight: 500, letterSpacing: '-0.015em', color: C.ink,
+          }}>Tak for din <span style={{ fontStyle: 'italic', color: C.accent }}>bestilling.</span></h1>
+          <p style={{
+            fontFamily: BODY, fontSize: 15, color: C.ink2,
+            marginTop: 14, lineHeight: 1.5, maxWidth: '30ch', margin: '14px auto 0',
+          }}>
+            Dino kontakter dig inden for 12 timer for at bekræfte tid og pris.
+          </p>
+        </div>
+
+        {/* Summary card */}
+        <div style={{ padding: '28px 20px 0' }}>
+          <div style={{
+            background: C.card, border: `1px solid ${C.line}`, borderRadius: 18, padding: 20,
+          }}>
+            <Label style={{ marginBottom: 14 }}>Din bestilling</Label>
+            {[
+              ['Boligtype', 'Rækkehus'],
+              ['Adresse', 'Strandvejen 14'],
+              ['Ønsket dato', 'Tirs 22. apr'],
+              ['Pris', '99 kr.'],
+              ['Reelt efter fradrag', '64 kr.'],
+            ].map(([k, v], i, a) => (
+              <div key={k} style={{
+                display: 'flex', justifyContent: 'space-between',
+                padding: '12px 0',
+                borderTop: i === 0 ? 'none' : `1px solid ${C.line}`,
+                fontFamily: BODY, fontSize: 14,
+              }}>
+                <span style={{ color: C.ink2 }}>{k}</span>
+                <span style={{ color: i === a.length - 1 ? C.accent : C.ink, fontWeight: i === a.length - 1 ? 500 : 400 }}>{v}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Contact */}
+        <div style={{ padding: '20px 20px 0' }}>
+          <div style={{
+            background: C.ink, color: C.bg, borderRadius: 18, padding: 20,
+            display: 'flex', alignItems: 'center', gap: 14,
+          }}>
+            <div style={{
+              width: 48, height: 48, borderRadius: 100,
+              backgroundImage: `url('billeder/om-portræt.webp')`,
+              backgroundSize: 'cover', backgroundPosition: 'center top',
+              flexShrink: 0,
+            }}/>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontFamily: MONO, fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(237,229,211,0.6)' }}>Din vinduespudser</div>
+              <div style={{ fontFamily: DISPLAY, fontSize: 20, fontWeight: 500, marginTop: 2 }}>Dino · DITVINDUE</div>
+            </div>
+            <div style={{
+              padding: '8px 14px', borderRadius: 100,
+              background: 'rgba(237,229,211,0.18)',
+              fontFamily: BODY, fontSize: 13, fontWeight: 500,
+            }}>Ring</div>
+          </div>
+        </div>
+
+        <div style={{ padding: '24px 20px 0', textAlign: 'center' }}>
+          <div style={{
+            fontFamily: BODY, fontSize: 14, color: C.muted,
+            borderBottom: `1px solid ${C.line}`, paddingBottom: 3, display: 'inline-block',
+          }}>Se alle mine bestillinger</div>
+        </div>
+      </div>
+      <TabBar active={-1}/>
+    </IOSDevice>
+  );
+}
+
+// ─── Mount ────────────────────────────────────────────────────
+function App() {
+  const labels = [
+    ['01', 'Hjem'],
+    ['02', 'Priser'],
+    ['03', 'Bestil'],
+    ['04', 'Bekræftelse'],
+  ];
+  const screens = [HomeScreen, PricesScreen, BookingScreen, ConfirmScreen];
+  return (
+    <>
+      {screens.map((S, i) => (
+        <div className="screen-wrap" key={i}>
+          <S/>
+          <div className="screen-label">
+            <span className="num">{labels[i][0]}</span>{labels[i][1]}
+          </div>
+        </div>
+      ))}
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+
+</body>
+</html>
