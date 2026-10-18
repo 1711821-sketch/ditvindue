@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>DITVINDUE — Vinduespudsning i Nyborg | Fast pris fra 139 kr.</title>
-<meta name="description" content="Professionel vinduespudsning i Nyborg og omegn. Fast pris fra 139 kr. for stuelejlighed, 199 kr. for rækkehus, 299 kr. for parcelhus (1 plan). Book online eller ring 53 53 32 06.">
+<title>DITVINDUE — Vinduespudsning i Nyborg | Fast pris fra 149 kr.</title>
+<meta name="description" content="Professionel vinduespudsning i Nyborg og omegn. Fast pris fra 149 kr. for stuelejlighed, 199 kr. for rækkehus, 299 kr. for parcelhus (1 plan). Book online eller ring 53 53 32 06.">
 <meta name="keywords" content="vinduespudsning, Nyborg, vinduespudser, vinduesrens, vinduespudsning Nyborg, vinduespudsning Fyn, fast pris vinduespudsning">
 <meta name="author" content="DITvindue">
 <meta name="robots" content="index, follow">
@@ -201,6 +201,17 @@
   .flow-step p { font-size: 15px; color: var(--ink-2); }
   @media (max-width: 900px) { .flow { grid-template-columns: 1fr; } }
 
+  /* ===== VIDEO ===== */
+  .video-box { background: var(--dark); color: #fff; border-radius: 28px; padding: 64px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; position: relative; overflow: hidden; }
+  .video-box::before { content: ""; position: absolute; width: 560px; height: 560px; left: -200px; bottom: -260px; background: radial-gradient(circle, rgba(61,220,151,.22), transparent 65%); pointer-events: none; }
+  .video-box .eyebrow { color: var(--accent); }
+  .video-box .section-title span { color: rgba(255,255,255,.55); }
+  .video-text > p { color: rgba(255,255,255,.75); font-size: 17px; margin-top: 18px; max-width: 42ch; }
+  .video-points { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
+  .video-frame { position: relative; justify-self: center; width: 100%; max-width: 360px; aspect-ratio: 9/16; border-radius: 32px; overflow: hidden; background: #000; box-shadow: 0 30px 80px rgba(0,0,0,.45); border: 6px solid rgba(255,255,255,.08); }
+  .video-frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  @media (max-width: 900px) { .video-box { grid-template-columns: 1fr; padding: 40px 20px; gap: 36px; } .video-frame { max-width: 320px; } }
+
   /* ===== GALLERY ===== */
   .gallery-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; grid-template-rows: 300px 300px; gap: 16px; }
   .gallery-item { background: var(--surface-2) center / cover no-repeat; border-radius: var(--radius); transition: transform .4s; }
@@ -323,7 +334,7 @@
         </div>
       </div>
       <div class="hero-stats">
-        <div class="stat-chip"><strong>Fra 139 kr.</strong><span>Fast pris, ingen tillæg</span></div>
+        <div class="stat-chip"><strong>Fra 149 kr.</strong><span>Fast pris, ingen tillæg</span></div>
         <div class="stat-chip"><strong>&lt; 12 timer</strong><span>Svartid på bestillinger</span></div>
       </div>
     </div>
@@ -349,13 +360,13 @@
       <div class="price-card reveal">
         <div class="price-name">Stuelejlighed</div>
         <div class="price-meta">Udvendige ruder i stueplan</div>
-        <div class="price-value"><span class="price-number">139</span><span class="price-unit">kr.</span></div>
+        <div class="price-value"><span class="price-number">149</span><span class="price-unit">kr.</span></div>
         <ul class="price-list">
           <li>Alle udvendige ruder</li>
           <li>Karme aftørres</li>
           <li>MobilePay / kontant</li>
         </ul>
-        <a href="#bestil" class="price-book" data-type="Stuelejlighed – 139 kr.">Bestil</a>
+        <a href="#bestil" class="price-book" data-type="Stuelejlighed – 149 kr.">Bestil</a>
       </div>
 
       <div class="price-card featured reveal">
@@ -413,7 +424,7 @@
         <div class="calc-field">
           <label for="c-type">Boligtype</label>
           <select id="c-type" class="calc-select">
-            <option value="139">Stuelejlighed — 139 kr.</option>
+            <option value="149">Stuelejlighed — 149 kr.</option>
             <option value="199">Rækkehus — 199 kr.</option>
             <option value="299" selected>Parcelhus (1 plan) — 299 kr.</option>
           </select>
@@ -456,6 +467,32 @@
         <div class="flow-num">03</div>
         <h3>Nyd udsigten</h3>
         <p>Du ser forskellen med det samme. Betal med MobilePay eller kontant bagefter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video" class="tight">
+  <div class="wrap">
+    <div class="video-box reveal">
+      <div class="video-text">
+        <span class="eyebrow">Se os i aktion</span>
+        <h2 class="section-title">Fra skum til <span>krystalklart.</span></h2>
+        <p>Sådan ser det ud, når Dino går i gang. Ruderne bliver vasket grundigt og trukket af med skraber — og karmene tørres af til sidst.</p>
+        <div class="video-points">
+          <div class="bestil-perk">Professionelt udstyr</div>
+          <div class="bestil-perk">Stribefrit resultat — hver gang</div>
+          <div class="bestil-perk">Karme aftørres altid</div>
+        </div>
+        <div class="cta-row">
+          <a href="#bestil" class="btn btn-accent">Bestil tid →</a>
+        </div>
+      </div>
+      <div class="video-frame">
+        <video id="reel" muted loop playsinline preload="none" poster="billeder/video/ditvindue-reel-poster.jpg" aria-label="Dino fra DITVINDUE pudser vinduer">
+          <source src="billeder/video/ditvindue-reel-web.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
   </div>
@@ -534,7 +571,7 @@
               <label for="bType">Boligtype</label>
               <select id="bType" required>
                 <option value="">Vælg...</option>
-                <option value="Stuelejlighed – 139 kr.">Stuelejlighed — 139 kr.</option>
+                <option value="Stuelejlighed – 149 kr.">Stuelejlighed — 149 kr.</option>
                 <option value="Rækkehus – 199 kr.">Rækkehus — 199 kr.</option>
                 <option value="Parcelhus (1 plan) – 299 kr.">Parcelhus (1 plan) — 299 kr.</option>
                 <option value="Erhverv – kontakt for pris">Erhverv — efter aftale</option>
@@ -585,7 +622,7 @@
         </div>
         <div class="faq-item">
           <button class="faq-q"><span>Kan jeg bruge servicefradrag?</span><span class="icon">+</span></button>
-          <div class="faq-a"><p>Ja — vinduespudsning er godkendt til servicefradrag. Du kan trække 35 % fra i skat, så en stuelejlighed reelt koster ca. 90 kr.</p></div>
+          <div class="faq-a"><p>Ja — vinduespudsning er godkendt til servicefradrag. Du kan trække 35 % fra i skat, så en stuelejlighed reelt koster ca. 97 kr.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-q"><span>Hvordan betaler jeg?</span><span class="icon">+</span></button>
@@ -668,6 +705,15 @@
   document.querySelectorAll('.price-book[data-type]').forEach(a => {
     a.addEventListener('click', () => { document.getElementById('bType').value = a.dataset.type; });
   });
+
+  // Play the reel only while it is on screen
+  (function() {
+    const v = document.getElementById('reel');
+    if (!('IntersectionObserver' in window)) { v.preload = 'auto'; v.play().catch(() => {}); return; }
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) v.play().catch(() => {}); else v.pause();
+    }, { threshold: 0.35 }).observe(v);
+  })();
 
   // Reveal on scroll, with failsafe so content never stays hidden
   (function() {
