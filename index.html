@@ -125,6 +125,30 @@
     .facts { grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .facts b { font-size: 28px; }
   }
+  /* desktop: the whole hero, window included, fits the first screen */
+  @media (min-width: 901px) {
+    .hero { padding: 40px 0 34px; }
+    .hero-grid { min-height: calc(100vh - 134px); min-height: calc(100svh - 134px); grid-template-rows: auto 1fr auto; align-items: stretch; }
+    .kicker { margin-bottom: 0; }
+    .hero h1 { font-size: clamp(72px, min(12.5vw, 15vh), 200px); align-self: center; padding: 18px 0; }
+    .hero-copy { margin-top: 0; align-self: end; }
+    .hero-cta { margin-top: 22px; }
+    .facts { margin-top: 24px; padding-top: 14px; }
+    .window { min-height: 0; }
+    .win-tag { top: -28px; }
+  }
+  @media (min-width: 901px) and (max-height: 820px) {
+    .facts { display: none; }
+    .hero-copy p { font-size: 17px; }
+  }
+  @media (min-width: 901px) and (max-height: 700px) {
+    .hero { padding: 34px 0 26px; }
+    .hero-grid { min-height: calc(100vh - 120px); min-height: calc(100svh - 120px); }
+    .kicker { padding-bottom: 12px; }
+    .hero h1 { padding: 10px 0; }
+    .hero-cta { margin-top: 16px; }
+    .hero-cta .btn { padding: 14px 22px; }
+  }
 
   /* ===== TICKER ===== */
   .ticker-wrap { overflow: hidden; padding: 26px 0; }
@@ -795,7 +819,7 @@
       window.addEventListener('resize', size);
       if (reduceMotion) { ctx.clearRect(0, 0, w, h); hint.hidden = true; return; }
       const io = new IntersectionObserver(([e]) => {
-        if (e.isIntersecting && !touched && !anim) { autoTimer = setTimeout(writeWord, 1200); io.disconnect(); }
+        if (e.isIntersecting && !touched && !anim) { autoTimer = setTimeout(writeWord, 600); io.disconnect(); }
       }, { threshold: 0.5 });
       io.observe(canvas);
     };
