@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<title>DITvindue video cards (site look)</title>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Familjen+Grotesk:wght@500;700&family=Martian+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --paper: #ECEAE3; --ink: #121412; --green: #22D36B; --green-ink: #0A7A3B;
+    --display: "Big Shoulders Display", sans-serif; --mono: "Martian Mono", monospace; --body: "Familjen Grotesk", sans-serif; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1920px; background: transparent; overflow: hidden; }
+  body { position: relative; color: var(--ink); font-family: var(--body); }
+  .o { position: absolute; inset: 0; display: none; }
+  .show { display: block; }
+  .grain::after { content: ""; position: absolute; inset: 0; opacity: .1; mix-blend-mode: multiply; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .disp { font-family: var(--display); font-weight: 900; text-transform: uppercase; line-height: .84; letter-spacing: -.01em; }
+  .mono { font-family: var(--mono); font-size: 26px; text-transform: uppercase; letter-spacing: .04em; }
+  .wm { font-family: var(--display); font-weight: 900; font-size: 62px; display: flex; align-items: center; gap: 16px; }
+  .wm i { width: 26px; height: 26px; border-radius: 50%; background: var(--green); display: inline-block; }
+
+  /* ---- chrome: paper frame around a 1000x1640 hole at (40,140) ---- */
+  #chrome .band { position: absolute; left: 0; right: 0; background: var(--paper); }
+  #chrome .top { top: 0; height: 140px; }
+  #chrome .bot { top: 1780px; height: 140px; }
+  #chrome .side { position: absolute; top: 140px; height: 1640px; width: 40px; background: var(--paper); }
+  #chrome .l { left: 0; } #chrome .r { right: 0; }
+  #chrome .frame { position: absolute; left: 40px; top: 140px; width: 1000px; height: 1640px; border: 8px solid var(--ink); }
+  #chrome .top .wm { position: absolute; left: 40px; top: 40px; }
+  #chrome .top .mono { position: absolute; right: 40px; top: 58px; }
+  #chrome .bot .n { position: absolute; left: 40px; top: 34px; font-size: 92px; color: var(--green-ink); }
+  #chrome .bot .t { position: absolute; left: 170px; top: 40px; font-size: 76px; }
+  #chrome .bot .mono { position: absolute; right: 40px; top: 66px; }
+  #chrome .track { position: absolute; left: 40px; right: 40px; top: 1792px; height: 2px; background: rgba(18,20,18,.25); }
+
+  /* ---- title card ---- */
+  #title { background: var(--paper); }
+  #title .mono.a { position: absolute; left: 70px; top: 120px; }
+  #title .mono.b { position: absolute; left: 70px; bottom: 120px; }
+  #title .rule { position: absolute; left: 70px; right: 70px; top: 180px; height: 4px; background: var(--ink); }
+  #title .rule.b2 { top: auto; bottom: 180px; }
+  #title .sub { position: absolute; left: 70px; top: 1440px; font-family: var(--body); font-weight: 700; font-size: 52px; max-width: 900px; line-height: 1.1; }
+  #title .sub b { color: var(--green-ink); }
+  #titletext { }
+  #titletext .disp { position: absolute; left: 62px; top: 300px; font-size: 360px; }
+  #titletext .disp span { color: var(--green-ink); }
+
+  /* ---- end card ---- */
+  #end { background: var(--paper); }
+  #end .wm { position: absolute; left: 70px; top: 110px; }
+  #end .big { position: absolute; left: 62px; top: 260px; font-size: 230px; }
+  #end .big span { color: var(--green-ink); }
+  #end .rows { position: absolute; left: 70px; right: 70px; top: 1000px; }
+  #end .row { display: flex; align-items: baseline; gap: 18px; padding: 20px 0; border-bottom: 2px solid rgba(18,20,18,.18); }
+  #end .row .nm { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 72px; line-height: 1; }
+  #end .row .dots { flex: 1; border-bottom: 5px dotted var(--ink); transform: translateY(-14px); }
+  #end .row .pr { font-family: var(--display); font-weight: 900; font-size: 96px; line-height: .9; }
+  #end .row.hot .pr { color: var(--green-ink); }
+  #end .cta { position: absolute; left: 70px; right: 70px; top: 1500px; background: var(--ink); color: var(--paper); padding: 34px 40px; display: flex; justify-content: space-between; align-items: center; }
+  #end .cta .tel { font-family: var(--display); font-weight: 900; font-size: 120px; line-height: 1; color: var(--green); }
+  #end .cta .mono { text-align: right; line-height: 1.6; }
+  #end .foot { position: absolute; left: 70px; bottom: 90px; }
+
+  /* ---- callouts over the hole ---- */
+  .call { position: absolute; display: flex; align-items: center; gap: 0; }
+  .call .tag { background: var(--ink); color: var(--paper); font-family: var(--mono); font-size: 30px; text-transform: uppercase; padding: 16px 22px; white-space: nowrap; }
+  .call .tag b { color: var(--green); font-weight: 500; }
+  .call .ln { height: 4px; background: var(--ink); }
+  .call .dot { width: 26px; height: 26px; border-radius: 50%; background: var(--green); border: 5px solid var(--ink); }
+
+  /* ---- split-screen labels (canvas 1080x1350) ---- */
+  .chip { position: absolute; top: 40px; background: var(--paper); border: 4px solid var(--ink); padding: 8px 20px 4px; font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: 64px; line-height: 1; }
+  .chip.g { background: var(--green); }
+  #split .divider { position: absolute; left: 532px; top: 0; width: 16px; height: 1350px; background: var(--ink); }
+  #split .bar { position: absolute; left: 0; right: 0; top: 1262px; height: 88px; background: var(--ink); color: var(--paper); display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
+  #split .bar .wm { font-size: 44px; color: var(--paper); }
+  #split .bar .wm i { width: 18px; height: 18px; }
+  #split .bar .mono { font-size: 22px; color: var(--green); }
+</style>
+</head>
+<body>
+
+<div class="o grain" id="chrome">
+  <div class="band top"><div class="wm"><i></i>DITVINDUE</div><div class="mono">Teknik / <span id="cn">01</span></div></div>
+  <div class="side l"></div><div class="side r"></div>
+  <div class="frame"></div>
+  <div class="band bot"><div class="disp n" id="bn">01</div><div class="disp t" id="bt">Skum på</div><div class="mono">Nyborg</div></div>
+  <div class="track"></div>
+</div>
+
+<div class="o grain" id="title">
+  <div class="mono a">DITVINDUE · Nyborg &amp; omegn</div>
+  <div class="rule"></div>
+  <div class="sub">Sådan bliver ruden <b>stribefri.</b><br>Trin for trin.</div>
+  <div class="rule b2"></div>
+  <div class="mono b">Optaget på en rigtig opgave</div>
+</div>
+
+<div class="o" id="titletext">
+  <div class="disp">Tek-<br>nik-<br><span>ken.</span></div>
+</div>
+
+<div class="o grain" id="end">
+  <div class="wm"><i></i>DITVINDUE</div>
+  <div class="disp big">Klar<br>udsigt.<br><span>Fast pris.</span></div>
+  <div class="rows">
+    <div class="row"><span class="nm">Stuelejlighed</span><span class="dots"></span><span class="pr">149,-</span></div>
+    <div class="row hot"><span class="nm">Rækkehus</span><span class="dots"></span><span class="pr">199,-</span></div>
+    <div class="row"><span class="nm">Parcelhus</span><span class="dots"></span><span class="pr">299,-</span></div>
+  </div>
+  <div class="cta"><div class="tel">53 53 32 06</div><div class="mono">Ring / SMS<br>dit-vindue.dk</div></div>
+  <div class="mono foot">Nyborg &amp; omegn · ingen transporttillæg</div>
+</div>
+
+<div class="o" id="callout">
+  <div class="call" style="left:80px; top:560px"><span class="tag"><b>✓</b> Kant til kant</span><span class="ln" style="width:120px"></span><span class="dot"></span></div>
+  <div class="call" style="left:360px; top:1180px"><span class="dot"></span><span class="ln" style="width:110px"></span><span class="tag"><b>✓</b> Ingen striber</span></div>
+  <div class="call" style="left:80px; top:1500px"><span class="tag"><b>✓</b> Ét langt strøg</span></div>
+</div>
+
+<div class="o" id="split">
+  <div class="divider"></div>
+  <div class="chip" style="left:36px">01 Skum</div>
+  <div class="chip g" style="left:584px">02 Skraber</div>
+  <div class="bar"><div class="wm"><i></i>DITVINDUE</div><div class="mono">Nyborg · fast pris</div></div>
+</div>
+
+<script>
+  const q = new URLSearchParams(location.search);
+  const id = q.get('id');
+  if (id) document.getElementById(id).classList.add('show');
+  if (q.get('n')) { document.getElementById('cn').textContent = q.get('n'); document.getElementById('bn').textContent = q.get('n'); }
+  if (q.get('t')) document.getElementById('bt').textContent = q.get('t');
+</script>
+</body>
+</html>

@@ -169,9 +169,10 @@
   .film .head { border-color: var(--paper); }
   .film .head .mono { color: rgba(236,234,227,.6); }
   .film .head h2 em { font-style: normal; color: var(--green); }
-  .strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 2.4vw, 32px); align-items: start; }
+  .strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px, 2vw, 28px); align-items: start; }
   .strip figure:nth-child(2) { margin-top: 72px; }
   .strip figure:nth-child(3) { margin-top: 24px; }
+  .strip figure:nth-child(4) { margin-top: 110px; }
   .clip { position: relative; background: #000; border: 2px solid rgba(236,234,227,.2); overflow: hidden; }
   .clip.v916 { aspect-ratio: 9/16; }
   .clip.v45 { aspect-ratio: 4/5; }
@@ -200,6 +201,26 @@
     .step .ph, .step:nth-child(2) .ph { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; aspect-ratio: 3/4; }
     .step .n { font-size: 72px; }
     .step h3 { font-size: 32px; }
+  }
+
+  /* ===== TEKNIK ===== */
+  .tek { border-top: 2px solid var(--ink); }
+  .tek-grid { display: grid; grid-template-columns: 1.15fr .85fr; grid-template-areas: "head win" "list win"; column-gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .tek-head { grid-area: head; } .chapters { grid-area: list; } .tek-win { grid-area: win; align-self: center; }
+  .tek-head h2 { font-size: clamp(64px, 10vw, 150px); }
+  .tek-head h2 em { font-style: normal; color: var(--green-ink); }
+  .tek-head > p { margin-top: 20px; font-size: 19px; color: var(--ink-2); max-width: 40ch; }
+  .chapters { list-style: none; margin-top: 32px; border-top: 2px solid var(--ink); counter-reset: ch; }
+  .chapters li { display: grid; grid-template-columns: 64px 1fr; gap: 0 14px; padding: 14px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+  .chapters li b { font-family: var(--display); font-weight: 900; font-size: 34px; line-height: 1; color: var(--green-ink); }
+  .chapters li span { font-weight: 600; }
+  .chapters li small { grid-column: 2; color: var(--mute); font-size: 15px; }
+  .tek-win { position: relative; justify-self: center; width: 100%; max-width: 420px; }
+  .tek-win .clip { aspect-ratio: 9/16; border: 2px solid var(--ink); box-shadow: 12px 12px 0 var(--ink); }
+  @media (max-width: 860px) {
+    .tek-grid { grid-template-columns: 1fr; grid-template-areas: "head" "win" "list"; }
+    .tek-win { max-width: 320px; margin: 32px auto 8px; }
+    .chapters li { grid-template-columns: 52px 1fr; }
   }
 
   /* ===== RECEIPT ===== */
@@ -321,6 +342,7 @@
     <nav>
       <a href="#priser" class="hide-m">Priser</a>
       <a href="#film" class="hide-m">Se os arbejde</a>
+      <a href="#teknik" class="hide-m">Teknik</a>
       <a href="#fradrag" class="hide-m">Fradrag</a>
       <a href="tel:+4553533206" class="tel">53 53 32 06</a>
       <a href="#bestil" class="book">Book tid</a>
@@ -424,6 +446,10 @@
         <div class="clip v45"><video data-autoplay muted loop playsinline preload="none" poster="billeder/video/ditvindue-foer-efter-poster.jpg" aria-label="Før og efter: skumdækket rude bliver klar"><source src="billeder/video/ditvindue-foer-efter-web.mp4" type="video/mp4"></video></div>
         <figcaption class="mono"><span><b>03</b> Før / efter</span><span>6 sek</span></figcaption>
       </figure>
+      <figure class="rv">
+        <div class="clip v45"><video data-autoplay muted loop playsinline preload="none" poster="billeder/video/ditvindue-skum-skraber-poster.jpg" aria-label="Split-screen: skum påføres til venstre, skraber trækker af til højre"><source src="billeder/video/ditvindue-skum-skraber-web.mp4" type="video/mp4"></video></div>
+        <figcaption class="mono"><span><b>04</b> Skum + skraber</span><span>7 sek</span></figcaption>
+      </figure>
     </div>
     <p class="swipe-hint mono">← Swipe for flere →</p>
   </div>
@@ -452,6 +478,27 @@
         <p>Karmene tørres af til sidst. Du betaler med MobilePay eller kontant, når du har set resultatet.</p>
         <div class="ph" style="background-image:url('billeder/dino/klart.webp')" role="img" aria-label="Klar rude set indefra"></div>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- TEKNIK -->
+<section id="teknik" class="sec tek">
+  <div class="wrap tek-grid">
+    <div class="tek-head rv">
+      <h2 class="disp">Tek&shy;nik&shy;<em>ken.</em></h2>
+      <p>Et stribefrit resultat er ikke held. Det er den samme metode, gjort ordentligt, rude efter rude.</p>
+    </div>
+    <ol class="chapters rv">
+        <li><b>01</b><span>Skum på</span><small>Ruden vaskes i store cirkler, så snavset slipper.</small></li>
+        <li><b>02</b><span>Træk af</span><small>Skraberen trækkes i lange, lodrette strøg.</small></li>
+        <li><b>03</b><span>Slowmo</span><small>Gummiet holder kontakt hele vejen ned.</small></li>
+        <li><b>04</b><span>Kant til kant</span><small>Ét langt strøg langs bunden — ingen striber.</small></li>
+        <li><b>05</b><span>Gentag</span><small>Næste rude. Samme grundighed.</small></li>
+        <li><b>06</b><span>Dino</span><small>Færdig. Du betaler, når du har set resultatet.</small></li>
+    </ol>
+    <div class="tek-win rv">
+      <div class="clip"><video data-autoplay muted loop playsinline preload="none" poster="billeder/video/ditvindue-teknik-poster.jpg" aria-label="Teknikken: vinduespudsning trin for trin med zoom og slowmotion"><source src="billeder/video/ditvindue-teknik-web.mp4" type="video/mp4"></video></div>
     </div>
   </div>
 </section>
