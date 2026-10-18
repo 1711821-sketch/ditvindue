@@ -2,735 +2,784 @@
 <html lang="da">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
 <title>DITVINDUE — Vinduespudsning i Nyborg | Fast pris fra 149 kr.</title>
-<meta name="description" content="Professionel vinduespudsning i Nyborg og omegn. Fast pris fra 149 kr. for stuelejlighed, 199 kr. for rækkehus, 299 kr. for parcelhus (1 plan). Book online eller ring 53 53 32 06.">
-<meta name="keywords" content="vinduespudsning, Nyborg, vinduespudser, vinduesrens, vinduespudsning Nyborg, vinduespudsning Fyn, fast pris vinduespudsning">
+<meta name="description" content="Dino pudser dine vinduer udvendigt i Nyborg og omegn. Fast pris fra 149 kr. for stuelejlighed, 199 kr. for rækkehus, 299 kr. for parcelhus (1 plan). Book online eller ring 53 53 32 06.">
+<meta name="keywords" content="vinduespudsning, Nyborg, vinduespudser, vinduespudsning Nyborg, vinduespudsning Fyn, fast pris vinduespudsning">
 <meta name="author" content="DITvindue">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#0B1F1A">
+<meta name="theme-color" content="#121412">
 <link rel="canonical" href="https://dit-vindue.dk/">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='4' width='28' height='24' rx='5' fill='%230B1F1A'/%3E%3Cline x1='16' y1='4' x2='16' y2='28' stroke='%23ffffff' stroke-opacity='.25' stroke-width='1.5'/%3E%3Cline x1='2' y1='16' x2='30' y2='16' stroke='%23ffffff' stroke-opacity='.25' stroke-width='1.5'/%3E%3Ccircle cx='24' cy='9' r='4' fill='%233DDC97'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23121412'/%3E%3Crect x='6' y='22' width='20' height='4' fill='%23ECEAE3'/%3E%3Crect x='13' y='6' width='6' height='16' fill='%2322D36B'/%3E%3C/svg%3E">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dit-vindue.dk/">
 <meta property="og:title" content="DITVINDUE — Vinduespudsning i Nyborg">
-<meta property="og:description" content="Professionel vinduespudsning i Nyborg og omegn. Fast pris — ingen overraskelser.">
-<meta property="og:image" content="https://dit-vindue.dk/billeder/hero-ny.webp">
+<meta property="og:description" content="Klar udsigt. Fast pris. Udvendig vinduespudsning i Nyborg og omegn fra 149 kr.">
+<meta property="og:image" content="https://dit-vindue.dk/billeder/dino/og.jpg">
 <meta property="og:site_name" content="DITvindue">
 <meta property="og:locale" content="da_DK">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Familjen+Grotesk:wght@400;500;600;700&family=Martian+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="billeder/dino/hero-poster.webp">
 
 <style>
   :root {
-    --bg: #F7F8F6;
-    --surface: #FFFFFF;
-    --surface-2: #EEF2EF;
-    --ink: #0B1F1A;
-    --ink-2: #3B4A45;
-    --muted: #74827D;
-    --line: #E1E7E3;
-    --accent: #3DDC97;
-    --accent-ink: #0B6B47;
-    --dark: #0B1F1A;
-    --dark-2: #12302A;
-    --radius: 20px;
-    --radius-sm: 12px;
-    --max: 1200px;
-    --shadow: 0 1px 2px rgba(11,31,26,.04), 0 8px 24px rgba(11,31,26,.06);
-    --shadow-lg: 0 2px 4px rgba(11,31,26,.05), 0 24px 60px rgba(11,31,26,.12);
-    --font-display: "Bricolage Grotesque", system-ui, sans-serif;
-    --font-body: "Inter", system-ui, sans-serif;
+    --paper: #ECEAE3;
+    --paper-2: #E1DED4;
+    --white: #FAF9F5;
+    --ink: #121412;
+    --ink-2: #3A3D39;
+    --mute: #74786F;
+    --line: rgba(18,20,18,.16);
+    --green: #22D36B;
+    --green-ink: #0A7A3B;
+    --display: "Big Shoulders Display", "Arial Narrow", sans-serif;
+    --body: "Familjen Grotesk", "Helvetica Neue", sans-serif;
+    --mono: "Martian Mono", ui-monospace, monospace;
+    --gut: clamp(16px, 4vw, 48px);
+    --max: 1320px;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg); color: var(--ink);
-    font-family: var(--font-body); font-size: 16px; line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
+  html { -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+  html, body { overflow-x: clip; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body::after {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 100; opacity: .08; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   a { color: inherit; text-decoration: none; }
-  button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
-  img { display: block; max-width: 100%; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+  img, video { display: block; max-width: 100%; }
   [hidden] { display: none !important; }
+  :focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
 
-  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-  @media (max-width: 720px) { .wrap { padding: 0 16px; } }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gut); }
+  .mono { font-family: var(--mono); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; }
+  .disp { font-family: var(--display); font-weight: 900; text-transform: uppercase; line-height: .86; letter-spacing: -.01em; }
+  section { scroll-margin-top: 64px; }
 
-  h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.03em; line-height: 1.02; }
-
-  /* ===== NAV ===== */
-  .nav { position: sticky; top: 12px; z-index: 50; margin: 12px auto 0; max-width: var(--max); padding: 0 24px; }
-  .nav-inner {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 10px 10px 10px 20px;
-    background: color-mix(in oklab, var(--surface) 80%, transparent);
-    backdrop-filter: blur(16px) saturate(1.4);
-    -webkit-backdrop-filter: blur(16px) saturate(1.4);
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    box-shadow: var(--shadow);
-  }
-  .brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 800; font-size: 18px; letter-spacing: 0.02em; }
-  .brand-mark { width: 26px; height: 22px; border-radius: 6px; background: var(--ink); position: relative; }
-  .brand-mark::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 1.5px; background: rgba(255,255,255,.3); }
-  .brand-mark::after { content: ""; position: absolute; right: 3px; top: 3px; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
-  .nav-links { display: flex; gap: 28px; align-items: center; }
-  .nav-links a { font-size: 14px; font-weight: 500; color: var(--ink-2); transition: color .2s; }
-  .nav-links a:hover { color: var(--ink); }
-  .nav-cta { background: var(--ink); color: #fff; padding: 11px 20px; border-radius: 999px; font-size: 14px; font-weight: 600; transition: transform .15s, background .2s; }
-  .nav-cta:hover { background: var(--dark-2); transform: translateY(-1px); }
-  @media (max-width: 820px) { .nav { padding: 0 12px; } .nav-links { display: none; } }
+  /* ===== TOP BAR ===== */
+  .top { position: sticky; top: 0; z-index: 60; background: color-mix(in oklab, var(--paper) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .wordmark { font-family: var(--display); font-weight: 900; font-size: 26px; letter-spacing: .02em; display: flex; align-items: center; gap: 10px; }
+  .wordmark i { width: 14px; height: 14px; background: var(--green); display: inline-block; border-radius: 50%; }
+  .top nav { display: flex; gap: 28px; align-items: center; }
+  .top nav a { font-size: 15px; font-weight: 500; }
+  .top nav a:hover { color: var(--green-ink); }
+  .top .tel { font-family: var(--mono); font-size: 13px; }
+  .top .book { background: var(--ink); color: var(--paper); padding: 10px 16px; font-weight: 600; font-size: 15px; }
+  .top .book:hover { background: var(--green); color: var(--ink); }
+  @media (max-width: 860px) { .top nav .hide-m { display: none; } .top .tel { display: none; } }
 
   /* ===== BUTTONS ===== */
-  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; border-radius: 999px; font-size: 15px; font-weight: 600; transition: transform .15s, background .2s, box-shadow .2s; }
-  .btn:hover { transform: translateY(-2px); }
-  .btn-accent { background: var(--accent); color: var(--ink); box-shadow: 0 8px 24px rgba(61,220,151,.35); }
-  .btn-accent:hover { box-shadow: 0 12px 32px rgba(61,220,151,.45); }
-  .btn-light { background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.25); backdrop-filter: blur(8px); }
-  .btn-light:hover { background: rgba(255,255,255,.2); }
+  .btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 26px; font-weight: 700; font-size: 17px; border: 2px solid var(--ink); transition: transform .15s ease, box-shadow .15s ease, background .15s; }
+  .btn-go { background: var(--green); box-shadow: 5px 5px 0 var(--ink); }
+  .btn-go:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 var(--ink); }
+  .btn-go:active { transform: translate(3px,3px); box-shadow: 2px 2px 0 var(--ink); }
+  .arrow { font-family: var(--mono); }
 
   /* ===== HERO ===== */
-  .hero { padding: 24px 0 0; }
-  .hero-card {
-    position: relative; overflow: hidden; border-radius: 28px; min-height: 640px;
-    background: var(--dark) center / cover no-repeat;
-    display: flex; align-items: flex-end; color: #fff;
-  }
-  .hero-card::before {
-    content: ""; position: absolute; inset: 0;
-    background:
-      linear-gradient(100deg, rgba(11,31,26,.92) 0%, rgba(11,31,26,.7) 40%, rgba(11,31,26,.15) 75%),
-      linear-gradient(to top, rgba(11,31,26,.6), transparent 50%);
-  }
-  .hero-content { position: relative; padding: 64px; max-width: 720px; }
-  .pill { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); font-size: 13px; font-weight: 500; backdrop-filter: blur(8px); }
-  .pill-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(61,220,151,.25); }
-  .hero h1 { font-size: clamp(44px, 7vw, 92px); margin: 24px 0 20px; }
-  .hero h1 span { color: var(--accent); }
-  .hero-sub { font-size: 18px; color: rgba(255,255,255,.8); max-width: 46ch; }
-  .cta-row { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
-  .hero-stats { position: absolute; right: 32px; bottom: 32px; display: flex; flex-direction: column; gap: 10px; }
-  .stat-chip { background: rgba(255,255,255,.95); color: var(--ink); border-radius: 16px; padding: 14px 18px; min-width: 190px; box-shadow: var(--shadow-lg); }
-  .stat-chip strong { display: block; font-family: var(--font-display); font-size: 26px; letter-spacing: -0.02em; line-height: 1.1; }
-  .stat-chip span { font-size: 13px; color: var(--muted); }
+  .hero { padding: clamp(28px, 5vw, 64px) 0 clamp(48px, 7vw, 96px); }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; grid-template-areas: "kick win" "title win" "copy win"; column-gap: clamp(32px, 5vw, 80px); align-items: end; }
+  .kicker { grid-area: kick; display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--ink-2); padding-bottom: 22px; border-bottom: 2px solid var(--ink); margin-bottom: 26px; align-self: start; }
+  .kicker span::before { content: "■ "; color: var(--green); }
+  .hero h1 { grid-area: title; font-size: clamp(86px, 13.5vw, 212px); }
+  .hero h1 .l { display: block; overflow: hidden; }
+  .hero h1 .l > span { display: block; animation: rise .9s cubic-bezier(.2,.8,.2,1) both; }
+  .hero h1 .l:nth-child(2) > span { animation-delay: .08s; }
+  .hero h1 .l:nth-child(3) > span { animation-delay: .16s; color: var(--green-ink); }
+  @keyframes rise { from { transform: translateY(105%); } to { transform: none; } }
+  .hero-copy { grid-area: copy; margin-top: 28px; }
+  .hero-copy p { font-size: clamp(18px, 1.6vw, 21px); max-width: 34ch; color: var(--ink-2); }
+  .hero-copy p b { color: var(--ink); }
+  .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: 28px; }
+  .hero-cta .or { font-size: 15px; color: var(--ink-2); }
+  .hero-cta .or a { font-weight: 700; color: var(--ink); border-bottom: 2px solid var(--green); }
+  .facts { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 28px; margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--line); }
+  .facts b { display: block; font-family: var(--display); font-weight: 800; font-size: 34px; line-height: 1; }
+  .facts span { color: var(--mute); }
+
+  /* the window */
+  .window { grid-area: win; position: relative; align-self: stretch; min-height: 560px; }
+  .pane { position: absolute; inset: 0; border: clamp(10px, 1.2vw, 16px) solid var(--ink); background: #222 center/cover no-repeat; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); }
+  .pane video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .pane canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: pan-y; cursor: none; }
+  .pane::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg, rgba(255,255,255,.18) 0%, transparent 28%, transparent 70%, rgba(255,255,255,.08) 100%); }
+  .sill { position: absolute; left: -14px; right: -14px; bottom: -18px; height: 18px; background: var(--ink); }
+  .squeegee { position: absolute; left: 0; top: 0; width: 120px; pointer-events: none; z-index: 3; opacity: 0; transition: opacity .2s; will-change: transform; filter: drop-shadow(0 6px 10px rgba(0,0,0,.35)); }
+  .squeegee.on { opacity: 1; }
+  .hint { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 4; background: var(--ink); color: var(--paper); padding: 10px 14px; white-space: nowrap; transition: opacity .3s; pointer-events: none; }
+  .hint b { color: var(--green); font-weight: 500; }
+  .refog { position: absolute; right: 14px; top: 14px; z-index: 4; background: var(--paper); color: var(--ink); padding: 8px 10px; border: 2px solid var(--ink); }
+  .refog:hover { background: var(--green); }
+  .win-tag { position: absolute; left: 0; top: -30px; color: var(--ink-2); }
+
   @media (max-width: 900px) {
-    .hero-card { min-height: 560px; }
-    .hero-content { padding: 40px 24px; }
-    .hero-stats { display: none; }
+    .hero-grid { grid-template-columns: 1fr; grid-template-areas: "kick" "title" "win" "copy"; }
+    .kicker { margin-bottom: 18px; padding-bottom: 14px; }
+    .window { min-height: 0; aspect-ratio: 4/5; margin-top: 40px; margin-bottom: 18px; }
+    .facts { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .facts b { font-size: 28px; }
   }
 
-  /* ===== TRUST BAR ===== */
-  .trust { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; }
-  .trust-item { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 16px 18px; display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 500; color: var(--ink-2); }
-  .trust-icon { width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0; background: color-mix(in oklab, var(--accent) 18%, white); color: var(--accent-ink); display: grid; place-items: center; }
-  .trust-icon svg { width: 18px; height: 18px; }
-  @media (max-width: 900px) { .trust { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 560px) {
-    .trust { grid-template-columns: 1fr; gap: 8px; }
-    .trust-item { padding: 10px 14px; }
-    .trust-icon { width: 30px; height: 30px; }
+  /* ===== TICKER ===== */
+  .ticker-wrap { overflow: hidden; padding: 26px 0; }
+  .ticker { background: var(--green); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); transform: rotate(-1.6deg); width: 110%; margin-left: -5%; }
+  .ticker-track { display: flex; width: max-content; animation: tick 28s linear infinite; }
+  .ticker-track span { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(30px, 4vw, 52px); padding: 10px 0; white-space: nowrap; }
+  .ticker-track span::after { content: "✱"; margin: 0 .6em; font-size: .6em; vertical-align: .35em; }
+  @keyframes tick { to { transform: translateX(-50%); } }
+
+  /* ===== SECTION HEAD ===== */
+  .sec { padding: clamp(64px, 9vw, 128px) 0; }
+  .head { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 24px; border-bottom: 2px solid var(--ink); padding-bottom: 18px; margin-bottom: clamp(28px, 4vw, 48px); }
+  .head h2 { font-size: clamp(56px, 9vw, 128px); }
+  .head .mono { color: var(--ink-2); text-align: right; }
+  @media (max-width: 640px) { .head { grid-template-columns: 1fr; } .head .mono { text-align: left; } }
+
+  /* ===== PRICE LIST ===== */
+  .tariff { list-style: none; }
+  .t-row { display: grid; grid-template-columns: 1fr auto; gap: 6px 24px; padding: 26px 0; border-bottom: 1px solid var(--line); position: relative; }
+  .t-line { display: flex; align-items: baseline; gap: 14px; min-width: 0; }
+  .t-name { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(30px, 4.4vw, 58px); line-height: 1; }
+  .t-dots { flex: 1; border-bottom: 3px dotted var(--ink); transform: translateY(-.25em); min-width: 24px; }
+  .t-price { font-family: var(--display); font-weight: 900; font-size: clamp(44px, 6.4vw, 88px); line-height: .9; white-space: nowrap; }
+  .t-price small { font-size: .38em; font-weight: 800; margin-left: 4px; }
+  .t-sub { grid-column: 1; color: var(--ink-2); font-size: 16px; }
+  .t-book { grid-column: 2; grid-row: 1 / span 2; align-self: center; border: 2px solid var(--ink); padding: 12px 16px; font-weight: 700; font-size: 15px; transition: background .15s; }
+  .t-book:hover { background: var(--ink); color: var(--paper); }
+  .t-row.hot { background: var(--ink); color: var(--paper); margin: 0 calc(var(--gut) * -1); padding-left: var(--gut); padding-right: var(--gut); border: 0; }
+  .t-row.hot .t-dots { border-color: var(--green); }
+  .t-row.hot .t-price { color: var(--green); }
+  .t-row.hot .t-sub { color: rgba(236,234,227,.72); }
+  .t-row.hot .t-book { background: var(--green); color: var(--ink); border-color: var(--green); }
+  .t-row.hot .badge { position: absolute; top: -12px; left: var(--gut); background: var(--green); color: var(--ink); padding: 5px 9px; }
+  .t-note { margin-top: 22px; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 8px 24px; }
+  @media (max-width: 640px) {
+    .t-row { grid-template-columns: 1fr; }
+    .t-book { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 10px; }
   }
 
-  /* ===== SECTIONS ===== */
-  section { padding: 112px 0; scroll-margin-top: 90px; }
-  section.tight { padding-top: 0; }
-  @media (max-width: 720px) { section { padding: 72px 0; } }
-  .section-head { max-width: 680px; margin-bottom: 56px; }
-  .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
-  .eyebrow { display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 16px; }
-  .section-title { font-size: clamp(36px, 5vw, 60px); }
-  .section-title span { color: var(--muted); }
-  .section-sub { font-size: 18px; color: var(--ink-2); margin-top: 18px; }
-
-  /* ===== PRICES ===== */
-  .prices { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; align-items: stretch; }
-  .price-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px 28px; display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s; position: relative; }
-  .price-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-  .price-card.featured { background: var(--dark); color: #fff; border-color: var(--dark); }
-  .price-badge { position: absolute; top: 20px; right: 20px; background: var(--accent); color: var(--ink); font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 999px; }
-  .price-name { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
-  .price-meta { font-size: 14px; color: var(--muted); margin-top: 4px; }
-  .featured .price-meta { color: rgba(255,255,255,.6); }
-  .price-value { display: flex; align-items: baseline; gap: 6px; margin: 28px 0 24px; }
-  .price-number { font-family: var(--font-display); font-size: 60px; font-weight: 700; letter-spacing: -0.04em; line-height: 1; }
-  .price-number.sm { font-size: 34px; letter-spacing: -0.02em; }
-  .price-unit { font-size: 15px; color: var(--muted); font-weight: 500; }
-  .featured .price-unit { color: rgba(255,255,255,.6); }
-  .price-list { list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 15px; color: var(--ink-2); margin-bottom: 32px; flex: 1; }
-  .featured .price-list { color: rgba(255,255,255,.85); }
-  .price-list li { display: flex; gap: 10px; align-items: flex-start; }
-  .price-list li::before, .bestil-perk::before {
-    content: ""; flex-shrink: 0; width: 18px; height: 18px; margin-top: 3px; border-radius: 50%;
-    background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B1F1A' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center / 11px no-repeat;
+  /* ===== FILM ===== */
+  .film { background: var(--ink); color: var(--paper); }
+  .film .head { border-color: var(--paper); }
+  .film .head .mono { color: rgba(236,234,227,.6); }
+  .film .head h2 em { font-style: normal; color: var(--green); }
+  .strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 2.4vw, 32px); align-items: start; }
+  .strip figure:nth-child(2) { margin-top: 72px; }
+  .strip figure:nth-child(3) { margin-top: 24px; }
+  .clip { position: relative; background: #000; border: 2px solid rgba(236,234,227,.2); overflow: hidden; }
+  .clip.v916 { aspect-ratio: 9/16; }
+  .clip.v45 { aspect-ratio: 4/5; }
+  .clip video { width: 100%; height: 100%; object-fit: cover; }
+  .strip figcaption { display: flex; justify-content: space-between; gap: 10px; padding-top: 12px; color: rgba(236,234,227,.7); }
+  .strip figcaption b { color: var(--green); font-weight: 500; }
+  @media (max-width: 860px) {
+    .strip { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; margin: 0 calc(var(--gut) * -1); padding: 0 var(--gut) 8px; scrollbar-width: none; }
+    .strip::-webkit-scrollbar { display: none; }
+    .strip figure { flex: 0 0 72%; scroll-snap-align: center; margin-top: 0 !important; }
+    .swipe-hint { display: block !important; }
   }
-  .price-book { display: block; text-align: center; padding: 13px; border-radius: 999px; font-size: 14px; font-weight: 600; background: var(--surface-2); color: var(--ink); transition: background .2s; }
-  .price-book:hover { background: var(--line); }
-  .featured .price-book { background: var(--accent); color: var(--ink); }
-  .featured .price-book:hover { background: #5be6a9; }
-  @media (max-width: 1000px) { .prices { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 560px) { .prices { grid-template-columns: 1fr; } }
+  .swipe-hint { display: none; margin-top: 16px; color: rgba(236,234,227,.6); }
 
-  /* ===== FRADRAG ===== */
-  .fradrag-box { background: var(--surface); border: 1px solid var(--line); border-radius: 28px; padding: 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-  .fradrag-text p { font-size: 17px; color: var(--ink-2); margin-top: 18px; max-width: 46ch; }
-  .fradrag-text strong { color: var(--ink); font-weight: 600; }
-  .fradrag-note { margin-top: 28px; padding: 18px 20px; border-radius: var(--radius-sm); background: var(--surface-2); font-size: 14px; color: var(--ink-2); }
-  .calc { background: var(--dark); color: #fff; border-radius: var(--radius); padding: 32px; }
-  .calc h4 { font-family: var(--font-display); font-size: 20px; font-weight: 700; margin-bottom: 24px; }
-  .calc-field { margin-bottom: 20px; }
-  .calc-field label { display: block; font-size: 13px; color: rgba(255,255,255,.65); margin-bottom: 8px; }
-  .calc-select { width: 100%; padding: 13px 14px; font: inherit; font-size: 15px; background: var(--dark-2); color: #fff; border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius-sm); }
-  .calc-range { width: 100%; accent-color: var(--accent); }
-  .calc-rows { border-top: 1px solid rgba(255,255,255,.12); margin-top: 24px; padding-top: 12px; }
-  .calc-row { display: flex; justify-content: space-between; padding: 8px 0; font-size: 14px; color: rgba(255,255,255,.7); }
-  .calc-row.total { color: #fff; font-weight: 600; border-top: 1px solid rgba(255,255,255,.12); margin-top: 10px; padding-top: 16px; align-items: baseline; }
-  .calc-row.total .val { font-family: var(--font-display); font-size: 34px; letter-spacing: -0.02em; color: var(--accent); }
-  .calc-save { margin-top: 18px; text-align: center; padding: 12px; border-radius: 999px; background: rgba(61,220,151,.15); color: var(--accent); font-size: 14px; font-weight: 600; }
-  @media (max-width: 900px) { .fradrag-box { grid-template-columns: 1fr; padding: 32px 20px; gap: 36px; } }
-
-  /* ===== FLOW ===== */
-  .flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .flow-step { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px; }
-  .flow-num { width: 44px; height: 44px; border-radius: 12px; background: var(--ink); color: var(--accent); display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 17px; margin-bottom: 28px; }
-  .flow-step h3 { font-size: 24px; letter-spacing: -0.02em; margin-bottom: 10px; }
-  .flow-step p { font-size: 15px; color: var(--ink-2); }
-  @media (max-width: 900px) { .flow { grid-template-columns: 1fr; } }
-
-  /* ===== VIDEO ===== */
-  .video-box { background: var(--dark); color: #fff; border-radius: 28px; padding: 64px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; position: relative; overflow: hidden; }
-  .video-box::before { content: ""; position: absolute; width: 560px; height: 560px; left: -200px; bottom: -260px; background: radial-gradient(circle, rgba(61,220,151,.22), transparent 65%); pointer-events: none; }
-  .video-box .eyebrow { color: var(--accent); }
-  .video-box .section-title span { color: rgba(255,255,255,.55); }
-  .video-text > p { color: rgba(255,255,255,.75); font-size: 17px; margin-top: 18px; max-width: 42ch; }
-  .video-points { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
-  .video-frame { position: relative; justify-self: center; width: 100%; max-width: 360px; aspect-ratio: 9/16; border-radius: 32px; overflow: hidden; background: #000; box-shadow: 0 30px 80px rgba(0,0,0,.45); border: 6px solid rgba(255,255,255,.08); }
-  .video-frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
-  @media (max-width: 900px) { .video-box { grid-template-columns: 1fr; padding: 40px 20px; gap: 36px; } .video-frame { max-width: 320px; } }
-
-  /* ===== GALLERY ===== */
-  .gallery-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; grid-template-rows: 300px 300px; gap: 16px; }
-  .gallery-item { background: var(--surface-2) center / cover no-repeat; border-radius: var(--radius); transition: transform .4s; }
-  .gallery-item:hover { transform: scale(1.015); }
-  .gallery-item:nth-child(1) { grid-row: span 2; }
-  .gallery-item:nth-child(2) { grid-column: span 2; }
-  @media (max-width: 720px) {
-    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-    .gallery-item:nth-child(1), .gallery-item:nth-child(2) { grid-column: auto; grid-row: auto; }
-    .gallery-item { aspect-ratio: 1; }
-    .gallery-item:nth-child(1) { grid-column: span 2; aspect-ratio: 16/10; }
+  /* ===== PROCESS ===== */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.4vw, 32px); }
+  .step { border-top: 2px solid var(--ink); padding-top: 18px; }
+  .step .n { font-family: var(--display); font-weight: 900; font-size: 96px; line-height: .8; color: var(--green-ink); }
+  .step h3 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 40px; line-height: .95; margin: 14px 0 10px; }
+  .step p { color: var(--ink-2); max-width: 34ch; }
+  .step .ph { margin-top: 22px; aspect-ratio: 3/4; background: var(--paper-2) center/cover no-repeat; filter: saturate(1.05); }
+  .step:nth-child(2) .ph { aspect-ratio: 3/3.6; }
+  @media (max-width: 860px) {
+    .steps { grid-template-columns: 1fr; gap: 48px; }
+    .step { display: grid; grid-template-columns: 1fr 42%; gap: 0 18px; }
+    .step .ph, .step:nth-child(2) .ph { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; aspect-ratio: 3/4; }
+    .step .n { font-size: 72px; }
+    .step h3 { font-size: 32px; }
   }
 
-  /* ===== OM ===== */
-  .om { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: center; }
-  .om-img { aspect-ratio: 4/5; border-radius: 28px; background: var(--surface-2) center top / cover no-repeat; }
-  .om-text .lead { font-family: var(--font-display); font-size: clamp(28px, 3.4vw, 42px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 20px; }
-  .om-text p { font-size: 17px; color: var(--ink-2); max-width: 48ch; }
-  .om-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 36px; }
-  .om-meta div { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 18px; }
-  .om-meta strong { display: block; font-family: var(--font-display); font-size: 28px; letter-spacing: -0.02em; line-height: 1.1; }
-  .om-meta span { font-size: 13px; color: var(--muted); }
-  @media (max-width: 820px) { .om { grid-template-columns: 1fr; gap: 36px; } .om-img { aspect-ratio: 4/3; } }
+  /* ===== RECEIPT ===== */
+  .fradrag { background: var(--paper-2); }
+  .fr-grid { display: grid; grid-template-columns: 1fr minmax(320px, 440px); gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .fr-copy h2 { font-size: clamp(56px, 8.5vw, 120px); }
+  .fr-copy h2 em { font-style: normal; color: var(--green-ink); }
+  .fr-copy p { margin-top: 22px; font-size: 19px; max-width: 40ch; color: var(--ink-2); }
+  .fr-copy p b { color: var(--ink); }
+  .fr-copy .mono { margin-top: 28px; color: var(--ink-2); line-height: 1.8; }
+  .receipt { position: relative; background: var(--white); padding: 30px 26px 34px; font-family: var(--mono); font-size: 13px; box-shadow: 0 18px 40px rgba(18,20,18,.14); transform: rotate(1.2deg); }
+  .receipt::after { content: ""; position: absolute; left: 0; right: 0; bottom: -12px; height: 12px; background: radial-gradient(circle at 8px -2px, var(--white) 9px, transparent 9.5px) 0 0 / 16px 12px repeat-x; }
+  .rc-head { text-align: center; padding-bottom: 16px; border-bottom: 1px dashed var(--ink); margin-bottom: 18px; }
+  .rc-head b { display: block; font-family: var(--display); font-weight: 900; font-size: 30px; letter-spacing: .04em; }
+  .rc-field { margin-bottom: 16px; }
+  .rc-field label { display: block; margin-bottom: 6px; text-transform: uppercase; font-size: 11px; color: var(--mute); }
+  .rc-field select { width: 100%; font: inherit; padding: 10px; border: 1px solid var(--ink); background: var(--white); color: var(--ink); border-radius: 0; }
+  .rc-field input[type=range] { width: 100%; accent-color: var(--green-ink); }
+  .rc-line { display: flex; justify-content: space-between; gap: 8px; padding: 6px 0; }
+  .rc-line span:first-child::after { content: ""; }
+  .rc-sep { border-top: 1px dashed var(--ink); margin: 10px 0; }
+  .rc-total { display: flex; justify-content: space-between; align-items: baseline; border-top: 3px double var(--ink); margin-top: 10px; padding-top: 14px; }
+  .rc-total b { font-family: var(--display); font-weight: 900; font-size: 46px; line-height: 1; }
+  .stamp { display: block; width: max-content; margin: 22px 0 0 auto; transform: rotate(-6deg); border: 3px solid var(--green-ink); color: var(--green-ink); padding: 6px 10px; font-family: var(--display); font-weight: 900; font-size: 22px; text-transform: uppercase; line-height: 1; opacity: .9; }
+  @media (max-width: 860px) { .fr-grid { grid-template-columns: 1fr; } .receipt { transform: none; } }
 
-  /* ===== BESTIL ===== */
-  .bestil-box { background: var(--dark); color: #fff; border-radius: 28px; padding: 72px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; position: relative; overflow: hidden; }
-  .bestil-box::before { content: ""; position: absolute; width: 520px; height: 520px; right: -160px; top: -200px; background: radial-gradient(circle, rgba(61,220,151,.25), transparent 65%); pointer-events: none; }
-  .bestil-box .eyebrow { color: var(--accent); }
-  .bestil-lead > p { color: rgba(255,255,255,.75); font-size: 17px; margin-top: 18px; max-width: 42ch; }
-  .bestil-lead a.tel { color: var(--accent); font-weight: 600; }
-  .bestil-perks { margin-top: 36px; display: flex; flex-direction: column; gap: 14px; }
-  .bestil-perk { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: rgba(255,255,255,.85); }
-  .bestil-card { position: relative; background: var(--surface); color: var(--ink); border-radius: var(--radius); padding: 32px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .form-field { margin-bottom: 16px; }
-  .form-field label { display: block; font-size: 13px; font-weight: 600; color: var(--ink-2); margin-bottom: 6px; }
-  .form-field input, .form-field select, .form-field textarea { width: 100%; padding: 13px 14px; font: inherit; font-size: 15px; background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius-sm); color: var(--ink); outline: none; transition: border-color .2s, box-shadow .2s; }
-  .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--accent-ink); box-shadow: 0 0 0 4px rgba(61,220,151,.2); }
-  .form-field textarea { min-height: 80px; resize: vertical; }
-  .form-submit { width: 100%; padding: 16px; border-radius: 999px; margin-top: 4px; background: var(--accent); color: var(--ink); font-size: 15px; font-weight: 700; transition: background .2s, transform .15s; }
-  .form-submit:hover { background: #5be6a9; transform: translateY(-1px); }
-  .form-submit:disabled { opacity: .6; cursor: wait; }
-  .form-done h3 { font-size: 28px; margin-bottom: 10px; }
-  .form-done p { color: var(--ink-2); }
-  .form-done a { color: var(--accent-ink); font-weight: 600; }
-  @media (max-width: 900px) { .bestil-box { grid-template-columns: 1fr; padding: 40px 20px; gap: 36px; } .form-row { grid-template-columns: 1fr; gap: 0; } .bestil-card { padding: 24px 18px; } }
+  /* ===== DINO ===== */
+  .dino-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(28px, 6vw, 96px); align-items: center; }
+  .dino-photo { position: relative; }
+  .dino-photo img { width: 100%; height: auto; aspect-ratio: 4/5; object-fit: cover; object-position: 50% 30%; }
+  .dino-photo .mono { margin-top: 10px; color: var(--ink-2); }
+  .dino-photo::before { content: ""; position: absolute; left: -14px; top: -14px; width: 40%; height: 40%; background: var(--green); z-index: -1; }
+  .dino-text .quote { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(42px, 5.4vw, 76px); line-height: .92; }
+  .quote em { font-style: normal; color: var(--green-ink); }
+  .dino-text p { margin-top: 24px; font-size: 19px; color: var(--ink-2); max-width: 44ch; }
+  .dino-meta { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 32px; border-top: 2px solid var(--ink); }
+  .dino-meta div { padding: 16px 12px 0 0; }
+  .dino-meta b { display: block; font-family: var(--display); font-weight: 900; font-size: 44px; line-height: 1; }
+  .dino-meta span { color: var(--mute); }
+  @media (max-width: 860px) { .dino-grid { grid-template-columns: 1fr; } .dino-photo { margin-left: 14px; } }
+
+  /* ===== BOOKING ===== */
+  .book-sec { background: var(--ink); color: var(--paper); }
+  .bk-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .bk-lead h2 { font-size: clamp(64px, 9vw, 132px); }
+  .bk-lead h2 em { font-style: normal; color: var(--green); }
+  .bk-lead p { margin-top: 22px; color: rgba(236,234,227,.75); font-size: 19px; max-width: 34ch; }
+  .bk-phone { display: inline-block; margin-top: 26px; font-family: var(--display); font-weight: 900; font-size: clamp(48px, 6vw, 76px); line-height: 1; color: var(--green); border-bottom: 3px solid var(--green); }
+  .bk-perks { list-style: none; margin-top: 34px; border-top: 1px solid rgba(236,234,227,.2); }
+  .bk-perks li { padding: 12px 0; border-bottom: 1px solid rgba(236,234,227,.2); display: flex; gap: 14px; }
+  .bk-perks li .mono { color: var(--green); padding-top: 4px; }
+  .sheet { background: var(--paper); color: var(--ink); padding: clamp(22px, 3vw, 36px); border: 2px solid var(--paper); }
+  .sheet-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid var(--ink); padding-bottom: 12px; margin-bottom: 8px; }
+  .sheet-head b { font-family: var(--display); font-weight: 900; font-size: 30px; text-transform: uppercase; }
+  .f { display: grid; grid-template-columns: 34px 1fr; align-items: end; border-bottom: 1px solid var(--line); padding: 14px 0 6px; }
+  .f .num { font-family: var(--mono); font-size: 11px; color: var(--mute); padding-bottom: 12px; }
+  .f label { display: block; font-family: var(--mono); font-size: 11px; text-transform: uppercase; color: var(--ink-2); }
+  .f input, .f select, .f textarea { width: 100%; font: inherit; font-size: 18px; border: 0; background: transparent; color: var(--ink); padding: 6px 0 8px; outline: none; border-radius: 0; }
+  .f:focus-within { border-bottom-color: var(--green-ink); box-shadow: 0 2px 0 var(--green); }
+  .f textarea { min-height: 64px; resize: vertical; }
+  .f-row { display: grid; grid-template-columns: 1fr 1fr; column-gap: 20px; }
+  .submit { width: 100%; margin-top: 26px; justify-content: space-between; }
+  .submit:disabled { opacity: .6; cursor: wait; }
+  .done h3 { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: 48px; line-height: .95; }
+  .done p { margin-top: 12px; color: var(--ink-2); }
+  .done a { font-weight: 700; border-bottom: 2px solid var(--green); }
+  @media (max-width: 860px) { .bk-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 520px) { .f-row { grid-template-columns: 1fr; } }
 
   /* ===== FAQ ===== */
-  .faq-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 64px; }
-  .faq-list { display: flex; flex-direction: column; gap: 10px; }
-  .faq-item { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); }
-  .faq-q { width: 100%; text-align: left; padding: 20px 22px; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-size: 17px; font-weight: 600; color: var(--ink); }
-  .faq-q .icon { width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0; background: var(--surface-2); display: grid; place-items: center; font-size: 18px; line-height: 1; transition: transform .25s, background .2s; }
-  .faq-item.open .faq-q .icon { transform: rotate(45deg); background: var(--accent); }
-  .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; color: var(--ink-2); font-size: 15px; }
-  .faq-a p { padding: 0 22px 20px; max-width: 64ch; }
-  .faq-item.open .faq-a { max-height: 300px; }
-  @media (max-width: 820px) { .faq-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .faq details { border-bottom: 1px solid var(--line); }
+  .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 20px; align-items: center; padding: 22px 0; font-size: clamp(19px, 2vw, 24px); font-weight: 600; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; font-family: var(--mono); font-size: 22px; width: 34px; height: 34px; flex-shrink: 0; display: grid; place-items: center; border: 2px solid var(--ink); transition: transform .2s, background .2s; }
+  .faq details[open] summary::after { transform: rotate(45deg); background: var(--green); }
+  .faq details p { padding: 0 0 24px; max-width: 62ch; color: var(--ink-2); }
+  .faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(28px, 6vw, 96px); }
+  .faq-grid h2 { font-size: clamp(56px, 8vw, 112px); }
+  .faq-grid .mono { margin-top: 18px; color: var(--ink-2); }
+  .faq-grid .mono a { border-bottom: 2px solid var(--green); }
+  @media (max-width: 860px) { .faq-grid { grid-template-columns: 1fr; } }
 
   /* ===== FOOTER ===== */
-  footer { padding: 0 0 32px; }
-  .foot-box { background: var(--surface); border: 1px solid var(--line); border-radius: 28px; padding: 56px; }
-  .foot-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; }
-  .foot-brand { font-family: var(--font-display); font-size: clamp(36px, 4.5vw, 56px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
-  .foot-brand span { color: var(--accent-ink); }
-  .foot-col h5 { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 14px; }
-  .foot-col a, .foot-col p { display: block; font-size: 15px; color: var(--ink-2); margin-bottom: 6px; }
-  .foot-col a:hover { color: var(--ink); }
-  .foot-bot { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
-  @media (max-width: 820px) {
-    .foot-box { padding: 32px 20px; }
-    .foot-grid { grid-template-columns: 1fr 1fr; }
-    .foot-grid > div:first-child { grid-column: span 2; }
-    .foot-bot { flex-direction: column; gap: 6px; }
-  }
+  footer { background: var(--green); border-top: 2px solid var(--ink); padding-top: 48px; overflow: hidden; }
+  .ft-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .ft-cols h4 { font-family: var(--mono); font-size: 11px; text-transform: uppercase; font-weight: 500; margin-bottom: 12px; }
+  .ft-cols a, .ft-cols p { display: block; font-size: 17px; font-weight: 500; }
+  .ft-cols a:hover { text-decoration: underline; }
+  .giant { font-family: var(--display); font-weight: 900; font-size: 23.5vw; line-height: .78; letter-spacing: -.02em; margin-top: 40px; white-space: nowrap; transform: translateY(6%); }
+  .ft-bot { display: flex; justify-content: space-between; gap: 12px; padding: 14px var(--gut); border-top: 2px solid var(--ink); background: var(--ink); color: var(--green); }
+  @media (max-width: 640px) { .ft-cols { grid-template-columns: 1fr 1fr; } .ft-bot { flex-direction: column; } }
 
-  /* ===== MOBILE STICKY CTA ===== */
-  .m-cta { display: none; }
-  @media (max-width: 720px) {
-    .m-cta { display: flex; gap: 8px; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60; padding: 8px; border-radius: 999px; background: var(--dark); box-shadow: var(--shadow-lg); }
-    .m-cta a { flex: 1; text-align: center; padding: 12px; border-radius: 999px; font-size: 14px; font-weight: 600; }
-    .m-cta .call { color: #fff; }
-    .m-cta .book { background: var(--accent); color: var(--ink); }
-    footer { padding-bottom: 96px; }
+  /* ===== MOBILE BAR ===== */
+  .mbar { display: none; }
+  @media (max-width: 860px) {
+    .mbar { display: grid; grid-template-columns: 1fr 1.2fr; position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; border-top: 2px solid var(--ink); padding-bottom: env(safe-area-inset-bottom); background: var(--ink); transform: translateY(110%); transition: transform .3s; }
+    .mbar.show { transform: none; }
+    .mbar a { padding: 16px 12px; text-align: center; font-weight: 700; }
+    .mbar .c { color: var(--paper); font-family: var(--mono); font-size: 13px; display: grid; place-items: center; }
+    .mbar .b { background: var(--green); color: var(--ink); }
+    .ft-bot { padding-bottom: calc(70px + env(safe-area-inset-bottom)); }
   }
 
   /* ===== REVEAL ===== */
-  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
-  .reveal.in { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+  .rv { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1); }
+  .rv.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .rv { opacity: 1; transform: none; transition: none; }
+    .hero h1 .l > span { animation: none; }
+    .ticker-track { animation: none; }
+  }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="#top" class="brand"><span class="brand-mark"></span>DITVINDUE</a>
-    <div class="nav-links">
-      <a href="#priser">Priser</a>
-      <a href="#fradrag">Servicefradrag</a>
-      <a href="#flow">Sådan gør vi</a>
-      <a href="#faq">FAQ</a>
-    </div>
-    <a href="#bestil" class="nav-cta">Bestil tid</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<header class="hero" id="top">
+<header class="top">
   <div class="wrap">
-    <div class="hero-card" style="background-image:url('billeder/hero-ny.webp')">
-      <div class="hero-content">
-        <span class="pill"><span class="pill-dot"></span>Ledige tider i Nyborg og omegn</span>
-        <h1>Krystalklare vinduer. <span>Uden besvær.</span></h1>
-        <p class="hero-sub">Professionel udvendig vinduespudsning til fast pris. Vi møder op med alt udstyr — du skal bare nyde udsigten.</p>
-        <div class="cta-row">
-          <a href="#bestil" class="btn btn-accent">Bestil tid online →</a>
-          <a href="#priser" class="btn btn-light">Se priser</a>
-        </div>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-chip"><strong>Fra 149 kr.</strong><span>Fast pris, ingen tillæg</span></div>
-        <div class="stat-chip"><strong>&lt; 12 timer</strong><span>Svartid på bestillinger</span></div>
-      </div>
-    </div>
-
-    <div class="trust">
-      <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>100 % tilfredshedsgaranti</div>
-      <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>Lokal i Nyborg</div>
-      <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>MobilePay &amp; kontant</div>
-      <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>Servicefradrag godkendt</div>
-    </div>
+    <a href="#top" class="wordmark" aria-label="DITVINDUE forside"><i></i>DITVINDUE</a>
+    <nav>
+      <a href="#priser" class="hide-m">Priser</a>
+      <a href="#film" class="hide-m">Se os arbejde</a>
+      <a href="#fradrag" class="hide-m">Fradrag</a>
+      <a href="tel:+4553533206" class="tel">53 53 32 06</a>
+      <a href="#bestil" class="book">Book tid</a>
+    </nav>
   </div>
 </header>
 
-<!-- PRICES -->
-<section id="priser">
-  <div class="wrap">
-    <div class="section-head center reveal">
-      <span class="eyebrow">Priser</span>
-      <h2 class="section-title">Faste priser. <span>Ingen overraskelser.</span></h2>
-      <p class="section-sub">Prisen aftales før vi går i gang — og den holder. Ingen transporttillæg inden for 25 km af Nyborg.</p>
+<!-- HERO -->
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="kicker mono"><span>Vinduespudser</span><span>Nyborg &amp; omegn</span><span>25 km radius</span></div>
+    <h1 class="disp"><span class="l"><span>Klar</span></span><span class="l"><span>udsigt.</span></span><span class="l"><span>Fast pris.</span></span></h1>
+
+    <div class="window" id="window">
+      <span class="win-tag mono">↓ Tør ruden af</span>
+      <div class="pane" style="background-image:url('billeder/dino/hero-poster.webp')">
+        <video autoplay muted loop playsinline preload="auto" poster="billeder/dino/hero-poster.webp" aria-hidden="true">
+          <source src="billeder/dino/hero-loop.mp4" type="video/mp4">
+        </video>
+        <canvas id="fog" aria-label="Tildugget rude du kan tørre af med fingeren eller musen"></canvas>
+        <svg class="squeegee" id="squeegee" viewBox="0 0 120 64" aria-hidden="true">
+          <rect x="50" y="0" width="20" height="40" rx="7" fill="#22D36B"/>
+          <rect x="56" y="6" width="8" height="26" rx="4" fill="#0A7A3B"/>
+          <rect x="2" y="38" width="116" height="12" fill="#9BA39C"/>
+          <rect x="0" y="50" width="120" height="8" rx="2" fill="#121412"/>
+        </svg>
+        <div class="hint mono" id="hint"><b>←→</b> Træk hen over ruden</div>
+        <button class="refog mono" id="refog" type="button" hidden>Skum på igen ↺</button>
+      </div>
+      <div class="sill"></div>
     </div>
-    <div class="prices">
-      <div class="price-card reveal">
-        <div class="price-name">Stuelejlighed</div>
-        <div class="price-meta">Udvendige ruder i stueplan</div>
-        <div class="price-value"><span class="price-number">149</span><span class="price-unit">kr.</span></div>
-        <ul class="price-list">
-          <li>Alle udvendige ruder</li>
-          <li>Karme aftørres</li>
-          <li>MobilePay / kontant</li>
-        </ul>
-        <a href="#bestil" class="price-book" data-type="Stuelejlighed – 149 kr.">Bestil</a>
-      </div>
 
-      <div class="price-card featured reveal">
-        <span class="price-badge">Mest valgt</span>
-        <div class="price-name">Rækkehus</div>
-        <div class="price-meta">Alle ruder, uanset størrelse</div>
-        <div class="price-value"><span class="price-number">199</span><span class="price-unit">kr.</span></div>
-        <ul class="price-list">
-          <li>Alle udvendige ruder</li>
-          <li>Karme aftørres</li>
-          <li>Typisk færdig på under en time</li>
-        </ul>
-        <a href="#bestil" class="price-book" data-type="Rækkehus – 199 kr.">Bestil</a>
+    <div class="hero-copy">
+      <p>Dino pudser dine vinduer udvendigt — grundigt, stribefrit og til en pris, der står fast. <b>Fra 149 kr.</b> Ingen transporttillæg.</p>
+      <div class="hero-cta">
+        <a href="#bestil" class="btn btn-go">Book en tid <span class="arrow">→</span></a>
+        <span class="or">eller ring <a href="tel:+4553533206">53 53 32 06</a></span>
       </div>
+      <div class="facts">
+        <div><b>149,-</b><span class="mono">Fra pris</span></div>
+        <div><b>&lt;12 t</b><span class="mono">Svartid</span></div>
+        <div><b>100%</b><span class="mono">Garanti</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <div class="price-card reveal">
-        <div class="price-name">Parcelhus</div>
-        <div class="price-meta">1-plans hus</div>
-        <div class="price-value"><span class="price-number">299</span><span class="price-unit">kr.</span></div>
-        <ul class="price-list">
-          <li>Alle udvendige ruder</li>
-          <li>Terrassedøre inkluderet</li>
-          <li>Karme aftørres</li>
-        </ul>
-        <a href="#bestil" class="price-book" data-type="Parcelhus (1 plan) – 299 kr.">Bestil</a>
-      </div>
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker"><div class="ticker-track">
+    <span>Stribefrit</span><span>Fast pris</span><span>Lokal i Nyborg</span><span>MobilePay</span><span>Servicefradrag</span><span>Svar inden 12 timer</span>
+    <span>Stribefrit</span><span>Fast pris</span><span>Lokal i Nyborg</span><span>MobilePay</span><span>Servicefradrag</span><span>Svar inden 12 timer</span>
+  </div></div>
+</div>
 
-      <div class="price-card reveal">
-        <div class="price-name">Erhverv</div>
-        <div class="price-meta">Butikker, kontorer, virksomheder</div>
-        <div class="price-value"><span class="price-number sm">Efter aftale</span></div>
-        <ul class="price-list">
-          <li>Gratis besigtigelse</li>
-          <li>Fast abonnementspris</li>
-        </ul>
-        <a href="#bestil" class="price-book" data-type="Erhverv – kontakt for pris">Kontakt</a>
-      </div>
+<!-- PRICES -->
+<section id="priser" class="sec" style="padding-top:clamp(40px,6vw,80px)">
+  <div class="wrap">
+    <div class="head rv"><h2 class="disp">Prisliste</h2><span class="mono">Udvendig pudsning · alle ruder<br>Pris pr. gang</span></div>
+    <ul class="tariff">
+      <li class="t-row rv">
+        <div class="t-line"><span class="t-name">Stuelejlighed</span><span class="t-dots"></span><span class="t-price">149<small>KR</small></span></div>
+        <p class="t-sub">Alle udvendige ruder i stueplan. Karme aftørres.</p>
+        <a href="#bestil" class="t-book" data-type="Stuelejlighed – 149 kr.">Book →</a>
+      </li>
+      <li class="t-row hot rv">
+        <span class="badge mono">Mest valgt</span>
+        <div class="t-line"><span class="t-name">Rækkehus</span><span class="t-dots"></span><span class="t-price">199<small>KR</small></span></div>
+        <p class="t-sub">Alle ruder, uanset størrelse. Typisk færdig på under en time.</p>
+        <a href="#bestil" class="t-book" data-type="Rækkehus – 199 kr.">Book →</a>
+      </li>
+      <li class="t-row rv">
+        <div class="t-line"><span class="t-name">Parcelhus</span><span class="t-dots"></span><span class="t-price">299<small>KR</small></span></div>
+        <p class="t-sub">1-plans hus. Alle ruder inkl. terrassedøre. Karme aftørres.</p>
+        <a href="#bestil" class="t-book" data-type="Parcelhus (1 plan) – 299 kr.">Book →</a>
+      </li>
+      <li class="t-row rv">
+        <div class="t-line"><span class="t-name">Erhverv</span><span class="t-dots"></span><span class="t-price" style="font-size:clamp(28px,3.6vw,48px)">Efter aftale</span></div>
+        <p class="t-sub">Butikker og kontorer. Gratis besigtigelse og fast abonnementspris.</p>
+        <a href="#bestil" class="t-book" data-type="Erhverv – kontakt for pris">Kontakt →</a>
+      </li>
+    </ul>
+    <div class="t-note mono rv"><span>✓ Ingen transporttillæg inden for 25 km</span><span>✓ MobilePay eller kontant</span><span>✓ 35 % servicefradrag</span></div>
+  </div>
+</section>
+
+<!-- FILM -->
+<section id="film" class="sec film">
+  <div class="wrap">
+    <div class="head rv"><h2 class="disp">Se Dino <em>arbejde.</em></h2><span class="mono">Optaget i Nyborg<br>Ingen skuespil</span></div>
+    <div class="strip">
+      <figure class="rv">
+        <div class="clip v916"><video data-autoplay muted loop playsinline preload="none" poster="billeder/video/ditvindue-reel-poster.jpg" aria-label="Dino pudser vinduer fra skum til klar rude"><source src="billeder/video/ditvindue-reel-web.mp4" type="video/mp4"></video></div>
+        <figcaption class="mono"><span><b>01</b> Hele opgaven</span><span>27 sek</span></figcaption>
+      </figure>
+      <figure class="rv">
+        <div class="clip v916"><video data-autoplay muted loop playsinline preload="none" poster="billeder/video/ditvindue-action-poster.jpg" aria-label="Slowmotion og timelapse af vinduespudsning"><source src="billeder/video/ditvindue-action-web.mp4" type="video/mp4"></video></div>
+        <figcaption class="mono"><span><b>02</b> Slowmo &amp; timelapse</span><span>15 sek</span></figcaption>
+      </figure>
+      <figure class="rv">
+        <div class="clip v45"><video data-autoplay muted loop playsinline preload="none" poster="billeder/video/ditvindue-foer-efter-poster.jpg" aria-label="Før og efter: skumdækket rude bliver klar"><source src="billeder/video/ditvindue-foer-efter-web.mp4" type="video/mp4"></video></div>
+        <figcaption class="mono"><span><b>03</b> Før / efter</span><span>6 sek</span></figcaption>
+      </figure>
+    </div>
+    <p class="swipe-hint mono">← Swipe for flere →</p>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="flow" class="sec">
+  <div class="wrap">
+    <div class="head rv"><h2 class="disp">Sådan</h2><span class="mono">Tre trin<br>Ét blankt resultat</span></div>
+    <div class="steps">
+      <article class="step rv">
+        <div class="n">01</div>
+        <h3>Skum på</h3>
+        <p>Ruden vaskes grundigt med skum, så snavs, pollen og fugleklatter slipper.</p>
+        <div class="ph" style="background-image:url('billeder/dino/skum.webp')" role="img" aria-label="Skum på ruden"></div>
+      </article>
+      <article class="step rv">
+        <div class="n">02</div>
+        <h3>Skraber ned</h3>
+        <p>Vandet trækkes af med skraber i lange, rolige strøg — det er det, der giver det stribefri resultat.</p>
+        <div class="ph" style="background-image:url('billeder/dino/skraber.webp')" role="img" aria-label="Dino trækker ruden af med skraber"></div>
+      </article>
+      <article class="step rv">
+        <div class="n">03</div>
+        <h3>Klart udsyn</h3>
+        <p>Karmene tørres af til sidst. Du betaler med MobilePay eller kontant, når du har set resultatet.</p>
+        <div class="ph" style="background-image:url('billeder/dino/klart.webp')" role="img" aria-label="Klar rude set indefra"></div>
+      </article>
     </div>
   </div>
 </section>
 
 <!-- FRADRAG -->
-<section id="fradrag" class="tight">
-  <div class="wrap">
-    <div class="fradrag-box reveal">
-      <div class="fradrag-text">
-        <span class="eyebrow">Servicefradrag</span>
-        <h2 class="section-title">Få 35 % tilbage <span>i skat.</span></h2>
-        <p>Vinduespudsning er godkendt under <strong>BoligJobordningen</strong>. Du kan trække 35 % af prisen fra i skat.</p>
-        <p>Indberet beløbet via TastSelv, så modregnes fradraget automatisk i din årsopgørelse.</p>
-        <div class="fradrag-note">Gælder for <strong>ejere og lejere</strong> af helårsbolig. Maks. <strong>6.400 kr. per person</strong> om året.</div>
+<section id="fradrag" class="sec fradrag">
+  <div class="wrap fr-grid">
+    <div class="fr-copy rv">
+      <h2 class="disp">Få 35 % <em>retur.</em></h2>
+      <p>Vinduespudsning er godkendt under <b>BoligJobordningen</b>. Du indberetter beløbet i TastSelv, og fradraget kommer automatisk med på din årsopgørelse.</p>
+      <p class="mono">Gælder ejere og lejere af helårsbolig<br>Maks. 6.400 kr. pr. person pr. år</p>
+    </div>
+    <div class="receipt rv" aria-live="polite">
+      <div class="rc-head"><b>DITVINDUE</b>Kvittering · beregner</div>
+      <div class="rc-field">
+        <label for="c-type">Boligtype</label>
+        <select id="c-type">
+          <option value="149">Stuelejlighed — 149 kr.</option>
+          <option value="199">Rækkehus — 199 kr.</option>
+          <option value="299" selected>Parcelhus (1 plan) — 299 kr.</option>
+        </select>
       </div>
-      <div class="calc">
-        <h4>Beregn din reelle pris</h4>
-        <div class="calc-field">
-          <label for="c-type">Boligtype</label>
-          <select id="c-type" class="calc-select">
-            <option value="149">Stuelejlighed — 149 kr.</option>
-            <option value="199">Rækkehus — 199 kr.</option>
-            <option value="299" selected>Parcelhus (1 plan) — 299 kr.</option>
-          </select>
-        </div>
-        <div class="calc-field">
-          <label for="c-times">Antal gange om året · <span id="c-times-val">4</span> gange</label>
-          <input id="c-times" class="calc-range" type="range" min="1" max="12" value="4"/>
-        </div>
-        <div class="calc-rows">
-          <div class="calc-row"><span>Pris per gang</span><span id="c-per"></span></div>
-          <div class="calc-row"><span>Samlet pris per år</span><span id="c-year"></span></div>
-          <div class="calc-row"><span>Servicefradrag (35 %)</span><span id="c-deduct"></span></div>
-          <div class="calc-row total"><span>Du betaler reelt</span><span class="val" id="c-real"></span></div>
-        </div>
-        <div class="calc-save">Du sparer <span id="c-save"></span> om året</div>
+      <div class="rc-field">
+        <label for="c-times">Gange om året: <span id="c-times-val">4</span></label>
+        <input id="c-times" type="range" min="1" max="12" value="4">
+      </div>
+      <div class="rc-sep"></div>
+      <div class="rc-line"><span>Pris pr. gang</span><span id="c-per"></span></div>
+      <div class="rc-line"><span>Samlet pr. år</span><span id="c-year"></span></div>
+      <div class="rc-line"><span>Servicefradrag 35 %</span><span id="c-deduct"></span></div>
+      <div class="rc-total"><span>Du betaler reelt</span><b id="c-real"></b></div>
+      <div class="stamp">Spar <span id="c-save"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DINO -->
+<section id="om" class="sec">
+  <div class="wrap dino-grid">
+    <figure class="dino-photo rv">
+      <img src="billeder/dino/dino.webp" alt="Dino fra DITVINDUE med skraber og spand" loading="lazy" width="900" height="1600">
+      <figcaption class="mono">Dino · DITVINDUE · Nyborg</figcaption>
+    </figure>
+    <div class="dino-text rv">
+      <p class="mono" style="margin:0;color:var(--green-ink)">Manden bag</p>
+      <p class="quote" style="margin-top:14px">„Jeg gør det <em>ordentligt.</em> Hver gang — ikke kun første gang.“</p>
+      <p>Det er Dino, der kommer — hver gang. Mødetid, grundighed og et resultat, du kan se igennem. Det er hele forretningen.</p>
+      <div class="dino-meta">
+        <div><b>100%</b><span class="mono">Tilfredshed</span></div>
+        <div><b>25 km</b><span class="mono">Fra Nyborg</span></div>
+        <div><b>&lt;12 t</b><span class="mono">Svartid</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FLOW -->
-<section id="flow">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Processen</span>
-      <h2 class="section-title">Tre trin. <span>Så er det klaret.</span></h2>
+<!-- BOOKING -->
+<section id="bestil" class="sec book-sec">
+  <div class="wrap bk-grid">
+    <div class="bk-lead rv">
+      <h2 class="disp">Book <em>en tid.</em></h2>
+      <p>Udfyld arbejdssedlen, så vender Dino tilbage inden for 12 timer og bekræfter tid og pris. Eller ring direkte:</p>
+      <a class="bk-phone" href="tel:+4553533206">53 53 32 06</a>
+      <ul class="bk-perks">
+        <li><span class="mono">01</span>Fast pris, aftalt før arbejdet starter</li>
+        <li><span class="mono">02</span>Betal efter udført arbejde — MobilePay eller kontant</li>
+        <li><span class="mono">03</span>Ingen binding. Én gang eller fast aftale</li>
+      </ul>
     </div>
-    <div class="flow">
-      <div class="flow-step reveal">
-        <div class="flow-num">01</div>
-        <h3>Book en tid</h3>
-        <p>Udfyld formularen, ring eller send en SMS. Du får svar inden for 12 timer.</p>
-      </div>
-      <div class="flow-step reveal">
-        <div class="flow-num">02</div>
-        <h3>Vi kommer til dig</h3>
-        <p>Vi møder op til aftalt tid med alt udstyr. Du behøver ikke gøre noget.</p>
-      </div>
-      <div class="flow-step reveal">
-        <div class="flow-num">03</div>
-        <h3>Nyd udsigten</h3>
-        <p>Du ser forskellen med det samme. Betal med MobilePay eller kontant bagefter.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- VIDEO -->
-<section id="video" class="tight">
-  <div class="wrap">
-    <div class="video-box reveal">
-      <div class="video-text">
-        <span class="eyebrow">Se os i aktion</span>
-        <h2 class="section-title">Fra skum til <span>krystalklart.</span></h2>
-        <p>Sådan ser det ud, når Dino går i gang. Ruderne bliver vasket grundigt og trukket af med skraber — og karmene tørres af til sidst.</p>
-        <div class="video-points">
-          <div class="bestil-perk">Professionelt udstyr</div>
-          <div class="bestil-perk">Stribefrit resultat — hver gang</div>
-          <div class="bestil-perk">Karme aftørres altid</div>
+    <div class="sheet rv">
+      <form id="bookingForm" novalidate>
+        <div class="sheet-head"><b>Arbejdsseddel</b><span class="mono">Nr. ny</span></div>
+        <div class="f-row">
+          <div class="f"><span class="num">01</span><div><label for="bNavn">Navn</label><input id="bNavn" type="text" required autocomplete="name"></div></div>
+          <div class="f"><span class="num">02</span><div><label for="bTelefon">Telefon</label><input id="bTelefon" type="tel" required autocomplete="tel" inputmode="tel"></div></div>
         </div>
-        <div class="cta-row">
-          <a href="#bestil" class="btn btn-accent">Bestil tid →</a>
+        <div class="f"><span class="num">03</span><div><label for="bAdresse">Adresse</label><input id="bAdresse" type="text" required autocomplete="street-address"></div></div>
+        <div class="f-row">
+          <div class="f"><span class="num">04</span><div><label for="bType">Boligtype</label>
+            <select id="bType" required>
+              <option value="">Vælg …</option>
+              <option value="Stuelejlighed – 149 kr.">Stuelejlighed — 149 kr.</option>
+              <option value="Rækkehus – 199 kr.">Rækkehus — 199 kr.</option>
+              <option value="Parcelhus (1 plan) – 299 kr.">Parcelhus (1 plan) — 299 kr.</option>
+              <option value="Erhverv – kontakt for pris">Erhverv — efter aftale</option>
+            </select></div></div>
+          <div class="f"><span class="num">05</span><div><label for="bDato">Ønsket dato</label><input id="bDato" type="date"></div></div>
         </div>
-      </div>
-      <div class="video-frame">
-        <video id="reel" muted loop playsinline preload="none" poster="billeder/video/ditvindue-reel-poster.jpg" aria-label="Dino fra DITVINDUE pudser vinduer">
-          <source src="billeder/video/ditvindue-reel-web.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section id="galleri" class="tight">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Vores arbejde</span>
-      <h2 class="section-title">Se <span>resultatet</span> selv.</h2>
-    </div>
-    <div class="gallery-grid reveal">
-      <div class="gallery-item" style="background-image:url('billeder/slider-1.webp')"></div>
-      <div class="gallery-item" style="background-image:url('billeder/slider-3.webp')"></div>
-      <div class="gallery-item" style="background-image:url('billeder/slider-2.webp')"></div>
-      <div class="gallery-item" style="background-image:url('billeder/slider-4.webp')"></div>
-      <div class="gallery-item" style="background-image:url('billeder/slider-5.webp')"></div>
-    </div>
-  </div>
-</section>
-
-<!-- OM -->
-<section id="om">
-  <div class="wrap">
-    <div class="om">
-      <div class="om-img reveal" style="background-image:url('billeder/om-portræt.webp')"></div>
-      <div class="om-text reveal">
-        <span class="eyebrow">Bag DITVINDUE</span>
-        <p class="lead">Grundigt arbejde. Hver gang — ikke kun første gang.</p>
-        <p>Dino er manden bag DITVINDUE. Mødetid, grundighed og et resultat du kan se igennem — det er hele forretningen.</p>
-        <div class="om-meta">
-          <div><strong>100 %</strong><span>Tilfredshedsgaranti</span></div>
-          <div><strong>25 km</strong><span>Radius fra Nyborg</span></div>
-          <div><strong>&lt; 12 t</strong><span>Svartid</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BESTIL -->
-<section id="bestil" class="tight">
-  <div class="wrap">
-    <div class="bestil-box">
-      <div class="bestil-lead">
-        <span class="eyebrow">Bestil tid</span>
-        <h2 class="section-title">Klar til klare vinduer?</h2>
-        <p>Udfyld formularen — vi vender tilbage inden for 12 timer og bekræfter tid og pris.</p>
-        <p>Foretrækker du at ringe? <a class="tel" href="tel:+4553533206">53 53 32 06</a></p>
-        <div class="bestil-perks">
-          <div class="bestil-perk">Svar inden for 12 timer</div>
-          <div class="bestil-perk">Fast pris, aftalt før arbejdet starter</div>
-          <div class="bestil-perk">MobilePay eller kontant efter udført arbejde</div>
-          <div class="bestil-perk">Ingen binding — book én gang eller fast</div>
-        </div>
-      </div>
-      <div class="bestil-card">
-        <form id="bookingForm" novalidate>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="bNavn">Navn</label>
-              <input type="text" id="bNavn" required autocomplete="name"/>
-            </div>
-            <div class="form-field">
-              <label for="bTelefon">Telefon</label>
-              <input type="tel" id="bTelefon" required autocomplete="tel"/>
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="bAdresse">Adresse</label>
-            <input type="text" id="bAdresse" required autocomplete="street-address"/>
-          </div>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="bType">Boligtype</label>
-              <select id="bType" required>
-                <option value="">Vælg...</option>
-                <option value="Stuelejlighed – 149 kr.">Stuelejlighed — 149 kr.</option>
-                <option value="Rækkehus – 199 kr.">Rækkehus — 199 kr.</option>
-                <option value="Parcelhus (1 plan) – 299 kr.">Parcelhus (1 plan) — 299 kr.</option>
-                <option value="Erhverv – kontakt for pris">Erhverv — efter aftale</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="bDato">Ønsket dato</label>
-              <input type="date" id="bDato"/>
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="bBesked">Besked (valgfrit)</label>
-            <textarea id="bBesked"></textarea>
-          </div>
-          <button class="form-submit" type="submit">Send bestilling →</button>
-        </form>
-        <div class="form-done" id="formDone" hidden>
-          <h3>Tak for din bestilling.</h3>
-          <p>Vi kontakter dig inden for 12 timer for at bekræfte tid og pris.</p>
-          <p style="margin-top:12px">Foretrækker du at ringe? <a href="tel:+4553533206">53 53 32 06</a></p>
-        </div>
+        <div class="f"><span class="num">06</span><div><label for="bBesked">Besked (valgfrit)</label><textarea id="bBesked"></textarea></div></div>
+        <button class="btn btn-go submit" type="submit"><span>Send bestilling</span><span class="arrow">→</span></button>
+      </form>
+      <div class="done" id="formDone" hidden>
+        <h3>Tak — den er modtaget.</h3>
+        <p>Dino kontakter dig inden for 12 timer for at bekræfte tid og pris.</p>
+        <p>Har det travlt? Ring på <a href="tel:+4553533206">53 53 32 06</a>.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section id="faq">
-  <div class="wrap">
-    <div class="faq-grid">
-      <div class="section-head reveal" style="margin-bottom:0">
-        <span class="eyebrow">FAQ</span>
-        <h2 class="section-title">Ofte stillede <span>spørgsmål.</span></h2>
-        <p class="section-sub">Finder du ikke svaret? Ring på <a href="tel:+4553533206" style="font-weight:600">53 53 32 06</a>.</p>
-      </div>
-      <div class="faq-list reveal">
-        <div class="faq-item">
-          <button class="faq-q"><span>Hvilke områder dækker I?</span><span class="icon">+</span></button>
-          <div class="faq-a"><p>Nyborg og omegn inden for ca. 25 km. Der er ingen transporttillæg.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q"><span>Hvor hurtigt kan jeg få en tid?</span><span class="icon">+</span></button>
-          <div class="faq-a"><p>Typisk inden for få dage. Book online eller ring på 53 53 32 06.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q"><span>Pudser I også indvendigt?</span><span class="icon">+</span></button>
-          <div class="faq-a"><p>Vi tilbyder primært udvendig vinduespudsning. Kontakt os for en aftale om indvendig pudsning.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q"><span>Kan jeg bruge servicefradrag?</span><span class="icon">+</span></button>
-          <div class="faq-a"><p>Ja — vinduespudsning er godkendt til servicefradrag. Du kan trække 35 % fra i skat, så en stuelejlighed reelt koster ca. 97 kr.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q"><span>Hvordan betaler jeg?</span><span class="icon">+</span></button>
-          <div class="faq-a"><p>MobilePay eller kontant efter udført arbejde.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q"><span>Hvad hvis jeg ikke er tilfreds?</span><span class="icon">+</span></button>
-          <div class="faq-a"><p>100 % tilfredshedsgaranti. Er du ikke tilfreds, kommer vi tilbage og retter det — uden ekstra beregning.</p></div>
-        </div>
-      </div>
+<section id="faq" class="sec">
+  <div class="wrap faq-grid">
+    <div class="rv">
+      <h2 class="disp">Spørgsmål</h2>
+      <p class="mono">Ikke svar her? <a href="tel:+4553533206">Ring 53 53 32 06</a></p>
+    </div>
+    <div class="faq rv">
+      <details><summary>Hvilke områder dækker I?</summary><p>Nyborg og omegn inden for ca. 25 km. Der er ingen transporttillæg.</p></details>
+      <details><summary>Hvor hurtigt kan jeg få en tid?</summary><p>Typisk inden for få dage. Book online eller ring på 53 53 32 06.</p></details>
+      <details><summary>Pudser I også indvendigt?</summary><p>Vi tilbyder primært udvendig vinduespudsning. Kontakt os for en aftale om indvendig pudsning.</p></details>
+      <details><summary>Kan jeg bruge servicefradrag?</summary><p>Ja — vinduespudsning er godkendt til servicefradrag. Du kan trække 35 % fra i skat, så en stuelejlighed reelt koster ca. 97 kr.</p></details>
+      <details><summary>Hvordan betaler jeg?</summary><p>MobilePay eller kontant efter udført arbejde.</p></details>
+      <details><summary>Hvad hvis jeg ikke er tilfreds?</summary><p>100 % tilfredshedsgaranti. Er du ikke tilfreds, kommer vi tilbage og retter det — uden ekstra beregning.</p></details>
     </div>
   </div>
 </section>
+</main>
 
-<!-- FOOTER -->
 <footer>
-  <div class="wrap">
-    <div class="foot-box">
-      <div class="foot-grid">
-        <div><div class="foot-brand">Klare vinduer.<br/><span>Klar udsigt.</span></div></div>
-        <div class="foot-col">
-          <h5>Kontakt</h5>
-          <a href="tel:+4553533206">53 53 32 06</a>
-          <a href="mailto:ditvindue@gmail.com">ditvindue@gmail.com</a>
-          <a href="https://www.facebook.com/profile.php?id=61576648301924" target="_blank" rel="noopener">Facebook</a>
-        </div>
-        <div class="foot-col">
-          <h5>Åbningstider</h5>
-          <p>Hverdage · 15–20</p>
-          <p>Lørdag · 09–18</p>
-          <p>Søndag · 10–16</p>
-        </div>
-        <div class="foot-col">
-          <h5>Område</h5>
-          <p>Nyborg &amp; omegn</p>
-          <p>25 km radius</p>
-          <p>Ingen transporttillæg</p>
-        </div>
-      </div>
-      <div class="foot-bot">
-        <div>DITVINDUE © 2026</div>
-        <div>Resultater du kan se igennem</div>
-      </div>
-    </div>
+  <div class="wrap ft-cols">
+    <div><h4>Kontakt</h4><a href="tel:+4553533206">53 53 32 06</a><a href="mailto:ditvindue@gmail.com">ditvindue@gmail.com</a><a href="https://www.facebook.com/profile.php?id=61576648301924" target="_blank" rel="noopener">Facebook</a></div>
+    <div><h4>Åbningstider</h4><p>Hverdage 15–20</p><p>Lørdag 09–18</p><p>Søndag 10–16</p></div>
+    <div><h4>Område</h4><p>Nyborg &amp; omegn</p><p>25 km radius</p><p>Ingen tillæg</p></div>
   </div>
+  <div class="giant" aria-hidden="true">DITVINDUE</div>
+  <div class="ft-bot mono"><span>© 2026 DITVINDUE</span><span>Resultater du kan se igennem</span></div>
 </footer>
 
-<div class="m-cta">
-  <a class="call" href="tel:+4553533206">Ring 53 53 32 06</a>
-  <a class="book" href="#bestil">Bestil tid</a>
-</div>
+<nav class="mbar" id="mbar" aria-label="Hurtig kontakt">
+  <a class="c" href="tel:+4553533206">53 53 32 06</a>
+  <a class="b" href="#bestil">Book tid →</a>
+</nav>
 
 <script>
-  // Calculator
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---------- Foggy window you can wipe ----------
+  (function () {
+    const win = document.getElementById('window');
+    const canvas = document.getElementById('fog');
+    const ctx = canvas.getContext('2d');
+    const sq = document.getElementById('squeegee');
+    const hint = document.getElementById('hint');
+    const refog = document.getElementById('refog');
+    let w = 0, h = 0, blade = 80, touched = false, autoTimer = null, anim = null;
+
+    function paintFog() {
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.clearRect(0, 0, w, h);
+      const g = ctx.createLinearGradient(0, 0, 0, h);
+      g.addColorStop(0, 'rgba(232,238,235,0.93)');
+      g.addColorStop(1, 'rgba(222,230,226,0.9)');
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, w, h);
+      // soap swirls
+      for (let i = 0; i < 90; i++) {
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(255,255,255,${0.25 + Math.random() * 0.45})`;
+        ctx.lineWidth = 1 + Math.random() * 7;
+        const r = 20 + Math.random() * w * 0.45;
+        const cx = Math.random() * w, cy = Math.random() * h, a = Math.random() * Math.PI * 2;
+        ctx.arc(cx, cy, r, a, a + 0.6 + Math.random() * 1.8);
+        ctx.stroke();
+      }
+      // drips
+      for (let i = 0; i < 26; i++) {
+        const x = Math.random() * w, y = Math.random() * h * 0.6, len = 30 + Math.random() * 140;
+        ctx.fillStyle = 'rgba(255,255,255,0.7)';
+        ctx.fillRect(x, y, 2 + Math.random() * 3, len);
+        ctx.beginPath(); ctx.arc(x + 2, y + len, 3 + Math.random() * 2, 0, Math.PI * 2); ctx.fill();
+      }
+      // speckles
+      for (let i = 0; i < 900; i++) {
+        ctx.fillStyle = `rgba(255,255,255,${Math.random() * 0.8})`;
+        ctx.fillRect(Math.random() * w, Math.random() * h, 1.5, 1.5);
+      }
+    }
+
+    function size() {
+      const r = canvas.getBoundingClientRect();
+      if (Math.round(r.width) === w && Math.round(r.height) === h) return;
+      w = Math.round(r.width); h = Math.round(r.height);
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      blade = Math.max(64, Math.min(130, w / 4.2));
+      sq.style.width = blade * 1.15 + 'px';
+      paintFog();
+    }
+
+    function wipe(x0, y0, x1, y1) {
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.strokeStyle = '#000';
+      ctx.lineCap = 'round';
+      ctx.lineWidth = blade;
+      ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();
+    }
+
+    function placeSqueegee(x, y) {
+      const sw = blade * 1.15;
+      sq.style.transform = `translate(${x - sw / 2}px, ${y - sw * 0.5}px)`;
+    }
+
+    function stopAuto() { clearTimeout(autoTimer); if (anim) cancelAnimationFrame(anim); anim = null; }
+
+    function done() {
+      hint.style.opacity = 0;
+      refog.hidden = false;
+    }
+
+    // scripted squeegee pulls: top-to-bottom columns, left to right
+    function autoWipe() {
+      if (touched) return;
+      const cols = Math.ceil((w - blade * 0.2) / (blade * 0.85));
+      const path = [];
+      for (let c = 0; c < cols; c++) {
+        const x = blade * 0.5 + c * ((w - blade) / Math.max(cols - 1, 1));
+        path.push({ x, y: -blade * 0.3, draw: false }, { x, y: h + blade * 0.3, draw: true });
+      }
+      let i = 0, t0 = null, from = path[0];
+      sq.classList.add('on');
+      const step = ts => {
+        if (touched) return;
+        if (t0 === null) t0 = ts;
+        const to = path[i + 1];
+        if (!to) { sq.classList.remove('on'); done(); return; }
+        const dur = to.draw ? 420 : 140;
+        const p = Math.min((ts - t0) / dur, 1);
+        const e = to.draw ? p * p * (3 - 2 * p) : p;
+        const x = from.x + (to.x - from.x) * e, y = from.y + (to.y - from.y) * e;
+        if (to.draw) wipe(prev.x, prev.y, x, y);
+        prev = { x, y };
+        placeSqueegee(x, y);
+        if (p >= 1) { from = to; i++; t0 = ts; }
+        anim = requestAnimationFrame(step);
+      };
+      let prev = { x: from.x, y: from.y };
+      anim = requestAnimationFrame(step);
+    }
+
+    let last = null, down = false;
+    function pt(e) { const r = canvas.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }
+    canvas.addEventListener('pointerdown', e => { touched = true; stopAuto(); down = true; last = pt(e); hint.style.opacity = 0; refog.hidden = false; });
+    canvas.addEventListener('pointermove', e => {
+      const p = pt(e);
+      if (e.pointerType === 'mouse') {
+        sq.classList.add('on'); placeSqueegee(p.x, p.y);
+        if (!touched) { touched = true; stopAuto(); hint.style.opacity = 0; refog.hidden = false; }
+        if (last) wipe(last.x, last.y, p.x, p.y);
+        last = p;
+      } else if (down) {
+        if (last) wipe(last.x, last.y, p.x, p.y);
+        last = p;
+      }
+    });
+    const end = () => { down = false; last = null; };
+    canvas.addEventListener('pointerup', end);
+    canvas.addEventListener('pointercancel', end);
+    canvas.addEventListener('pointerleave', () => { end(); sq.classList.remove('on'); });
+
+    refog.addEventListener('click', () => { stopAuto(); paintFog(); touched = false; refog.hidden = true; hint.style.opacity = 1; autoTimer = setTimeout(autoWipe, 900); });
+
+    size();
+    window.addEventListener('resize', size);
+
+    if (reduceMotion) { ctx.clearRect(0, 0, w, h); hint.hidden = true; return; }
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !touched && !anim) { autoTimer = setTimeout(autoWipe, 1600); io.disconnect(); }
+    }, { threshold: 0.5 });
+    io.observe(canvas);
+  })();
+
+  // ---------- Videos: play only when visible ----------
+  (function () {
+    const vids = document.querySelectorAll('video[data-autoplay]');
+    if (!('IntersectionObserver' in window)) { vids.forEach(v => { v.preload = 'auto'; v.play().catch(() => {}); }); return; }
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) e.target.play().catch(() => {}); else e.target.pause();
+    }), { threshold: 0.4 });
+    vids.forEach(v => io.observe(v));
+  })();
+
+  // ---------- Reveal on scroll ----------
+  (function () {
+    const els = document.querySelectorAll('.rv');
+    if (reduceMotion || !('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('in')); return; }
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(e => io.observe(e));
+    setTimeout(() => els.forEach(e => e.classList.add('in')), 2500);
+  })();
+
+  // ---------- Mobile bar after hero ----------
+  (function () {
+    const bar = document.getElementById('mbar');
+    const hero = document.querySelector('.hero');
+    new IntersectionObserver(([e]) => bar.classList.toggle('show', !e.isIntersecting), { threshold: 0.1 }).observe(hero);
+  })();
+
+  // ---------- Receipt calculator ----------
   const cType = document.getElementById('c-type');
   const cTimes = document.getElementById('c-times');
-  const fmt = n => n.toLocaleString('da-DK') + ' kr.';
+  const kr = n => n.toLocaleString('da-DK') + ' kr.';
   function updateCalc() {
-    const price = parseInt(cType.value, 10);
-    const times = parseInt(cTimes.value, 10);
-    const year = price * times;
-    const deduct = Math.round(year * 0.35);
+    const price = parseInt(cType.value, 10), times = parseInt(cTimes.value, 10);
+    const year = price * times, deduct = Math.round(year * 0.35);
     document.getElementById('c-times-val').textContent = times;
-    document.getElementById('c-per').textContent = fmt(price);
-    document.getElementById('c-year').textContent = fmt(year);
-    document.getElementById('c-deduct').textContent = '− ' + fmt(deduct);
-    document.getElementById('c-real').textContent = fmt(year - deduct);
-    document.getElementById('c-save').textContent = fmt(deduct);
+    document.getElementById('c-per').textContent = kr(price);
+    document.getElementById('c-year').textContent = kr(year);
+    document.getElementById('c-deduct').textContent = '− ' + kr(deduct);
+    document.getElementById('c-real').textContent = kr(year - deduct);
+    document.getElementById('c-save').textContent = kr(deduct);
   }
   cType.addEventListener('change', updateCalc);
   cTimes.addEventListener('input', updateCalc);
   updateCalc();
 
-  // FAQ
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.querySelector('.faq-q').addEventListener('click', () => item.classList.toggle('open'));
-  });
+  // ---------- Price rows preselect boligtype ----------
+  document.querySelectorAll('[data-type]').forEach(a => a.addEventListener('click', () => {
+    document.getElementById('bType').value = a.dataset.type;
+  }));
 
-  // Price card "Bestil" preselects boligtype
-  document.querySelectorAll('.price-book[data-type]').forEach(a => {
-    a.addEventListener('click', () => { document.getElementById('bType').value = a.dataset.type; });
-  });
-
-  // Play the reel only while it is on screen
-  (function() {
-    const v = document.getElementById('reel');
-    if (!('IntersectionObserver' in window)) { v.preload = 'auto'; v.play().catch(() => {}); return; }
-    new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) v.play().catch(() => {}); else v.pause();
-    }, { threshold: 0.35 }).observe(v);
-  })();
-
-  // Reveal on scroll, with failsafe so content never stays hidden
-  (function() {
-    const els = document.querySelectorAll('.reveal');
-    const show = () => els.forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('in');
-    });
-    show();
-    window.addEventListener('scroll', show, { passive: true });
-    setTimeout(() => els.forEach(el => el.classList.add('in')), 1500);
-  })();
-
-  // Min date = today
   document.getElementById('bDato').min = new Date().toISOString().split('T')[0];
 
-  // Booking form submission (Web3Forms)
-  document.getElementById('bookingForm').addEventListener('submit', function(e) {
+  // ---------- Booking form (Web3Forms) ----------
+  document.getElementById('bookingForm').addEventListener('submit', function (e) {
     e.preventDefault();
     var navn    = document.getElementById('bNavn').value.trim();
     var tlf     = document.getElementById('bTelefon').value.trim();
@@ -744,9 +793,9 @@
       return;
     }
 
-    var btn = document.querySelector('.form-submit');
+    var btn = this.querySelector('.submit');
     btn.disabled = true;
-    btn.textContent = 'Sender...';
+    btn.firstElementChild.textContent = 'Sender …';
 
     var beskedTekst =
       'Hej Dino!\n\nNy booking fra hjemmesiden:\n\n' +
@@ -774,24 +823,23 @@
         replyto: 'ditvindue@gmail.com'
       })
     })
-    .then(function(res) { return res.json(); })
-    .then(function(data) {
+    .then(function (res) { return res.json(); })
+    .then(function (data) {
       if (data.success) {
         document.getElementById('bookingForm').hidden = true;
         document.getElementById('formDone').hidden = false;
       } else {
         btn.disabled = false;
-        btn.textContent = 'Send bestilling →';
+        btn.firstElementChild.textContent = 'Send bestilling';
         alert('Noget gik galt. Prøv igen eller ring på 53 53 32 06.');
       }
     })
-    .catch(function() {
+    .catch(function () {
       btn.disabled = false;
-      btn.textContent = 'Send bestilling →';
+      btn.firstElementChild.textContent = 'Send bestilling';
       alert('Netværksfejl. Prøv igen eller ring på 53 53 32 06.');
     });
   });
 </script>
-
 </body>
 </html>
